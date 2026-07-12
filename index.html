@@ -124,6 +124,18 @@
     background: var(--card);
   }
   #search:focus { outline: 2px solid var(--l2); }
+  #cat-controls { margin-top: -8px; }
+
+  /* カテゴリーチップ(モーダル内) */
+  .cat-chip {
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    background: var(--card);
+    border-radius: 999px;
+    padding: 2px 10px;
+    white-space: nowrap;
+  }
 
   /* 用語行(コンパクト一覧) */
   .term-row {
@@ -281,6 +293,7 @@
 <div class="controls" id="controls">
   <input type="search" id="search" placeholder="用語を検索…">
 </div>
+<div class="controls" id="cat-controls"></div>
 
 <main id="list"></main>
 
@@ -290,6 +303,7 @@
       <div class="modal-title-wrap">
         <span class="modal-term" id="modal-term"></span>
         <span class="level-chip" id="modal-level"></span>
+        <span class="cat-chip" id="modal-cat" hidden></span>
       </div>
       <button class="modal-close" id="modal-close" aria-label="閉じる">&times;</button>
     </div>
@@ -306,6 +320,7 @@
 const LEVEL_COLORS = ['var(--l0)', 'var(--l1)', 'var(--l2)', 'var(--l3)'];
 let DATA = null;
 let activeLevel = null; // null = すべて
+let activeCategory = null; // null = 全カテゴリ
 let lastFocused = null; // モーダルを閉じたとき、開いた元の行にフォーカスを戻す
 
 async function load() {
@@ -332,6 +347,17 @@ function buildControls() {
   Object.keys(levels).forEach(k => frag.appendChild(mkChip(levels[k], Number(k))));
   c.insertBefore(frag, document.getElementById('search'));
   document.getElementById('search').addEventListener('input', render);
+
+  // カテゴリーチップ(meta.categoriesがなければ用語から収集)
+  const cc = document.getElementById('cat-controls');
+  const cats = DATA.meta.categories ||
+    [...new Set(DATA.terms.map(t => t.category).filter(Boolean))];
+  if (cats.length) {
+    cc.appendChild(mkCatChip('全カテゴリ', null));
+    cats.forEach(cat => cc.appendChild(mkCatChip(cat, cat)));
+  } else {
+    cc.hidden = true;
+  }
 }
 
 function mkChip(label, level) {
@@ -341,8 +367,22 @@ function mkChip(label, level) {
   b.setAttribute('aria-pressed', String(activeLevel === level));
   b.addEventListener('click', () => {
     activeLevel = (activeLevel === level) ? null : level;
-    document.querySelectorAll('.chip').forEach(x => x.setAttribute('aria-pressed', 'false'));
+    document.querySelectorAll('#controls .chip').forEach(x => x.setAttribute('aria-pressed', 'false'));
     if (activeLevel !== null || label === 'すべて') b.setAttribute('aria-pressed', 'true');
+    render();
+  });
+  return b;
+}
+
+function mkCatChip(label, cat) {
+  const b = document.createElement('button');
+  b.className = 'chip';
+  b.textContent = label;
+  b.setAttribute('aria-pressed', String(activeCategory === cat));
+  b.addEventListener('click', () => {
+    activeCategory = (activeCategory === cat) ? null : cat;
+    document.querySelectorAll('#cat-controls .chip').forEach(x => x.setAttribute('aria-pressed', 'false'));
+    if (activeCategory !== null || cat === null) b.setAttribute('aria-pressed', 'true');
     render();
   });
   return b;
@@ -385,6 +425,7 @@ function render() {
   let shown = 0;
   terms.forEach((t, i) => {
     if (activeLevel !== null && t.level !== activeLevel) return;
+    if (activeCategory !== null && t.category !== activeCategory) return;
     if (q && !(t.term.toLowerCase().includes(q) || t.description.toLowerCase().includes(q))) return;
     shown++;
     const row = document.createElement('button');
@@ -421,6 +462,13 @@ function openModal(index) {
   const chip = document.getElementById('modal-level');
   chip.className = 'level-chip lv' + t.level;
   chip.textContent = DATA.meta.levels[t.level];
+  const catChip = document.getElementById('modal-cat');
+  if (t.category) {
+    catChip.textContent = t.category;
+    catChip.hidden = false;
+  } else {
+    catChip.hidden = true;
+  }
   document.getElementById('modal-desc').textContent = t.description;
   document.getElementById('modal-meta').textContent = 'updated ' + (t.updated || '-');
 
