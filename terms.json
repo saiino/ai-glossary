@@ -15,7 +15,7 @@
       "term": "LLM",
       "category": "基礎概念",
       "description": "大規模言語モデル。大量のテキストで学習し、文章の生成・理解を行うAIモデルの総称。ClaudeやGPTなどが該当。",
-      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント"],
+      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -79,7 +79,7 @@
       "term": "トークン",
       "category": "基礎概念",
       "description": "AIがテキストを処理する最小単位。日本語では1文字が1〜2トークン程度になることが多い。API課金の単位でもある。",
-      "related": ["LLM", "コンテキストウィンドウ"],
+      "related": ["LLM", "コンテキストウィンドウ", "推論(Inference)"],
       "level": 1,
       "updated": "2026-07-12"
     },
@@ -192,6 +192,46 @@
       "category": "製品・サービス",
       "description": "Microsoft社のクラウド(Azure)上でAIアプリを開発・運用するためのプラットフォーム(現在はMicrosoft Foundryに改称)。GPTやClaudeなど複数社のモデルを選んで利用できる「モデルのデパート+開発工房」のような存在。",
       "related": ["プラットフォーム", "GPT", "Claude"],
+      "level": 0,
+      "updated": "2026-07-12"
+    },
+    {
+      "term": "生成AI(Generative AI)",
+      "category": "基礎概念",
+      "description": "文章・画像・音声・コードなど、新しいコンテンツを生み出すことができるAIの総称。従来の「分類する」「予測する」AIと違い、ゼロから何かを作り出す点が特徴。ChatGPTのような文章生成AIや画像生成AIが代表例で、LLMは生成AIのうちテキストに特化したものにあたる。",
+      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)"],
+      "level": 0,
+      "updated": "2026-07-12"
+    },
+    {
+      "term": "ニューラルネットワーク(Neural Network)",
+      "category": "技術・手法",
+      "description": "人間の脳の神経細胞(ニューロン)のつながりを模したAIの計算モデル。多数の小さな計算ユニットを層状につなぎ、大量のデータからパターンを学習する。現在の主要なAIモデルのほとんどがこの仕組みを基礎にしている。",
+      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)"],
+      "level": 0,
+      "updated": "2026-07-12"
+    },
+    {
+      "term": "ディープラーニング(Deep Learning)",
+      "category": "技術・手法",
+      "description": "ニューラルネットワークを何層にも重ねて深くした学習手法。層を深くすることで、画像認識や文章生成など複雑なタスクを高い精度でこなせるようになった。近年のAIの進歩を支える中心的な技術。",
+      "related": ["ニューラルネットワーク(Neural Network)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)"],
+      "level": 0,
+      "updated": "2026-07-12"
+    },
+    {
+      "term": "トランスフォーマー(Transformer)",
+      "category": "技術・手法",
+      "description": "2017年に発表された、文章中の単語同士の関係性(どこに注目すべきか)を効率よく学習できるニューラルネットワークの構造。GPTやClaudeなど現在の主要なLLMの多くが、この構造を土台にしている。",
+      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)"],
+      "level": 0,
+      "updated": "2026-07-12"
+    },
+    {
+      "term": "推論(Inference)",
+      "category": "基礎概念",
+      "description": "学習を終えたAIモデルに実際の入力を与え、出力(回答など)を得る処理のこと。モデルを作る「学習(トレーニング)」の段階とは区別され、普段ChatGPTなどに質問して答えを得る操作はすべて推論にあたる。",
+      "related": ["LLM", "トークン"],
       "level": 0,
       "updated": "2026-07-12"
     }
