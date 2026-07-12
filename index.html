@@ -28,6 +28,7 @@
     max-width: 720px;
     margin: 0 auto;
   }
+  body.modal-open { overflow: hidden; }
   header h1 {
     font-family: "Shippori Mincho", serif;
     font-size: 1.5rem;
@@ -124,21 +125,28 @@
   }
   #search:focus { outline: 2px solid var(--l2); }
 
-  /* 用語カード */
-  .term-card {
+  /* 用語行(コンパクト一覧) */
+  .term-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
     background: var(--card);
     border: 1px solid var(--line);
     border-radius: 10px;
-    padding: 14px 16px;
-    margin-bottom: 10px;
-    scroll-margin-top: 16px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+    color: var(--ink);
   }
-  .term-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
+  .term-row:hover, .term-row:focus-visible {
+    border-color: var(--ink-soft);
+    outline: none;
   }
+  .term-row:focus-visible { outline: 2px solid var(--l2); }
   .term-name { font-weight: 700; font-size: 1rem; }
   .level-chip {
     font-size: 0.7rem;
@@ -152,21 +160,110 @@
   .level-chip.lv1 { background: var(--l1); }
   .level-chip.lv2 { background: var(--l2); }
   .level-chip.lv3 { background: var(--l3); }
-  .term-desc { font-size: 0.85rem; margin-top: 6px; }
-  .term-meta {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.68rem;
-    color: var(--ink-soft);
-    margin-top: 8px;
-  }
   .empty, .error {
     color: var(--ink-soft);
     font-size: 0.85rem;
     padding: 24px 0;
     text-align: center;
   }
+
+  /* モーダル(下からのシート) */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(35, 40, 47, 0.45);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 100;
+  }
+  .modal-backdrop[hidden] { display: none; }
+  .modal-sheet {
+    background: var(--paper);
+    width: 100%;
+    max-width: 720px;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 16px 16px 0 0;
+    padding: 20px 20px 32px;
+    animation: sheet-up 0.18s ease-out;
+  }
+  @keyframes sheet-up {
+    from { transform: translateY(24px); opacity: 0.6; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .modal-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .modal-term {
+    font-family: "Shippori Mincho", serif;
+    font-size: 1.25rem;
+    letter-spacing: 0.04em;
+  }
+  .modal-close {
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    border-radius: 999px;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .modal-close:hover, .modal-close:focus-visible {
+    border-color: var(--ink);
+    outline: none;
+  }
+  .modal-desc { font-size: 0.9rem; margin-top: 12px; }
+  .related-section { margin-top: 16px; }
+  .related-label {
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+  .related-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .related-tag {
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    border-radius: 999px;
+    padding: 5px 14px;
+    font-size: 0.8rem;
+    font-family: inherit;
+    cursor: pointer;
+  }
+  .related-tag:hover, .related-tag:focus-visible {
+    border-color: var(--ink);
+    outline: none;
+  }
+  .modal-meta {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    margin-top: 16px;
+  }
+  @media (min-width: 600px) {
+    .modal-backdrop { align-items: center; padding: 24px; }
+    .modal-sheet { border-radius: 16px; max-width: 520px; }
+  }
   @media (prefers-reduced-motion: reduce) {
     .heatstrip .cell { transition: none; }
+    .modal-sheet { animation: none; }
   }
 </style>
 </head>
@@ -177,7 +274,7 @@
 </header>
 
 <div class="heatstrip" id="heatstrip" aria-label="全用語の習熟度マップ"></div>
-<p class="strip-caption">■ 1マス = 1用語。タップでその用語へ。</p>
+<p class="strip-caption">■ 1マス = 1用語。タップで詳細を表示。</p>
 
 <div class="stats" id="stats"></div>
 
@@ -187,10 +284,29 @@
 
 <main id="list"></main>
 
+<div class="modal-backdrop" id="modal-backdrop" hidden>
+  <div class="modal-sheet" id="modal-sheet" role="dialog" aria-modal="true" aria-labelledby="modal-term">
+    <div class="modal-head">
+      <div class="modal-title-wrap">
+        <span class="modal-term" id="modal-term"></span>
+        <span class="level-chip" id="modal-level"></span>
+      </div>
+      <button class="modal-close" id="modal-close" aria-label="閉じる">&times;</button>
+    </div>
+    <p class="modal-desc" id="modal-desc"></p>
+    <div class="related-section" id="modal-related-section" hidden>
+      <p class="related-label">関連語</p>
+      <div class="related-tags" id="modal-related"></div>
+    </div>
+    <p class="modal-meta" id="modal-meta"></p>
+  </div>
+</div>
+
 <script>
 const LEVEL_COLORS = ['var(--l0)', 'var(--l1)', 'var(--l2)', 'var(--l3)'];
 let DATA = null;
 let activeLevel = null; // null = すべて
+let lastFocused = null; // モーダルを閉じたとき、開いた元の行にフォーカスを戻す
 
 async function load() {
   const list = document.getElementById('list');
@@ -200,6 +316,7 @@ async function load() {
     DATA = await res.json();
     document.getElementById('title').textContent = DATA.meta.title || 'AI用語 学習トラッカー';
     buildControls();
+    setupModal();
     render();
   } catch (e) {
     list.innerHTML = '<p class="error">terms.json を読み込めませんでした。GitHub Pages 上、またはローカルサーバー経由で開いてください。</p>';
@@ -244,10 +361,7 @@ function render() {
     cell.style.background = LEVEL_COLORS[t.level] || LEVEL_COLORS[0];
     cell.title = t.term + ' — ' + DATA.meta.levels[t.level];
     cell.setAttribute('aria-label', cell.title);
-    cell.addEventListener('click', () => {
-      const el = document.getElementById('term-' + i);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    });
+    cell.addEventListener('click', () => openModal(i));
     strip.appendChild(cell);
   });
 
@@ -265,7 +379,7 @@ function render() {
     stats.appendChild(d);
   });
 
-  // カード一覧
+  // 一覧(コンパクト行)
   const list = document.getElementById('list');
   list.innerHTML = '';
   let shown = 0;
@@ -273,17 +387,73 @@ function render() {
     if (activeLevel !== null && t.level !== activeLevel) return;
     if (q && !(t.term.toLowerCase().includes(q) || t.description.toLowerCase().includes(q))) return;
     shown++;
-    const card = document.createElement('article');
-    card.className = 'term-card';
-    card.id = 'term-' + i;
-    card.innerHTML =
-      '<div class="term-head"><span class="term-name">' + esc(t.term) + '</span>' +
-      '<span class="level-chip lv' + t.level + '">' + DATA.meta.levels[t.level] + '</span></div>' +
-      '<p class="term-desc">' + esc(t.description) + '</p>' +
-      '<p class="term-meta">updated ' + esc(t.updated || '-') + '</p>';
-    list.appendChild(card);
+    const row = document.createElement('button');
+    row.className = 'term-row';
+    row.innerHTML =
+      '<span class="term-name">' + esc(t.term) + '</span>' +
+      '<span class="level-chip lv' + t.level + '">' + DATA.meta.levels[t.level] + '</span>';
+    row.addEventListener('click', () => openModal(i));
+    list.appendChild(row);
   });
   if (!shown) list.innerHTML = '<p class="empty">該当する用語がありません。</p>';
+}
+
+/* --- モーダル --- */
+
+function setupModal() {
+  const backdrop = document.getElementById('modal-backdrop');
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  backdrop.addEventListener('click', e => {
+    if (e.target === backdrop) closeModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !backdrop.hidden) closeModal();
+  });
+}
+
+function openModal(index) {
+  const t = DATA.terms[index];
+  if (!t) return;
+  const backdrop = document.getElementById('modal-backdrop');
+  if (backdrop.hidden) lastFocused = document.activeElement;
+
+  document.getElementById('modal-term').textContent = t.term;
+  const chip = document.getElementById('modal-level');
+  chip.className = 'level-chip lv' + t.level;
+  chip.textContent = DATA.meta.levels[t.level];
+  document.getElementById('modal-desc').textContent = t.description;
+  document.getElementById('modal-meta').textContent = 'updated ' + (t.updated || '-');
+
+  const section = document.getElementById('modal-related-section');
+  const tags = document.getElementById('modal-related');
+  tags.innerHTML = '';
+  const related = (t.related || []).filter(name => DATA.terms.some(x => x.term === name));
+  if (related.length) {
+    related.forEach(name => {
+      const tag = document.createElement('button');
+      tag.className = 'related-tag';
+      tag.textContent = name;
+      tag.addEventListener('click', () => {
+        openModal(DATA.terms.findIndex(x => x.term === name));
+      });
+      tags.appendChild(tag);
+    });
+    section.hidden = false;
+  } else {
+    section.hidden = true;
+  }
+
+  backdrop.hidden = false;
+  document.body.classList.add('modal-open');
+  document.getElementById('modal-sheet').scrollTop = 0;
+  document.getElementById('modal-close').focus();
+}
+
+function closeModal() {
+  document.getElementById('modal-backdrop').hidden = true;
+  document.body.classList.remove('modal-open');
+  if (lastFocused && document.contains(lastFocused)) lastFocused.focus();
+  lastFocused = null;
 }
 
 function esc(s) {
