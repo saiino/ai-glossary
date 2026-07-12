@@ -90,6 +90,45 @@
   }
   .dot { width: 9px; height: 9px; border-radius: 3px; display: inline-block; }
 
+  /* カテゴリ別進捗 */
+  .cat-progress {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .cat-progress .cap {
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+  }
+  .cat-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.78rem;
+  }
+  .cat-row .cat-name { width: 7.5em; flex-shrink: 0; }
+  .cat-bar {
+    display: block;
+    flex: 1;
+    height: 8px;
+    background: var(--l0);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .cat-bar .fill {
+    display: block;
+    height: 100%;
+    background: var(--l2);
+    border-radius: 4px;
+  }
+  .cat-row .cat-count {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    width: 3.5em;
+    text-align: right;
+  }
+
   /* フィルタ・検索 */
   .controls {
     display: flex;
@@ -125,6 +164,70 @@
   }
   #search:focus { outline: 2px solid var(--l2); }
   #cat-controls { margin-top: -8px; }
+
+  /* セルフテスト */
+  .quiz-btn {
+    border-color: var(--l2);
+    color: var(--l2);
+    font-weight: 700;
+  }
+  .quiz-btn:hover, .quiz-btn:focus-visible {
+    background: var(--l2);
+    color: #fff;
+    outline: none;
+  }
+  .quiz-progress {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    margin-top: 8px;
+  }
+  .quiz-card-term {
+    font-family: "Shippori Mincho", serif;
+    font-size: 1.6rem;
+    text-align: center;
+    margin: 32px 0;
+    letter-spacing: 0.04em;
+  }
+  .quiz-hint {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .quiz-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .quiz-actions button {
+    flex: 1;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    background: var(--card);
+    color: var(--ink);
+  }
+  .quiz-actions button:hover, .quiz-actions button:focus-visible {
+    border-color: var(--ink);
+    outline: none;
+  }
+  .quiz-actions .btn-ok { background: var(--l2); border-color: var(--l2); color: #fff; }
+  .quiz-actions .btn-ng { background: var(--l1); border-color: var(--l1); color: #fff; }
+  .quiz-result h3 {
+    font-size: 0.85rem;
+    margin: 16px 0 6px;
+  }
+  .quiz-result .terms { font-size: 0.85rem; }
+  .quiz-copy-note {
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    margin-top: 16px;
+  }
 
   /* カテゴリーチップ(モーダル内) */
   .cat-chip {
@@ -290,8 +393,11 @@
 
 <div class="stats" id="stats"></div>
 
+<div class="cat-progress" id="cat-progress"></div>
+
 <div class="controls" id="controls">
   <input type="search" id="search" placeholder="用語を検索…">
+  <button class="chip quiz-btn" id="quiz-start">セルフテスト</button>
 </div>
 <div class="controls" id="cat-controls"></div>
 
@@ -316,6 +422,17 @@
   </div>
 </div>
 
+<div class="modal-backdrop" id="quiz-backdrop" hidden>
+  <div class="modal-sheet" role="dialog" aria-modal="true" aria-labelledby="quiz-title">
+    <div class="modal-head">
+      <span class="modal-term" id="quiz-title">セルフテスト</span>
+      <button class="modal-close" id="quiz-close" aria-label="閉じる">&times;</button>
+    </div>
+    <p class="quiz-progress" id="quiz-progress"></p>
+    <div id="quiz-body"></div>
+  </div>
+</div>
+
 <script>
 const LEVEL_COLORS = ['var(--l0)', 'var(--l1)', 'var(--l2)', 'var(--l3)'];
 let DATA = null;
@@ -332,6 +449,7 @@ async function load() {
     document.getElementById('title').textContent = DATA.meta.title || 'AI用語 学習トラッカー';
     buildControls();
     setupModal();
+    setupQuiz();
     render();
   } catch (e) {
     list.innerHTML = '<p class="error">terms.json を読み込めませんでした。GitHub Pages 上、またはローカルサーバー経由で開いてください。</p>';
@@ -388,9 +506,16 @@ function mkCatChip(label, cat) {
   return b;
 }
 
+function passesFilter(t) {
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  if (activeLevel !== null && t.level !== activeLevel) return false;
+  if (activeCategory !== null && t.category !== activeCategory) return false;
+  if (q && !(t.term.toLowerCase().includes(q) || t.description.toLowerCase().includes(q))) return false;
+  return true;
+}
+
 function render() {
   const terms = DATA.terms;
-  const q = document.getElementById('search').value.trim().toLowerCase();
 
   // ヒートストリップ
   const strip = document.getElementById('heatstrip');
@@ -419,14 +544,37 @@ function render() {
     stats.appendChild(d);
   });
 
+  // カテゴリ別進捗(「理解した」以上の割合)
+  const catProg = document.getElementById('cat-progress');
+  catProg.innerHTML = '';
+  const catList = DATA.meta.categories ||
+    [...new Set(terms.map(t => t.category).filter(Boolean))];
+  if (catList.length) {
+    const cap = document.createElement('p');
+    cap.className = 'cap';
+    cap.textContent = 'カテゴリ別進捗(「理解した」以上)';
+    catProg.appendChild(cap);
+    catList.forEach(cat => {
+      const inCat = terms.filter(t => t.category === cat);
+      if (!inCat.length) return;
+      const done = inCat.filter(t => t.level >= 2).length;
+      const row = document.createElement('div');
+      row.className = 'cat-row';
+      row.innerHTML =
+        '<span class="cat-name">' + esc(cat) + '</span>' +
+        '<span class="cat-bar"><span class="fill" style="width:' +
+        Math.round(done / inCat.length * 100) + '%"></span></span>' +
+        '<span class="cat-count">' + done + '/' + inCat.length + '</span>';
+      catProg.appendChild(row);
+    });
+  }
+
   // 一覧(コンパクト行)
   const list = document.getElementById('list');
   list.innerHTML = '';
   let shown = 0;
   terms.forEach((t, i) => {
-    if (activeLevel !== null && t.level !== activeLevel) return;
-    if (activeCategory !== null && t.category !== activeCategory) return;
-    if (q && !(t.term.toLowerCase().includes(q) || t.description.toLowerCase().includes(q))) return;
+    if (!passesFilter(t)) return;
     shown++;
     const row = document.createElement('button');
     row.className = 'term-row';
@@ -448,7 +596,10 @@ function setupModal() {
     if (e.target === backdrop) closeModal();
   });
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && !backdrop.hidden) closeModal();
+    if (e.key === 'Escape') {
+      if (!document.getElementById('quiz-backdrop').hidden) closeQuiz();
+      else if (!backdrop.hidden) closeModal();
+    }
   });
 }
 
@@ -502,6 +653,106 @@ function closeModal() {
   document.body.classList.remove('modal-open');
   if (lastFocused && document.contains(lastFocused)) lastFocused.focus();
   lastFocused = null;
+}
+
+/* --- セルフテスト --- */
+
+let quiz = null; // { indices, pos, results: [{term, ok}] }
+
+function setupQuiz() {
+  document.getElementById('quiz-start').addEventListener('click', startQuiz);
+  document.getElementById('quiz-close').addEventListener('click', closeQuiz);
+  const backdrop = document.getElementById('quiz-backdrop');
+  backdrop.addEventListener('click', e => {
+    if (e.target === backdrop) closeQuiz();
+  });
+}
+
+function startQuiz() {
+  let indices = DATA.terms.map((t, i) => i).filter(i => passesFilter(DATA.terms[i]));
+  if (!indices.length) indices = DATA.terms.map((t, i) => i);
+  // シャッフル(Fisher–Yates)
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+  quiz = { indices, pos: 0, results: [] };
+  document.getElementById('quiz-backdrop').hidden = false;
+  document.body.classList.add('modal-open');
+  renderQuizCard();
+}
+
+function renderQuizCard() {
+  const body = document.getElementById('quiz-body');
+  const prog = document.getElementById('quiz-progress');
+  if (quiz.pos >= quiz.indices.length) return renderQuizResult();
+
+  const t = DATA.terms[quiz.indices[quiz.pos]];
+  prog.textContent = (quiz.pos + 1) + ' / ' + quiz.indices.length;
+  body.innerHTML =
+    '<p class="quiz-card-term">' + esc(t.term) + '</p>' +
+    '<p class="quiz-hint">' + (t.category ? esc(t.category) + ' — ' : '') +
+    'この用語を人に説明できますか?</p>' +
+    '<div class="quiz-actions"><button id="quiz-reveal">答えを見る</button></div>';
+  const revealBtn = document.getElementById('quiz-reveal');
+  revealBtn.addEventListener('click', () => {
+    body.innerHTML =
+      '<p class="quiz-card-term">' + esc(t.term) + '</p>' +
+      '<p class="modal-desc">' + esc(t.description) + '</p>' +
+      '<div class="quiz-actions">' +
+      '<button class="btn-ok" id="quiz-ok">説明できた ○</button>' +
+      '<button class="btn-ng" id="quiz-ng">まだ ×</button>' +
+      '</div>';
+    document.getElementById('quiz-ok').addEventListener('click', () => answerQuiz(true));
+    document.getElementById('quiz-ng').addEventListener('click', () => answerQuiz(false));
+    document.getElementById('quiz-ok').focus();
+  });
+  revealBtn.focus();
+}
+
+function answerQuiz(ok) {
+  const t = DATA.terms[quiz.indices[quiz.pos]];
+  quiz.results.push({ term: t.term, ok });
+  quiz.pos++;
+  renderQuizCard();
+}
+
+function renderQuizResult() {
+  const body = document.getElementById('quiz-body');
+  const okTerms = quiz.results.filter(r => r.ok).map(r => r.term);
+  const ngTerms = quiz.results.filter(r => !r.ok).map(r => r.term);
+  document.getElementById('quiz-progress').textContent =
+    '結果: ' + okTerms.length + ' / ' + quiz.results.length + ' 説明できた';
+
+  let html = '<div class="quiz-result">';
+  if (okTerms.length) html += '<h3>○ 説明できた</h3><p class="terms">' + esc(okTerms.join('、')) + '</p>';
+  if (ngTerms.length) html += '<h3>× まだ</h3><p class="terms">' + esc(ngTerms.join('、')) + '</p>';
+  html += '</div>' +
+    '<div class="quiz-actions">' +
+    '<button id="quiz-copy">結果をコピー</button>' +
+    '<button id="quiz-retry">もう一度</button>' +
+    '</div>' +
+    '<p class="quiz-copy-note">コピーした結果をClaudeに貼り付けると、台帳のレベルを更新できます。</p>';
+  body.innerHTML = html;
+
+  document.getElementById('quiz-copy').addEventListener('click', async e => {
+    const text = 'セルフテスト結果 — 説明できた: ' + (okTerms.join('、') || 'なし') +
+      ' / まだ: ' + (ngTerms.join('、') || 'なし');
+    try {
+      await navigator.clipboard.writeText(text);
+      e.target.textContent = 'コピーしました';
+    } catch {
+      prompt('以下をコピーしてください', text);
+    }
+  });
+  document.getElementById('quiz-retry').addEventListener('click', startQuiz);
+}
+
+function closeQuiz() {
+  document.getElementById('quiz-backdrop').hidden = true;
+  document.body.classList.remove('modal-open');
+  quiz = null;
+  document.getElementById('quiz-start').focus();
 }
 
 function esc(s) {
