@@ -13,60 +13,70 @@
     {
       "term": "LLM",
       "description": "大規模言語モデル。大量のテキストで学習し、文章の生成・理解を行うAIモデルの総称。ClaudeやGPTなどが該当。",
+      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション"],
       "level": 2,
       "updated": "2026-07-12"
     },
     {
       "term": "プロンプト",
       "description": "AIモデルへの入力・指示文。書き方によって出力品質が大きく変わる。",
+      "related": ["LLM", "コンテキストウィンドウ"],
       "level": 2,
       "updated": "2026-07-12"
     },
     {
       "term": "RAG",
       "description": "Retrieval-Augmented Generation。外部の文書やデータベースを検索して、その結果を根拠にAIが回答を生成する仕組み。ハルシネーション対策の代表的手法。",
+      "related": ["埋め込み(Embedding)", "ハルシネーション", "ファインチューニング"],
       "level": 1,
       "updated": "2026-07-12"
     },
     {
       "term": "ファインチューニング",
       "description": "学習済みモデルに追加データで再学習を行い、特定タスクや文体に適応させる手法。",
+      "related": ["LLM", "RAG"],
       "level": 1,
       "updated": "2026-07-12"
     },
     {
       "term": "MCP",
       "description": "Model Context Protocol。AIモデルと外部ツール・データソースを接続するためのオープンなプロトコル。Claudeのコネクタの基盤技術。",
+      "related": ["Agent Skills"],
       "level": 1,
       "updated": "2026-07-12"
     },
     {
       "term": "Agent Skills",
       "description": "SKILL.mdを含むフォルダとしてAIに手順書を渡す仕組み。段階的読み込み(Progressive Disclosure)によりコンテキストを節約しながら専門知識を追加できる。オープン標準化されている。",
+      "related": ["MCP", "コンテキストウィンドウ"],
       "level": 2,
       "updated": "2026-07-12"
     },
     {
       "term": "ハルシネーション",
       "description": "AIが事実と異なる内容をもっともらしく生成してしまう現象。",
+      "related": ["LLM", "RAG"],
       "level": 2,
       "updated": "2026-07-12"
     },
     {
       "term": "コンテキストウィンドウ",
       "description": "AIモデルが一度に処理できる入力(会話履歴・文書など)の最大量。トークン数で表される。",
+      "related": ["LLM", "プロンプト", "トークン", "Agent Skills"],
       "level": 1,
       "updated": "2026-07-12"
     },
     {
       "term": "トークン",
       "description": "AIがテキストを処理する最小単位。日本語では1文字が1〜2トークン程度になることが多い。API課金の単位でもある。",
+      "related": ["LLM", "コンテキストウィンドウ"],
       "level": 1,
       "updated": "2026-07-12"
     },
     {
       "term": "埋め込み(Embedding)",
       "description": "テキストを数値ベクトルに変換したもの。意味の近さをベクトルの距離として計算でき、検索やRAGの基盤となる。",
+      "related": ["RAG"],
       "level": 0,
       "updated": "2026-07-12"
     }
