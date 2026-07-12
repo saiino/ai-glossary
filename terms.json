@@ -104,7 +104,7 @@
       "category": "基礎概念",
       "description": "AIの本体となる学習済みプログラムで、入力を受け取って出力を返す「頭脳」の部分。GPTやClaudeがこれにあたる。ChatGPTのようなアプリ(製品)や、開発基盤であるプラットフォームとは区別される。",
       "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム"],
-      "level": 0,
+      "level": 2,
       "updated": "2026-07-12"
     },
     {
@@ -120,7 +120,7 @@
       "category": "基礎概念",
       "description": "Application Programming Interface。プログラムから機能を呼び出すための「窓口」。AIの文脈では、ChatGPTのような画面を使わず、自分のアプリからモデルを直接呼び出して利用する手段を指すことが多い。",
       "related": ["モデル", "プラットフォーム"],
-      "level": 0,
+      "level": 2,
       "updated": "2026-07-12"
     },
     {
@@ -136,7 +136,7 @@
       "category": "モデル",
       "description": "OpenAI社が開発するLLM(モデル)のシリーズ名。ChatGPTという「アプリ」の中で使われている「頭脳」にあたる。車で例えるとGPTがエンジン、ChatGPTが車全体。",
       "related": ["ChatGPT", "Copilot", "モデル", "LLM", "Azure AI Foundry"],
-      "level": 0,
+      "level": 2,
       "updated": "2026-07-12"
     },
     {
@@ -144,7 +144,7 @@
       "category": "製品・サービス",
       "description": "OpenAI社が提供するチャットアプリ(製品)の名前。中身で動いているモデル(GPT)とは区別される。「ChatGPTを使う」は正確には「GPTというモデルをChatGPTというアプリ経由で使う」こと。",
       "related": ["GPT", "Copilot"],
-      "level": 0,
+      "level": 2,
       "updated": "2026-07-12"
     },
     {
@@ -152,7 +152,7 @@
       "category": "モデル",
       "description": "Anthropic社が開発するLLM(モデル)のファミリー名。OpenAIにおけるGPTに相当する位置づけで、性能・用途別にFable、Opus、Sonnet、Haikuなどのグレードがある。",
       "related": ["モデル", "LLM", "Sonnet", "Opus", "Fable", "Azure AI Foundry"],
-      "level": 0,
+      "level": 2,
       "updated": "2026-07-12"
     },
     {
