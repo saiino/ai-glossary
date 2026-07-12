@@ -13,7 +13,7 @@
     {
       "term": "LLM",
       "description": "大規模言語モデル。大量のテキストで学習し、文章の生成・理解を行うAIモデルの総称。ClaudeやGPTなどが該当。",
-      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション"],
+      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -41,14 +41,14 @@
     {
       "term": "MCP",
       "description": "Model Context Protocol。AIモデルと外部ツール・データソースを接続するためのオープンなプロトコル。Claudeのコネクタの基盤技術。",
-      "related": ["Agent Skills"],
+      "related": ["Agent Skills", "エージェント"],
       "level": 1,
       "updated": "2026-07-12"
     },
     {
       "term": "Agent Skills",
       "description": "SKILL.mdを含むフォルダとしてAIに手順書を渡す仕組み。段階的読み込み(Progressive Disclosure)によりコンテキストを節約しながら専門知識を追加できる。オープン標準化されている。",
-      "related": ["MCP", "コンテキストウィンドウ"],
+      "related": ["MCP", "コンテキストウィンドウ", "エージェント"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -84,6 +84,90 @@
       "term": "埋め込み(Embedding)",
       "description": "テキストを数値ベクトルに変換したもの。意味の近さをベクトルの距離として計算でき、検索やRAGの基盤となる。",
       "related": ["RAG"],
+      "level": 0,
+      "updated": "2026-07-12"
+    },
+    {
+      "term": "モデル",
+      "description": "AIの本体となる学習済みプログラムで、入力を受け取って出力を返す「頭脳」の部分。GPTやClaudeがこれにあたる。ChatGPTのようなアプリ(製品)や、開発基盤であるプラットフォームとは区別される。",
+      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム"],
+      "level": 0,
+      "updated": "2026-07-12"
+    },
+    {
+      "term": "プラットフォーム",
+      "description": "モデルやツールを組み合わせてAIアプリを開発・運用するための基盤サービス。Azure AI Foundryなどが該当し、モデルの選択・デプロイ・監視などをまとめて提供する。モデルが「頭脳」なら、プラットフォームはそれを動かす「工場設備」にあたる。",
+      "related": ["モデル", "API", "Azure AI Foundry"],
+      "level": 0,
+      "updated": "2026-07-12"
+    },
+    {
+      "term": "API",
+      "description": "Application Programming Interface。プログラムから機能を呼び出すための「窓口」。AIの文脈では、ChatGPTのような画面を使わず、自分のアプリからモデルを直接呼び出して利用する手段を指すことが多い。",
+      "related": ["モデル", "プラットフォーム"],
+      "level": 0,
+      "updated": "2026-07-12"
+    },
+    {
+      "term": "エージェント",
+      "description": "質問に答えるだけでなく、目標に向かってツール(検索・ファイル操作・コード実行など)を自分で使い、複数ステップの作業を自律的に進めるAIの仕組み。LLMを「頭脳」として、手足となるツールを組み合わせて動く。",
+      "related": ["LLM", "MCP", "Agent Skills"],
+      "level": 0,
+      "updated": "2026-07-12"
+    },
+    {
+      "term": "GPT",
+      "description": "OpenAI社が開発するLLM(モデル)のシリーズ名。ChatGPTという「アプリ」の中で使われている「頭脳」にあたる。車で例えるとGPTがエンジン、ChatGPTが車全体。",
+      "related": ["ChatGPT", "Copilot", "モデル", "LLM", "Azure AI Foundry"],
+      "level": 0,
+      "updated": "2026-07-12"
+    },
+    {
+      "term": "ChatGPT",
+      "description": "OpenAI社が提供するチャットアプリ(製品)の名前。中身で動いているモデル(GPT)とは区別される。「ChatGPTを使う」は正確には「GPTというモデルをChatGPTというアプリ経由で使う」こと。",
+      "related": ["GPT", "Copilot"],
+      "level": 0,
+      "updated": "2026-07-12"
+    },
+    {
+      "term": "Claude",
+      "description": "Anthropic社が開発するLLM(モデル)のファミリー名。OpenAIにおけるGPTに相当する位置づけで、性能・用途別にFable、Opus、Sonnet、Haikuなどのグレードがある。",
+      "related": ["モデル", "LLM", "Sonnet", "Opus", "Fable", "Azure AI Foundry"],
+      "level": 0,
+      "updated": "2026-07-12"
+    },
+    {
+      "term": "Sonnet",
+      "description": "Claudeファミリーの中位グレードのモデル。速度・コスト・知能のバランスに優れ、日常用途や大量処理に向く。最新のSonnet 5はコーディングなどで上位グレードに迫る性能を持つ。",
+      "related": ["Claude", "Opus", "Fable"],
+      "level": 0,
+      "updated": "2026-07-12"
+    },
+    {
+      "term": "Opus",
+      "description": "Claudeファミリーの上位グレードのモデル。難しい推論や長時間の自律的な作業(エージェント用途)が得意で、Sonnetより高性能な分コストも高い。",
+      "related": ["Claude", "Sonnet", "Fable"],
+      "level": 0,
+      "updated": "2026-07-12"
+    },
+    {
+      "term": "Fable",
+      "description": "Claudeファミリーの最上位モデル(Claude Fable 5)。Opusのさらに上に位置する新しいクラスで、最も高度な推論や長期にわたるエージェント作業向け。Anthropicが一般提供する中で最も賢いモデル。",
+      "related": ["Claude", "Sonnet", "Opus"],
+      "level": 0,
+      "updated": "2026-07-12"
+    },
+    {
+      "term": "Copilot",
+      "description": "Microsoft社のAIアシスタント製品群の名前。WordやExcelに組み込まれるMicrosoft 365 Copilot、コード補完のGitHub Copilotなどがある。ChatGPTと同じく「製品」であり、中身のモデルにはGPTなど他社製が使われる。",
+      "related": ["ChatGPT", "GPT"],
+      "level": 0,
+      "updated": "2026-07-12"
+    },
+    {
+      "term": "Azure AI Foundry",
+      "description": "Microsoft社のクラウド(Azure)上でAIアプリを開発・運用するためのプラットフォーム(現在はMicrosoft Foundryに改称)。GPTやClaudeなど複数社のモデルを選んで利用できる「モデルのデパート+開発工房」のような存在。",
+      "related": ["プラットフォーム", "GPT", "Claude"],
       "level": 0,
       "updated": "2026-07-12"
     }
