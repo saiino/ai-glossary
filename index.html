@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI用語 学習トラッカー</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&family=IBM+Plex+Sans+JP:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FAF9F5;
+    --ink: #23282F;
+    --ink-soft: #6B7280;
+    --line: #E5E2D9;
+    --l0: #D9D6CC;
+    --l1: #E8B04B;
+    --l2: #4E9B8F;
+    --l3: #1F6E5C;
+    --card: #FFFFFF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "IBM Plex Sans JP", sans-serif;
+    line-height: 1.7;
+    padding: 24px 16px 64px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  header h1 {
+    font-family: "Shippori Mincho", serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.06em;
+  }
+  header p.sub {
+    color: var(--ink-soft);
+    font-size: 0.8rem;
+    margin-top: 2px;
+  }
+
+  /* 習熟度ヒートストリップ(このページの顔) */
+  .heatstrip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 20px 0 8px;
+  }
+  .heatstrip .cell {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.1s ease;
+  }
+  .heatstrip .cell:hover, .heatstrip .cell:focus-visible {
+    transform: scale(1.25);
+    outline: 2px solid var(--ink);
+    outline-offset: 1px;
+  }
+  .strip-caption {
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+
+  /* サマリー */
+  .stats {
+    display: flex;
+    gap: 20px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 12px 0;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .stat .num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+  .stat .label {
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .dot { width: 9px; height: 9px; border-radius: 3px; display: inline-block; }
+
+  /* フィルタ・検索 */
+  .controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    align-items: center;
+  }
+  .chip {
+    border: 1px solid var(--line);
+    background: var(--card);
+    border-radius: 999px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--ink);
+  }
+  .chip[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  #search {
+    flex: 1;
+    min-width: 140px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    background: var(--card);
+  }
+  #search:focus { outline: 2px solid var(--l2); }
+
+  /* 用語カード */
+  .term-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    scroll-margin-top: 16px;
+  }
+  .term-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .term-name { font-weight: 700; font-size: 1rem; }
+  .level-chip {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #fff;
+    border-radius: 999px;
+    padding: 2px 10px;
+    white-space: nowrap;
+  }
+  .level-chip.lv0 { background: var(--l0); color: var(--ink-soft); }
+  .level-chip.lv1 { background: var(--l1); }
+  .level-chip.lv2 { background: var(--l2); }
+  .level-chip.lv3 { background: var(--l3); }
+  .term-desc { font-size: 0.85rem; margin-top: 6px; }
+  .term-meta {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    margin-top: 8px;
+  }
+  .empty, .error {
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    padding: 24px 0;
+    text-align: center;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .heatstrip .cell { transition: none; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1 id="title">AI用語 学習トラッカー</h1>
+  <p class="sub">「◯◯理解した」とClaudeに伝えると、この台帳が更新される</p>
+</header>
+
+<div class="heatstrip" id="heatstrip" aria-label="全用語の習熟度マップ"></div>
+<p class="strip-caption">■ 1マス = 1用語。タップでその用語へ。</p>
+
+<div class="stats" id="stats"></div>
+
+<div class="controls" id="controls">
+  <input type="search" id="search" placeholder="用語を検索…">
+</div>
+
+<main id="list"></main>
+
+<script>
+const LEVEL_COLORS = ['var(--l0)', 'var(--l1)', 'var(--l2)', 'var(--l3)'];
+let DATA = null;
+let activeLevel = null; // null = すべて
+
+async function load() {
+  const list = document.getElementById('list');
+  try {
+    const res = await fetch('terms.json?t=' + Date.now());
+    if (!res.ok) throw new Error(res.status);
+    DATA = await res.json();
+    document.getElementById('title').textContent = DATA.meta.title || 'AI用語 学習トラッカー';
+    buildControls();
+    render();
+  } catch (e) {
+    list.innerHTML = '<p class="error">terms.json を読み込めませんでした。GitHub Pages 上、またはローカルサーバー経由で開いてください。</p>';
+  }
+}
+
+function buildControls() {
+  const c = document.getElementById('controls');
+  const levels = DATA.meta.levels;
+  const frag = document.createDocumentFragment();
+  const allBtn = mkChip('すべて', null);
+  frag.appendChild(allBtn);
+  Object.keys(levels).forEach(k => frag.appendChild(mkChip(levels[k], Number(k))));
+  c.insertBefore(frag, document.getElementById('search'));
+  document.getElementById('search').addEventListener('input', render);
+}
+
+function mkChip(label, level) {
+  const b = document.createElement('button');
+  b.className = 'chip';
+  b.textContent = label;
+  b.setAttribute('aria-pressed', String(activeLevel === level));
+  b.addEventListener('click', () => {
+    activeLevel = (activeLevel === level) ? null : level;
+    document.querySelectorAll('.chip').forEach(x => x.setAttribute('aria-pressed', 'false'));
+    if (activeLevel !== null || label === 'すべて') b.setAttribute('aria-pressed', 'true');
+    render();
+  });
+  return b;
+}
+
+function render() {
+  const terms = DATA.terms;
+  const q = document.getElementById('search').value.trim().toLowerCase();
+
+  // ヒートストリップ
+  const strip = document.getElementById('heatstrip');
+  strip.innerHTML = '';
+  terms.forEach((t, i) => {
+    const cell = document.createElement('button');
+    cell.className = 'cell';
+    cell.style.background = LEVEL_COLORS[t.level] || LEVEL_COLORS[0];
+    cell.title = t.term + ' — ' + DATA.meta.levels[t.level];
+    cell.setAttribute('aria-label', cell.title);
+    cell.addEventListener('click', () => {
+      const el = document.getElementById('term-' + i);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    });
+    strip.appendChild(cell);
+  });
+
+  // サマリー
+  const counts = [0, 0, 0, 0];
+  terms.forEach(t => counts[t.level]++);
+  const stats = document.getElementById('stats');
+  stats.innerHTML = '';
+  Object.keys(DATA.meta.levels).forEach(k => {
+    const d = document.createElement('div');
+    d.className = 'stat';
+    d.innerHTML = '<div class="num">' + counts[k] + '</div>' +
+      '<div class="label"><span class="dot" style="background:' + LEVEL_COLORS[k] + '"></span>' +
+      DATA.meta.levels[k] + '</div>';
+    stats.appendChild(d);
+  });
+
+  // カード一覧
+  const list = document.getElementById('list');
+  list.innerHTML = '';
+  let shown = 0;
+  terms.forEach((t, i) => {
+    if (activeLevel !== null && t.level !== activeLevel) return;
+    if (q && !(t.term.toLowerCase().includes(q) || t.description.toLowerCase().includes(q))) return;
+    shown++;
+    const card = document.createElement('article');
+    card.className = 'term-card';
+    card.id = 'term-' + i;
+    card.innerHTML =
+      '<div class="term-head"><span class="term-name">' + esc(t.term) + '</span>' +
+      '<span class="level-chip lv' + t.level + '">' + DATA.meta.levels[t.level] + '</span></div>' +
+      '<p class="term-desc">' + esc(t.description) + '</p>' +
+      '<p class="term-meta">updated ' + esc(t.updated || '-') + '</p>';
+    list.appendChild(card);
+  });
+  if (!shown) list.innerHTML = '<p class="empty">該当する用語がありません。</p>';
+}
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+load();
+</script>
+</body>
+</html>
