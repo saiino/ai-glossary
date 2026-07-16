@@ -2,6 +2,7 @@
 
 AI関連用語の理解度を記録する、個人用の学習トラッカーです。
 Claude Code に「RAG理解した」のように話しかけると台帳(`terms.json`)が更新され、GitHub Pages のページに反映されます。
+https://saiino.github.io/ai-glossary/
 
 ## 仕組み
 
