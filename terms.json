@@ -8,14 +8,14 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-07-12"
+    "last_updated": "2026-07-23"
   },
   "terms": [
     {
       "term": "LLM",
       "category": "基礎概念",
       "description": "大規模言語モデル。大量のテキストで学習し、文章の生成・理解を行うAIモデルの総称。ClaudeやGPTなどが該当。",
-      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)"],
+      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -23,7 +23,7 @@
       "term": "プロンプト",
       "category": "基礎概念",
       "description": "AIモデルへの入力・指示文。書き方によって出力品質が大きく変わる。",
-      "related": ["LLM", "コンテキストウィンドウ"],
+      "related": ["LLM", "コンテキストウィンドウ", "プロンプトエンジニアリング(Prompt Engineering)", "システムプロンプト(System Prompt)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -39,7 +39,7 @@
       "term": "ファインチューニング",
       "category": "技術・手法",
       "description": "学習済みモデルに追加データで再学習を行い、特定タスクや文体に適応させる手法。新卒研修を終えた社員に配属先の専門研修を受けさせるイメージで、モデルの中身(重み)自体が書き換わる点がプロンプトやRAGとの違い。知識の追加はRAG、文体や振る舞いの調整はファインチューニング、と使い分ける。",
-      "related": ["LLM", "RAG", "LoRA"],
+      "related": ["LLM", "RAG", "LoRA", "学習(Training)"],
       "level": 1,
       "updated": "2026-07-12"
     },
@@ -103,7 +103,7 @@
       "term": "モデル",
       "category": "基礎概念",
       "description": "AIの本体となる学習済みプログラムで、入力を受け取って出力を返す「頭脳」の部分。GPTやClaudeがこれにあたる。ChatGPTのようなアプリ(製品)や、開発基盤であるプラットフォームとは区別される。",
-      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム"],
+      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -199,7 +199,7 @@
       "term": "生成AI(Generative AI)",
       "category": "基礎概念",
       "description": "文章・画像・音声・コードなど、新しいコンテンツを生み出すことができるAIの総称。従来の「分類する」「予測する」AIと違い、ゼロから何かを作り出す点が特徴。ChatGPTのような文章生成AIや画像生成AIが代表例で、LLMは生成AIのうちテキストに特化したものにあたる。",
-      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)"],
+      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -207,7 +207,7 @@
       "term": "ニューラルネットワーク(Neural Network)",
       "category": "技術・手法",
       "description": "人間の脳の神経細胞(ニューロン)のつながりを模したAIの計算モデル。多数の小さな計算ユニットを層状につなぎ、大量のデータからパターンを学習する。現在の主要なAIモデルのほとんどがこの仕組みを基礎にしている。",
-      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)"],
+      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "学習(Training)", "パラメータ(Parameters)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -231,9 +231,49 @@
       "term": "推論(Inference)",
       "category": "基礎概念",
       "description": "学習を終えたAIモデルに実際の入力を与え、出力(回答など)を得る処理のこと。モデルを作る「学習(トレーニング)」の段階とは区別され、普段ChatGPTなどに質問して答えを得る操作はすべて推論にあたる。",
-      "related": ["LLM", "トークン"],
+      "related": ["LLM", "トークン", "学習(Training)"],
       "level": 0,
       "updated": "2026-07-12"
+    },
+    {
+      "term": "学習(Training)",
+      "category": "基礎概念",
+      "description": "モデルに大量のデータを与えて、パターンやルールを内部のパラメータとして獲得させる過程。学習を終えたモデルに実際の入力を与えて答えを得る処理が推論であり、両者は対になる概念。学習には大きな計算資源と時間がかかるが、推論は比較的軽量に行える。",
+      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)"],
+      "level": 0,
+      "updated": "2026-07-23"
+    },
+    {
+      "term": "マルチモーダル(Multimodal)",
+      "category": "基礎概念",
+      "description": "テキストだけでなく、画像・音声・動画など複数の種類(モダリティ)の情報を同時に扱えるAIモデルの性質。近年の主要なLLMの多くがマルチモーダル化しており、画像を見せて内容について質問するといった使い方ができる。",
+      "related": ["LLM", "生成AI(Generative AI)"],
+      "level": 0,
+      "updated": "2026-07-23"
+    },
+    {
+      "term": "プロンプトエンジニアリング(Prompt Engineering)",
+      "category": "技術・手法",
+      "description": "AIモデルからより良い出力を引き出すために、プロンプト(指示文)の書き方や構成を工夫する技術。指示を明確にする、具体例を示す、役割を設定するといった手法が含まれる。",
+      "related": ["プロンプト", "システムプロンプト(System Prompt)"],
+      "level": 0,
+      "updated": "2026-07-23"
+    },
+    {
+      "term": "パラメータ(Parameters)",
+      "category": "基礎概念",
+      "description": "ニューラルネットワークが学習によって獲得する内部の数値(重み)。パラメータ数が多いほど一般的にモデルの表現力は高くなるが、その分計算資源も必要になる。「70B(700億)パラメータ」のように表記されることが多い。",
+      "related": ["モデル", "ニューラルネットワーク(Neural Network)", "学習(Training)"],
+      "level": 0,
+      "updated": "2026-07-23"
+    },
+    {
+      "term": "システムプロンプト(System Prompt)",
+      "category": "基礎概念",
+      "description": "会話の最初にAIへ与えられる、役割や振る舞いのルールを定義する特別な指示文。ユーザーからは見えないことが多く、通常のプロンプト(ユーザーの入力)より優先して扱われる。",
+      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)"],
+      "level": 0,
+      "updated": "2026-07-23"
     }
   ]
 }
