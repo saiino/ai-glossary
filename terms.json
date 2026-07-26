@@ -72,8 +72,8 @@
       "category": "基礎概念",
       "description": "AIモデルが一度に処理できる入力(会話履歴・文書など)の最大量。トークン数で表される。",
       "related": ["LLM", "プロンプト", "トークン", "Agent Skills"],
-      "level": 1,
-      "updated": "2026-07-12"
+      "level": 2,
+      "updated": "2026-07-26"
     },
     {
       "term": "トークン",
