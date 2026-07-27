@@ -8,7 +8,7 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-07-26"
+    "last_updated": "2026-07-27"
   },
   "terms": [
     {
@@ -23,7 +23,7 @@
       "term": "プロンプト",
       "category": "基礎概念",
       "description": "AIモデルへの入力・指示文。書き方によって出力品質が大きく変わる。",
-      "related": ["LLM", "コンテキストウィンドウ", "プロンプトエンジニアリング(Prompt Engineering)", "システムプロンプト(System Prompt)"],
+      "related": ["LLM", "コンテキストウィンドウ", "プロンプトエンジニアリング(Prompt Engineering)", "システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -207,7 +207,7 @@
       "term": "ニューラルネットワーク(Neural Network)",
       "category": "技術・手法",
       "description": "人間の脳の神経細胞(ニューロン)のつながりを模したAIの計算モデル。多数の小さな計算ユニットを層状につなぎ、大量のデータからパターンを学習する。現在の主要なAIモデルのほとんどがこの仕組みを基礎にしている。",
-      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "学習(Training)", "パラメータ(Parameters)"],
+      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "学習(Training)", "パラメータ(Parameters)", "機械学習(Machine Learning)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -215,7 +215,7 @@
       "term": "ディープラーニング(Deep Learning)",
       "category": "技術・手法",
       "description": "ニューラルネットワークを何層にも重ねて深くした学習手法。層を深くすることで、画像認識や文章生成など複雑なタスクを高い精度でこなせるようになった。近年のAIの進歩を支える中心的な技術。",
-      "related": ["ニューラルネットワーク(Neural Network)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)"],
+      "related": ["ニューラルネットワーク(Neural Network)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "機械学習(Machine Learning)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -231,7 +231,7 @@
       "term": "推論(Inference)",
       "category": "基礎概念",
       "description": "学習済みのモデルに実際の入力を与えて、答えを出させる段階。ソフトウェアでいえば本番運用にあたり、ChatGPTに質問して回答を得る操作はすべて推論。学習と違ってパラメータは一切変わらず1回あたりは軽量だが、使われるたびに永久に発生するため、コストが問題になりやすいのはこちら。",
-      "related": ["LLM", "トークン", "学習(Training)"],
+      "related": ["LLM", "トークン", "学習(Training)", "GPU", "温度(Temperature)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -239,7 +239,7 @@
       "term": "学習(Training)",
       "category": "基礎概念",
       "description": "モデルに大量のデータを与えて、パターンやルールを内部のパラメータとして覚え込ませる段階。ソフトウェアでいえば開発・ビルドにあたり、時間と計算資源を大量に使うがリリース前の一度きりで済む。ここでパラメータが書き換わる点が、対になる概念である推論との決定的な違い。",
-      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)"],
+      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -263,7 +263,7 @@
       "term": "パラメータ(Parameters)",
       "category": "基礎概念",
       "description": "ニューラルネットワークが学習によって獲得する内部の数値(重み)。パラメータ数が多いほど一般的にモデルの表現力は高くなるが、その分計算資源も必要になる。「70B(700億)パラメータ」のように表記されることが多い。",
-      "related": ["モデル", "ニューラルネットワーク(Neural Network)", "学習(Training)"],
+      "related": ["モデル", "ニューラルネットワーク(Neural Network)", "学習(Training)", "温度(Temperature)"],
       "level": 0,
       "updated": "2026-07-23"
     },
@@ -271,9 +271,49 @@
       "term": "システムプロンプト(System Prompt)",
       "category": "基礎概念",
       "description": "会話の最初にAIへ与えられる、役割や振る舞いのルールを定義する特別な指示文。ユーザーからは見えないことが多く、通常のプロンプト(ユーザーの入力)より優先して扱われる。",
-      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)"],
+      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)", "プロンプトインジェクション(Prompt Injection)"],
       "level": 2,
       "updated": "2026-07-26"
+    },
+    {
+      "term": "機械学習(Machine Learning)",
+      "category": "基礎概念",
+      "description": "コンピュータが明示的なルールを人が細かく書かなくても、大量のデータからパターンを学び取り、判断や予測を行えるようにする技術分野。AI(人工知能)という大きな概念の中の一分野であり、ニューラルネットワークやディープラーニングは機械学習をさらに具体化した手法にあたる。",
+      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)"],
+      "level": 0,
+      "updated": "2026-07-27"
+    },
+    {
+      "term": "データセット(Dataset)",
+      "category": "基礎概念",
+      "description": "AIモデルを学習させたり性能を評価したりするために使われる、データのまとまり。文章・画像・音声など内容は用途によって様々で、その質と量がモデルの性能を大きく左右する。",
+      "related": ["学習(Training)", "機械学習(Machine Learning)"],
+      "level": 0,
+      "updated": "2026-07-27"
+    },
+    {
+      "term": "GPU",
+      "category": "技術・手法",
+      "description": "Graphics Processing Unit。元々は画像描画向けの計算装置だが、大量の計算を同時並行で行うのが得意なため、AIモデルの学習や推論を高速化する用途で広く使われている。「GPUが足りない」のように、AI開発の計算資源を指す言葉としてもよく登場する。",
+      "related": ["学習(Training)", "推論(Inference)"],
+      "level": 0,
+      "updated": "2026-07-27"
+    },
+    {
+      "term": "プロンプトインジェクション(Prompt Injection)",
+      "category": "技術・手法",
+      "description": "悪意のある指示文をプロンプトや外部データに紛れ込ませ、AIに開発者が意図しない動作をさせようとする攻撃手法。信頼できない文書やWebページの内容をAIに読み込ませる際に注意が必要とされる、AI特有のセキュリティ課題の一つ。",
+      "related": ["プロンプト", "システムプロンプト(System Prompt)"],
+      "level": 0,
+      "updated": "2026-07-27"
+    },
+    {
+      "term": "温度(Temperature)",
+      "category": "技術・手法",
+      "description": "AIが次の単語を選ぶ際の「ランダムさ」を調整するパラメータ。値を低くすると毎回似た手堅い出力になりやすく、高くすると多様で意外性のある出力になりやすい。多くのAPIやプレイグラウンドで調整できる代表的な設定項目の一つ。",
+      "related": ["推論(Inference)", "パラメータ(Parameters)"],
+      "level": 0,
+      "updated": "2026-07-27"
     }
   ]
 }
