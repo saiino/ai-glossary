@@ -8,14 +8,14 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-07-27"
+    "last_updated": "2026-07-30"
   },
   "terms": [
     {
       "term": "LLM",
       "category": "基礎概念",
       "description": "大規模言語モデル。大量のテキストで学習し、文章の生成・理解を行うAIモデルの総称。ClaudeやGPTなどが該当。",
-      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)"],
+      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -39,7 +39,7 @@
       "term": "ファインチューニング",
       "category": "技術・手法",
       "description": "学習済みモデルに追加データで再学習を行い、特定タスクや文体に適応させる手法。新卒研修を終えた社員に配属先の専門研修を受けさせるイメージで、モデルの中身(重み)自体が書き換わる点がプロンプトやRAGとの違い。知識の追加はRAG、文体や振る舞いの調整はファインチューニング、と使い分ける。",
-      "related": ["LLM", "RAG", "LoRA", "学習(Training)"],
+      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -103,7 +103,7 @@
       "term": "モデル",
       "category": "基礎概念",
       "description": "AIの本体となる学習済みプログラムで、入力を受け取って出力を返す「頭脳」の部分。GPTやClaudeがこれにあたる。ChatGPTのようなアプリ(製品)や、開発基盤であるプラットフォームとは区別される。なお「プログラム」といっても、if文のようなルールやデータベースが入っているわけではない。実体は学習で得た膨大な数値(パラメータ)の塊で、「ここまでの文章の次に来る単語」を予測する計算をひたすら繰り返しているだけ。知識も文体もすべてこの数値の中に溶けている。そのため、モデルを更新するとはこの数値を書き換えること(=ファインチューニング)を指す。",
-      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)"],
+      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -199,7 +199,7 @@
       "term": "生成AI(Generative AI)",
       "category": "基礎概念",
       "description": "文章・画像・音声・コードなど、新しいコンテンツを生み出すことができるAIの総称。従来の「分類する」「予測する」AIと違い、ゼロから何かを作り出す点が特徴。ChatGPTのような文章生成AIや画像生成AIが代表例で、LLMは生成AIのうちテキストに特化したものにあたる。",
-      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)"],
+      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)", "人工知能(AI)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -239,7 +239,7 @@
       "term": "学習(Training)",
       "category": "基礎概念",
       "description": "モデルに大量のデータを与えて、パターンやルールを内部のパラメータとして覚え込ませる段階。ソフトウェアでいえば開発・ビルドにあたり、時間と計算資源を大量に使うがリリース前の一度きりで済む。ここでパラメータが書き換わる点が、対になる概念である推論との決定的な違い。",
-      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU"],
+      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU", "過学習(Overfitting)", "バイアス(Bias)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -279,7 +279,7 @@
       "term": "機械学習(Machine Learning)",
       "category": "基礎概念",
       "description": "コンピュータが明示的なルールを人が細かく書かなくても、大量のデータからパターンを学び取り、判断や予測を行えるようにする技術分野。AI(人工知能)という大きな概念の中の一分野であり、ニューラルネットワークやディープラーニングは機械学習をさらに具体化した手法にあたる。",
-      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)"],
+      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -287,7 +287,7 @@
       "term": "データセット(Dataset)",
       "category": "基礎概念",
       "description": "AIモデルを学習させたり性能を評価したりするために使われる、データのまとまり。文章・画像・音声など内容は用途によって様々で、その質と量がモデルの性能を大きく左右する。",
-      "related": ["学習(Training)", "機械学習(Machine Learning)"],
+      "related": ["学習(Training)", "機械学習(Machine Learning)", "過学習(Overfitting)", "バイアス(Bias)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -314,6 +314,46 @@
       "related": ["推論(Inference)", "パラメータ(Parameters)"],
       "level": 0,
       "updated": "2026-07-27"
+    },
+    {
+      "term": "人工知能(AI)",
+      "category": "基礎概念",
+      "description": "コンピュータに人間のような知的な処理(学習・推論・判断など)をさせようとする技術分野全体を指す言葉。機械学習や生成AI、LLMなどはすべてAIという大きな傘の下にある一分野・一手法にあたる。日常会話では「AI」と「LLM」がほぼ同じ意味で使われることもあるが、本来AIはもっと広い概念。",
+      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM"],
+      "level": 0,
+      "updated": "2026-07-30"
+    },
+    {
+      "term": "自然言語処理(NLP)",
+      "category": "基礎概念",
+      "description": "コンピュータに人間の言葉(文章や会話)を処理・理解・生成させる技術分野。機械翻訳や文章の要約などLLMが登場する以前から研究されてきた分野で、現在のLLMは自然言語処理を大きく進歩させた成果の一つと言える。",
+      "related": ["LLM", "機械学習(Machine Learning)"],
+      "level": 0,
+      "updated": "2026-07-30"
+    },
+    {
+      "term": "過学習(Overfitting)",
+      "category": "基礎概念",
+      "description": "学習データの細かい特徴やノイズまで覚えすぎてしまい、未知の新しいデータへの対応力(汎化性能)が下がってしまう現象。過去問の答えを丸暗記して、少し形式が変わった新しい問題には対応できなくなる状況に似ている。",
+      "related": ["学習(Training)", "データセット(Dataset)"],
+      "level": 0,
+      "updated": "2026-07-30"
+    },
+    {
+      "term": "バイアス(Bias)",
+      "category": "基礎概念",
+      "description": "学習データの偏りなどが原因で、AIの判断や出力に不公平・偏った傾向が生じてしまうこと。学習データに偏りがあれば、その偏りがAIの回答や判断にもそのまま反映されやすい。",
+      "related": ["データセット(Dataset)", "学習(Training)"],
+      "level": 0,
+      "updated": "2026-07-30"
+    },
+    {
+      "term": "ファウンデーションモデル(Foundation Model)",
+      "category": "基礎概念",
+      "description": "大量のデータを使って汎用的に学習された、様々な用途への土台となる大規模モデル。GPTやClaudeなどのLLMはファウンデーションモデルの代表例で、そこからファインチューニングやプロンプトによって特定の用途向けに調整して使われることが多い。",
+      "related": ["モデル", "LLM", "ファインチューニング"],
+      "level": 0,
+      "updated": "2026-07-30"
     }
   ]
 }
