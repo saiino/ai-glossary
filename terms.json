@@ -8,14 +8,14 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-07-30"
+    "last_updated": "2026-08-06"
   },
   "terms": [
     {
       "term": "LLM",
       "category": "基礎概念",
       "description": "大規模言語モデル。大量のテキストで学習し、文章の生成・理解を行うAIモデルの総称。ClaudeやGPTなどが該当。",
-      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)"],
+      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "RLHF", "AGI(汎用人工知能)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -39,7 +39,7 @@
       "term": "ファインチューニング",
       "category": "技術・手法",
       "description": "学習済みモデルに追加データで再学習を行い、特定タスクや文体に適応させる手法。新卒研修を終えた社員に配属先の専門研修を受けさせるイメージで、モデルの中身(重み)自体が書き換わる点がプロンプトやRAGとの違い。知識の追加はRAG、文体や振る舞いの調整はファインチューニング、と使い分ける。",
-      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)"],
+      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)", "RLHF"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -279,7 +279,7 @@
       "term": "機械学習(Machine Learning)",
       "category": "基礎概念",
       "description": "コンピュータが明示的なルールを人が細かく書かなくても、大量のデータからパターンを学び取り、判断や予測を行えるようにする技術分野。AI(人工知能)という大きな概念の中の一分野であり、ニューラルネットワークやディープラーニングは機械学習をさらに具体化した手法にあたる。",
-      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)"],
+      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)", "AGI(汎用人工知能)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -287,7 +287,7 @@
       "term": "データセット(Dataset)",
       "category": "基礎概念",
       "description": "AIモデルを学習させたり性能を評価したりするために使われる、データのまとまり。文章・画像・音声など内容は用途によって様々で、その質と量がモデルの性能を大きく左右する。",
-      "related": ["学習(Training)", "機械学習(Machine Learning)", "過学習(Overfitting)", "バイアス(Bias)"],
+      "related": ["学習(Training)", "機械学習(Machine Learning)", "過学習(Overfitting)", "バイアス(Bias)", "教師あり学習(Supervised Learning)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -319,7 +319,7 @@
       "term": "人工知能(AI)",
       "category": "基礎概念",
       "description": "コンピュータに人間のような知的な処理(学習・推論・判断など)をさせようとする技術分野全体を指す言葉。機械学習や生成AI、LLMなどはすべてAIという大きな傘の下にある一分野・一手法にあたる。日常会話では「AI」と「LLM」がほぼ同じ意味で使われることもあるが、本来AIはもっと広い概念。",
-      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM"],
+      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM", "AGI(汎用人工知能)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -354,6 +354,46 @@
       "related": ["モデル", "LLM", "ファインチューニング"],
       "level": 0,
       "updated": "2026-07-30"
+    },
+    {
+      "term": "教師あり学習(Supervised Learning)",
+      "category": "基礎概念",
+      "description": "入力データと正解ラベルのペアをAIに大量に与えて学習させる機械学習の手法。例えば「猫の写真」と「猫」というラベルの組を大量に見せることで、新しい写真が猫かどうかを判定できるようになる。画像分類やスパム判定など、正解が明確なタスクに広く使われる。",
+      "related": ["機械学習(Machine Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)", "データセット(Dataset)"],
+      "level": 0,
+      "updated": "2026-08-06"
+    },
+    {
+      "term": "教師なし学習(Unsupervised Learning)",
+      "category": "基礎概念",
+      "description": "正解ラベルのないデータから、AIが自らパターンや構造を見つけ出す機械学習の手法。似たデータをグループ分けする「クラスタリング」などが代表例で、大量の顧客データから似た傾向のグループを自動抽出する、といった用途に使われる。",
+      "related": ["機械学習(Machine Learning)", "教師あり学習(Supervised Learning)", "強化学習(Reinforcement Learning)"],
+      "level": 0,
+      "updated": "2026-08-06"
+    },
+    {
+      "term": "強化学習(Reinforcement Learning)",
+      "category": "基礎概念",
+      "description": "AI(エージェント)が試行錯誤を繰り返しながら、得られる「報酬」が最大になるように行動を学習していく機械学習の手法。ゲームで高得点を目指してプレイを繰り返すうちに上達していくイメージに近い。近年ではLLMの調整(RLHF)にも応用されている。",
+      "related": ["機械学習(Machine Learning)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "RLHF"],
+      "level": 0,
+      "updated": "2026-08-06"
+    },
+    {
+      "term": "RLHF",
+      "category": "技術・手法",
+      "description": "Reinforcement Learning from Human Feedback(人間のフィードバックによる強化学習)。AIが生成した複数の回答に人間が良し悪しの評価をつけ、その評価を報酬としてモデルを調整する手法。より人間の好みや安全性の基準に沿った回答をするようにLLMを仕上げる際によく使われる。",
+      "related": ["強化学習(Reinforcement Learning)", "ファインチューニング", "LLM"],
+      "level": 0,
+      "updated": "2026-08-06"
+    },
+    {
+      "term": "AGI(汎用人工知能)",
+      "category": "基礎概念",
+      "description": "Artificial General Intelligence。特定のタスクに特化せず、人間のようにあらゆる知的タスクをこなせる汎用的なAIを指す概念。現在実用化されているLLMなどの多くは特定領域が得意な「特化型AI」であり、AGIはまだ実現していない将来的な目標として語られることが多い。",
+      "related": ["人工知能(AI)", "LLM", "機械学習(Machine Learning)"],
+      "level": 0,
+      "updated": "2026-08-06"
     }
   ]
 }
