@@ -8,7 +8,7 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-07-30"
+    "last_updated": "2026-08-10"
   },
   "terms": [
     {
@@ -103,7 +103,7 @@
       "term": "モデル",
       "category": "基礎概念",
       "description": "AIの本体となる学習済みプログラムで、入力を受け取って出力を返す「頭脳」の部分。GPTやClaudeがこれにあたる。ChatGPTのようなアプリ(製品)や、開発基盤であるプラットフォームとは区別される。なお「プログラム」といっても、if文のようなルールやデータベースが入っているわけではない。実体は学習で得た膨大な数値(パラメータ)の塊で、「ここまでの文章の次に来る単語」を予測する計算をひたすら繰り返しているだけ。知識も文体もすべてこの数値の中に溶けている。そのため、モデルを更新するとはこの数値を書き換えること(=ファインチューニング)を指す。",
-      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)"],
+      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)", "Gemini"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -127,7 +127,7 @@
       "term": "エージェント",
       "category": "基礎概念",
       "description": "質問に答えるだけでなく、目標に向かってツール(検索・ファイル操作・コード実行など)を自分で使い、複数ステップの作業を自律的に進めるAIの仕組み。LLMを「頭脳」として、手足となるツールを組み合わせて動く。",
-      "related": ["LLM", "MCP", "Agent Skills"],
+      "related": ["LLM", "MCP", "Agent Skills", "強化学習(Reinforcement Learning)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -135,7 +135,7 @@
       "term": "GPT",
       "category": "モデル",
       "description": "OpenAI社が開発するLLM(モデル)のシリーズ名。ChatGPTという「アプリ」の中で使われている「頭脳」にあたる。車で例えるとGPTがエンジン、ChatGPTが車全体。",
-      "related": ["ChatGPT", "Copilot", "モデル", "LLM", "Azure AI Foundry"],
+      "related": ["ChatGPT", "Copilot", "モデル", "LLM", "Azure AI Foundry", "Gemini"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -151,7 +151,7 @@
       "term": "Claude",
       "category": "モデル",
       "description": "Anthropic社が開発するLLM(モデル)のファミリー名。OpenAIにおけるGPTに相当する位置づけで、性能・用途別にFable、Opus、Sonnet、Haikuなどのグレードがある。",
-      "related": ["モデル", "LLM", "Sonnet", "Opus", "Fable", "Azure AI Foundry"],
+      "related": ["モデル", "LLM", "Sonnet", "Opus", "Fable", "Azure AI Foundry", "Gemini"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -279,7 +279,7 @@
       "term": "機械学習(Machine Learning)",
       "category": "基礎概念",
       "description": "コンピュータが明示的なルールを人が細かく書かなくても、大量のデータからパターンを学び取り、判断や予測を行えるようにする技術分野。AI(人工知能)という大きな概念の中の一分野であり、ニューラルネットワークやディープラーニングは機械学習をさらに具体化した手法にあたる。",
-      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)"],
+      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -319,7 +319,7 @@
       "term": "人工知能(AI)",
       "category": "基礎概念",
       "description": "コンピュータに人間のような知的な処理(学習・推論・判断など)をさせようとする技術分野全体を指す言葉。機械学習や生成AI、LLMなどはすべてAIという大きな傘の下にある一分野・一手法にあたる。日常会話では「AI」と「LLM」がほぼ同じ意味で使われることもあるが、本来AIはもっと広い概念。",
-      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM"],
+      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM", "汎用人工知能(AGI)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -354,6 +354,46 @@
       "related": ["モデル", "LLM", "ファインチューニング"],
       "level": 0,
       "updated": "2026-07-30"
+    },
+    {
+      "term": "汎用人工知能(AGI)",
+      "category": "基礎概念",
+      "description": "AGI(Artificial General Intelligence)とは、特定の作業に限らず人間のように幅広い分野で自ら考え、学習し、対応できるAIを指す概念。現在広く使われているLLMなどのAIは特定の得意分野に強い「特化型AI」であり、AGIはまだ実現していない将来的な目標として研究・議論されている。",
+      "related": ["人工知能(AI)"],
+      "level": 0,
+      "updated": "2026-08-10"
+    },
+    {
+      "term": "教師あり学習(Supervised Learning)",
+      "category": "技術・手法",
+      "description": "正解のラベルが付いたデータ(問題と模範解答のセット)を使って、入力から正しい出力を予測できるようにモデルを訓練する機械学習の手法。過去問と模範解答を見ながら勉強するイメージに近く、画像分類やスパム判定など幅広いタスクで使われる代表的な学習方式。",
+      "related": ["機械学習(Machine Learning)", "教師なし学習(Unsupervised Learning)"],
+      "level": 0,
+      "updated": "2026-08-10"
+    },
+    {
+      "term": "教師なし学習(Unsupervised Learning)",
+      "category": "技術・手法",
+      "description": "正解のラベルが付いていないデータから、AIが自らパターンやグループ分けを見つけ出す機械学習の手法。答えを教えずに大量のデータを渡し、似たもの同士をグループ分けさせるイメージに近く、データの傾向分析やクラスタリングに使われる。",
+      "related": ["機械学習(Machine Learning)", "教師あり学習(Supervised Learning)"],
+      "level": 0,
+      "updated": "2026-08-10"
+    },
+    {
+      "term": "強化学習(Reinforcement Learning)",
+      "category": "技術・手法",
+      "description": "試行錯誤を繰り返しながら、報酬(良い結果へのご褒美)が最大になるような行動をAIに学習させる手法。ゲームで得点を稼ぐ方法を繰り返しプレイして覚えていくイメージに近く、囲碁AIなどのほか、LLMを人の好みに合わせて調整する手法にも応用されている。",
+      "related": ["機械学習(Machine Learning)", "エージェント"],
+      "level": 0,
+      "updated": "2026-08-10"
+    },
+    {
+      "term": "Gemini",
+      "category": "モデル",
+      "description": "Google社が開発するLLM(モデル)のファミリー名。OpenAIのGPT、AnthropicのClaudeと並ぶ代表的なモデルファミリーの一つで、テキストだけでなく画像や音声なども扱えるマルチモーダル性を重視して開発されている。",
+      "related": ["GPT", "Claude", "モデル"],
+      "level": 0,
+      "updated": "2026-08-10"
     }
   ]
 }
