@@ -8,14 +8,14 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-03"
+    "last_updated": "2026-08-17"
   },
   "terms": [
     {
       "term": "LLM",
       "category": "基礎概念",
       "description": "大規模言語モデル。大量のテキストで学習し、文章の生成・理解を行うAIモデルの総称。ClaudeやGPTなどが該当。",
-      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF"],
+      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "AGI(汎用人工知能)", "ゼロショット学習(Zero-shot Learning)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -23,7 +23,7 @@
       "term": "プロンプト",
       "category": "基礎概念",
       "description": "AIモデルへの入力・指示文。書き方によって出力品質が大きく変わる。",
-      "related": ["LLM", "コンテキストウィンドウ", "プロンプトエンジニアリング(Prompt Engineering)", "システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)"],
+      "related": ["LLM", "コンテキストウィンドウ", "プロンプトエンジニアリング(Prompt Engineering)", "システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)", "ゼロショット学習(Zero-shot Learning)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -47,7 +47,7 @@
       "term": "MCP",
       "category": "技術・手法",
       "description": "Model Context Protocol。AIモデルと外部ツール・データソースを接続するためのオープンなプロトコル。Claudeのコネクタの基盤技術。",
-      "related": ["Agent Skills", "エージェント"],
+      "related": ["Agent Skills", "エージェント", "Function Calling(ツール呼び出し)"],
       "level": 1,
       "updated": "2026-07-12"
     },
@@ -119,7 +119,7 @@
       "term": "API",
       "category": "基礎概念",
       "description": "Application Programming Interface。プログラムから機能を呼び出すための「窓口」。AIの文脈では、ChatGPTのような画面を使わず、自分のアプリからモデルを直接呼び出して利用する手段を指すことが多い。",
-      "related": ["モデル", "プラットフォーム"],
+      "related": ["モデル", "プラットフォーム", "Function Calling(ツール呼び出し)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -127,7 +127,7 @@
       "term": "エージェント",
       "category": "基礎概念",
       "description": "質問に答えるだけでなく、目標に向かってツール(検索・ファイル操作・コード実行など)を自分で使い、複数ステップの作業を自律的に進めるAIの仕組み。LLMを「頭脳」として、手足となるツールを組み合わせて動く。",
-      "related": ["LLM", "MCP", "Agent Skills", "チャットボット(Chatbot)"],
+      "related": ["LLM", "MCP", "Agent Skills", "チャットボット(Chatbot)", "Function Calling(ツール呼び出し)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -199,7 +199,7 @@
       "term": "生成AI(Generative AI)",
       "category": "基礎概念",
       "description": "文章・画像・音声・コードなど、新しいコンテンツを生み出すことができるAIの総称。従来の「分類する」「予測する」AIと違い、ゼロから何かを作り出す点が特徴。ChatGPTのような文章生成AIや画像生成AIが代表例で、LLMは生成AIのうちテキストに特化したものにあたる。",
-      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)", "人工知能(AI)"],
+      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)", "人工知能(AI)", "拡散モデル(Diffusion Model)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -207,7 +207,7 @@
       "term": "ニューラルネットワーク(Neural Network)",
       "category": "技術・手法",
       "description": "人間の脳の神経細胞(ニューロン)のつながりを模したAIの計算モデル。多数の小さな計算ユニットを層状につなぎ、大量のデータからパターンを学習する。現在の主要なAIモデルのほとんどがこの仕組みを基礎にしている。",
-      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "学習(Training)", "パラメータ(Parameters)", "機械学習(Machine Learning)"],
+      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "学習(Training)", "パラメータ(Parameters)", "機械学習(Machine Learning)", "拡散モデル(Diffusion Model)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -239,7 +239,7 @@
       "term": "学習(Training)",
       "category": "基礎概念",
       "description": "モデルに大量のデータを与えて、パターンやルールを内部のパラメータとして覚え込ませる段階。ソフトウェアでいえば開発・ビルドにあたり、時間と計算資源を大量に使うがリリース前の一度きりで済む。ここでパラメータが書き換わる点が、対になる概念である推論との決定的な違い。",
-      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU", "過学習(Overfitting)", "バイアス(Bias)", "RLHF"],
+      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU", "過学習(Overfitting)", "バイアス(Bias)", "RLHF", "アライメント(Alignment)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -319,7 +319,7 @@
       "term": "人工知能(AI)",
       "category": "基礎概念",
       "description": "コンピュータに人間のような知的な処理(学習・推論・判断など)をさせようとする技術分野全体を指す言葉。機械学習や生成AI、LLMなどはすべてAIという大きな傘の下にある一分野・一手法にあたる。日常会話では「AI」と「LLM」がほぼ同じ意味で使われることもあるが、本来AIはもっと広い概念。",
-      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM"],
+      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM", "AGI(汎用人工知能)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -383,7 +383,7 @@
       "term": "RLHF",
       "category": "技術・手法",
       "description": "Reinforcement Learning from Human Feedback。人間がAIの出力に良し悪しの評価をつけ、その評価を報酬として強化学習を行うことで、AIの回答をより人間にとって好ましいものへ調整していく手法。対話AIが自然で有用な受け答えをするように調整する際によく使われている。",
-      "related": ["強化学習(Reinforcement Learning)", "学習(Training)", "LLM"],
+      "related": ["強化学習(Reinforcement Learning)", "学習(Training)", "LLM", "アライメント(Alignment)"],
       "level": 0,
       "updated": "2026-08-03"
     },
@@ -394,6 +394,46 @@
       "related": ["LLM", "ChatGPT", "Claude", "エージェント"],
       "level": 0,
       "updated": "2026-08-03"
+    },
+    {
+      "term": "AGI(汎用人工知能)",
+      "category": "基礎概念",
+      "description": "特定の作業だけでなく、人間のようにあらゆる分野の課題に柔軟に対応できる、汎用的な知能を持つAIという概念。現在広く使われているLLMなどのAIは特定の領域が得意な「特化型AI」であり、AGIはまだ実現していない将来的な目標として語られることが多い。",
+      "related": ["人工知能(AI)", "LLM"],
+      "level": 0,
+      "updated": "2026-08-17"
+    },
+    {
+      "term": "アライメント(Alignment)",
+      "category": "基礎概念",
+      "description": "AIの出力や振る舞いを、人間の意図や価値観、安全性の基準に沿うように調整すること。有害な回答を避けたり、指示に忠実に従わせたりするための取り組み全般を指し、RLHFはアライメントを実現する代表的な手法の一つ。",
+      "related": ["RLHF", "学習(Training)"],
+      "level": 0,
+      "updated": "2026-08-17"
+    },
+    {
+      "term": "ゼロショット学習(Zero-shot Learning)",
+      "category": "技術・手法",
+      "description": "具体的な例を一つも示さずに、指示や説明だけでAIに未経験のタスクをこなさせる手法。LLMに何かをお願いする際、お手本となる例を示さずに指示だけで実行させる「ゼロショットプロンプティング」が代表例。対して、いくつかの例を示してから実行させる手法はフューショット学習と呼ばれる。",
+      "related": ["プロンプト", "LLM"],
+      "level": 0,
+      "updated": "2026-08-17"
+    },
+    {
+      "term": "Function Calling(ツール呼び出し)",
+      "category": "技術・手法",
+      "description": "LLMが会話の途中で外部の関数やAPI、ツールを呼び出せるようにする仕組み。天気を調べる、計算する、データベースを検索するといった、AI単体では不得意・不可能な処理を外部ツールに任せられるようになり、MCPやエージェントを支える基盤技術の一つになっている。",
+      "related": ["MCP", "エージェント", "API"],
+      "level": 0,
+      "updated": "2026-08-17"
+    },
+    {
+      "term": "拡散モデル(Diffusion Model)",
+      "category": "技術・手法",
+      "description": "ランダムなノイズから少しずつノイズを取り除いていくことで、画像などのコンテンツを生成するAIモデルの仕組み。Stable DiffusionやMidjourneyなど、多くの画像生成AIで採用されている代表的な技術で、文章を単語単位で生成していくLLMとは異なる仕組みで動く生成AI。",
+      "related": ["生成AI(Generative AI)", "ニューラルネットワーク(Neural Network)"],
+      "level": 0,
+      "updated": "2026-08-17"
     }
   ]
 }
