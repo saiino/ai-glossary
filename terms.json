@@ -8,7 +8,7 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-03"
+    "last_updated": "2026-08-13"
   },
   "terms": [
     {
@@ -23,7 +23,7 @@
       "term": "プロンプト",
       "category": "基礎概念",
       "description": "AIモデルへの入力・指示文。書き方によって出力品質が大きく変わる。",
-      "related": ["LLM", "コンテキストウィンドウ", "プロンプトエンジニアリング(Prompt Engineering)", "システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)"],
+      "related": ["LLM", "コンテキストウィンドウ", "プロンプトエンジニアリング(Prompt Engineering)", "システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)", "思考の連鎖(Chain of Thought)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -31,7 +31,7 @@
       "term": "RAG",
       "category": "技術・手法",
       "description": "Retrieval-Augmented Generation。外部の文書やデータベースを検索して、その結果を根拠にAIが回答を生成する仕組み。ハルシネーション対策の代表的手法。",
-      "related": ["埋め込み(Embedding)", "ハルシネーション", "ファインチューニング"],
+      "related": ["埋め込み(Embedding)", "ハルシネーション", "ファインチューニング", "ベクトルデータベース(Vector Database)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -39,7 +39,7 @@
       "term": "ファインチューニング",
       "category": "技術・手法",
       "description": "学習済みモデルに追加データで再学習を行い、特定タスクや文体に適応させる手法。新卒研修を終えた社員に配属先の専門研修を受けさせるイメージで、モデルの中身(重み)自体が書き換わる点がプロンプトやRAGとの違い。知識の追加はRAG、文体や振る舞いの調整はファインチューニング、と使い分ける。",
-      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)"],
+      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)", "転移学習(Transfer Learning)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -47,7 +47,7 @@
       "term": "MCP",
       "category": "技術・手法",
       "description": "Model Context Protocol。AIモデルと外部ツール・データソースを接続するためのオープンなプロトコル。Claudeのコネクタの基盤技術。",
-      "related": ["Agent Skills", "エージェント"],
+      "related": ["Agent Skills", "エージェント", "関数呼び出し(Function Calling)"],
       "level": 1,
       "updated": "2026-07-12"
     },
@@ -79,7 +79,7 @@
       "term": "トークン",
       "category": "基礎概念",
       "description": "AIがテキストを処理する最小単位。日本語では1文字が1〜2トークン程度になることが多い。API課金の単位でもある。",
-      "related": ["LLM", "コンテキストウィンドウ", "推論(Inference)"],
+      "related": ["LLM", "コンテキストウィンドウ", "推論(Inference)", "トークナイザー(Tokenizer)"],
       "level": 1,
       "updated": "2026-07-12"
     },
@@ -95,7 +95,7 @@
       "term": "埋め込み(Embedding)",
       "category": "技術・手法",
       "description": "テキストを数値ベクトルに変換したもの。意味の近さをベクトルの距離として計算でき、検索やRAGの基盤となる。",
-      "related": ["RAG"],
+      "related": ["RAG", "ベクトルデータベース(Vector Database)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -127,7 +127,7 @@
       "term": "エージェント",
       "category": "基礎概念",
       "description": "質問に答えるだけでなく、目標に向かってツール(検索・ファイル操作・コード実行など)を自分で使い、複数ステップの作業を自律的に進めるAIの仕組み。LLMを「頭脳」として、手足となるツールを組み合わせて動く。",
-      "related": ["LLM", "MCP", "Agent Skills", "チャットボット(Chatbot)"],
+      "related": ["LLM", "MCP", "Agent Skills", "チャットボット(Chatbot)", "関数呼び出し(Function Calling)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -231,7 +231,7 @@
       "term": "推論(Inference)",
       "category": "基礎概念",
       "description": "学習済みのモデルに実際の入力を与えて、答えを出させる段階。ソフトウェアでいえば本番運用にあたり、ChatGPTに質問して回答を得る操作はすべて推論。学習と違ってパラメータは一切変わらず1回あたりは軽量だが、使われるたびに永久に発生するため、コストが問題になりやすいのはこちら。",
-      "related": ["LLM", "トークン", "学習(Training)", "GPU", "温度(Temperature)"],
+      "related": ["LLM", "トークン", "学習(Training)", "GPU", "温度(Temperature)", "思考の連鎖(Chain of Thought)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -279,7 +279,7 @@
       "term": "機械学習(Machine Learning)",
       "category": "基礎概念",
       "description": "コンピュータが明示的なルールを人が細かく書かなくても、大量のデータからパターンを学び取り、判断や予測を行えるようにする技術分野。AI(人工知能)という大きな概念の中の一分野であり、ニューラルネットワークやディープラーニングは機械学習をさらに具体化した手法にあたる。",
-      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)"],
+      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)", "転移学習(Transfer Learning)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -394,6 +394,46 @@
       "related": ["LLM", "ChatGPT", "Claude", "エージェント"],
       "level": 0,
       "updated": "2026-08-03"
+    },
+    {
+      "term": "トークナイザー(Tokenizer)",
+      "category": "技術・手法",
+      "description": "文章をトークン(AIが処理する最小単位)に分割する変換ツール。人間が読む文章を、AIが計算できる数値の並びに変換する「翻訳者」のような役割を持つ。同じ文章でもトークナイザーの種類によって分割のされ方やトークン数が変わることがある。",
+      "related": ["トークン"],
+      "level": 0,
+      "updated": "2026-08-13"
+    },
+    {
+      "term": "ベクトルデータベース(Vector Database)",
+      "category": "技術・手法",
+      "description": "埋め込み(数値ベクトルに変換されたデータ)を大量に保存し、意味が近いものを高速に検索できるようにしたデータベース。RAGでAIが参照する文書を探す際の索引として使われることが多い。大量の蔵書から関連する本をすぐに見つけ出す、図書館の索引カードのような役割を果たす。",
+      "related": ["埋め込み(Embedding)", "RAG"],
+      "level": 0,
+      "updated": "2026-08-13"
+    },
+    {
+      "term": "思考の連鎖(Chain of Thought)",
+      "category": "技術・手法",
+      "description": "AIに最終的な答えだけでなく、そこに至るまでの考え方を順序立てて出力させることで、複雑な問題の正答率を高めるプロンプトの工夫。「CoT」とも呼ばれ、暗算ではなく途中式を書きながら計算する様子に似ている。",
+      "related": ["プロンプト", "推論(Inference)"],
+      "level": 0,
+      "updated": "2026-08-13"
+    },
+    {
+      "term": "転移学習(Transfer Learning)",
+      "category": "基礎概念",
+      "description": "あるタスクで学習した知識を土台にして、別の関連するタスクの学習に活用する機械学習の手法。例えば大量の文章で言語の基礎を学んだモデルは、その知識を活かして特定分野の学習を効率よく進められる。ファインチューニングは転移学習の代表的な実践方法の一つ。",
+      "related": ["機械学習(Machine Learning)", "ファインチューニング"],
+      "level": 0,
+      "updated": "2026-08-13"
+    },
+    {
+      "term": "関数呼び出し(Function Calling)",
+      "category": "技術・手法",
+      "description": "AIが会話の中で「どの関数(ツール)を、どんな引数で呼び出したいか」を構造化された形式で示し、外部の処理を実行させる仕組み。エージェントがツールを使って作業を進める際の土台となる技術で、MCPのような外部接続の仕組みと組み合わせて使われることが多い。",
+      "related": ["エージェント", "MCP"],
+      "level": 0,
+      "updated": "2026-08-13"
     }
   ]
 }
