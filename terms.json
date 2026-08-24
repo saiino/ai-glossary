@@ -8,14 +8,14 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-13"
+    "last_updated": "2026-08-24"
   },
   "terms": [
     {
       "term": "LLM",
       "category": "基礎概念",
       "description": "大規模言語モデル。大量のテキストで学習し、文章の生成・理解を行うAIモデルの総称。ClaudeやGPTなどが該当。",
-      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF"],
+      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "汎用人工知能(AGI)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -23,7 +23,7 @@
       "term": "プロンプト",
       "category": "基礎概念",
       "description": "AIモデルへの入力・指示文。書き方によって出力品質が大きく変わる。",
-      "related": ["LLM", "コンテキストウィンドウ", "プロンプトエンジニアリング(Prompt Engineering)", "システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)", "思考の連鎖(Chain of Thought)"],
+      "related": ["LLM", "コンテキストウィンドウ", "プロンプトエンジニアリング(Prompt Engineering)", "システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)", "思考の連鎖(Chain of Thought)", "ゼロショット学習(Zero-shot Learning)", "フューショット学習(Few-shot Learning)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -63,7 +63,7 @@
       "term": "ハルシネーション",
       "category": "基礎概念",
       "description": "AIが事実と異なる内容をもっともらしく生成してしまう現象。",
-      "related": ["LLM", "RAG"],
+      "related": ["LLM", "RAG", "ガードレール(Guardrails)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -199,7 +199,7 @@
       "term": "生成AI(Generative AI)",
       "category": "基礎概念",
       "description": "文章・画像・音声・コードなど、新しいコンテンツを生み出すことができるAIの総称。従来の「分類する」「予測する」AIと違い、ゼロから何かを作り出す点が特徴。ChatGPTのような文章生成AIや画像生成AIが代表例で、LLMは生成AIのうちテキストに特化したものにあたる。",
-      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)", "人工知能(AI)"],
+      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)", "人工知能(AI)", "拡散モデル(Diffusion Model)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -207,7 +207,7 @@
       "term": "ニューラルネットワーク(Neural Network)",
       "category": "技術・手法",
       "description": "人間の脳の神経細胞(ニューロン)のつながりを模したAIの計算モデル。多数の小さな計算ユニットを層状につなぎ、大量のデータからパターンを学習する。現在の主要なAIモデルのほとんどがこの仕組みを基礎にしている。",
-      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "学習(Training)", "パラメータ(Parameters)", "機械学習(Machine Learning)"],
+      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "学習(Training)", "パラメータ(Parameters)", "機械学習(Machine Learning)", "拡散モデル(Diffusion Model)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -271,7 +271,7 @@
       "term": "システムプロンプト(System Prompt)",
       "category": "基礎概念",
       "description": "会話の最初にAIへ与えられる、役割や振る舞いのルールを定義する特別な指示文。ユーザーからは見えないことが多く、通常のプロンプト(ユーザーの入力)より優先して扱われる。",
-      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)", "プロンプトインジェクション(Prompt Injection)"],
+      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)", "プロンプトインジェクション(Prompt Injection)", "ガードレール(Guardrails)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -279,7 +279,7 @@
       "term": "機械学習(Machine Learning)",
       "category": "基礎概念",
       "description": "コンピュータが明示的なルールを人が細かく書かなくても、大量のデータからパターンを学び取り、判断や予測を行えるようにする技術分野。AI(人工知能)という大きな概念の中の一分野であり、ニューラルネットワークやディープラーニングは機械学習をさらに具体化した手法にあたる。",
-      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)", "転移学習(Transfer Learning)"],
+      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)", "転移学習(Transfer Learning)", "ゼロショット学習(Zero-shot Learning)", "フューショット学習(Few-shot Learning)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -303,7 +303,7 @@
       "term": "プロンプトインジェクション(Prompt Injection)",
       "category": "技術・手法",
       "description": "悪意のある指示文をプロンプトや外部データに紛れ込ませ、AIに開発者が意図しない動作をさせようとする攻撃手法。信頼できない文書やWebページの内容をAIに読み込ませる際に注意が必要とされる、AI特有のセキュリティ課題の一つ。",
-      "related": ["プロンプト", "システムプロンプト(System Prompt)"],
+      "related": ["プロンプト", "システムプロンプト(System Prompt)", "ガードレール(Guardrails)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -319,7 +319,7 @@
       "term": "人工知能(AI)",
       "category": "基礎概念",
       "description": "コンピュータに人間のような知的な処理(学習・推論・判断など)をさせようとする技術分野全体を指す言葉。機械学習や生成AI、LLMなどはすべてAIという大きな傘の下にある一分野・一手法にあたる。日常会話では「AI」と「LLM」がほぼ同じ意味で使われることもあるが、本来AIはもっと広い概念。",
-      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM"],
+      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM", "汎用人工知能(AGI)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -434,6 +434,46 @@
       "related": ["エージェント", "MCP"],
       "level": 0,
       "updated": "2026-08-13"
+    },
+    {
+      "term": "汎用人工知能(AGI)",
+      "category": "基礎概念",
+      "description": "特定のタスクに限定されず、人間と同じように幅広い分野の問題を柔軟に理解・学習・遂行できるとされる、仮説的なAIの姿。現在の生成AIやLLMは特定の作業を得意とする「特化型AI」にとどまり、AGIはまだ実現していない目標として研究や議論の対象になっている。",
+      "related": ["人工知能(AI)", "LLM"],
+      "level": 0,
+      "updated": "2026-08-24"
+    },
+    {
+      "term": "ゼロショット学習(Zero-shot Learning)",
+      "category": "技術・手法",
+      "description": "AIに具体的なお手本を一つも見せず、指示や説明だけで新しいタスクをこなさせる手法。プロンプトの中で例を示さない使い方を指すことが多く、例を見せるフューショット学習と対比して語られる。",
+      "related": ["フューショット学習(Few-shot Learning)", "プロンプト", "機械学習(Machine Learning)"],
+      "level": 0,
+      "updated": "2026-08-24"
+    },
+    {
+      "term": "フューショット学習(Few-shot Learning)",
+      "category": "技術・手法",
+      "description": "AIに少数の具体例(お手本)をプロンプト内で示してから、同じパターンで新しい問題を解かせる手法。一つも例を見せないゼロショット学習に比べて、AIが意図をくみ取りやすく出力の精度が上がりやすい。",
+      "related": ["ゼロショット学習(Zero-shot Learning)", "プロンプト", "機械学習(Machine Learning)"],
+      "level": 0,
+      "updated": "2026-08-24"
+    },
+    {
+      "term": "拡散モデル(Diffusion Model)",
+      "category": "技術・手法",
+      "description": "ランダムなノイズから少しずつノイズを取り除いていく過程を学習することで、画像や音声などを新しく生み出すAIモデルの一種。画像生成AIサービスの多くがこの仕組みを土台にしている。",
+      "related": ["ニューラルネットワーク(Neural Network)", "生成AI(Generative AI)"],
+      "level": 0,
+      "updated": "2026-08-24"
+    },
+    {
+      "term": "ガードレール(Guardrails)",
+      "category": "基礎概念",
+      "description": "AIが不適切な発言や有害な出力、意図しない動作をしないように設ける制限や監視の仕組み。システムプロンプトによる制約や出力内容のチェックなど、複数の対策を組み合わせて実装されることが多い。",
+      "related": ["システムプロンプト(System Prompt)", "ハルシネーション", "プロンプトインジェクション(Prompt Injection)"],
+      "level": 0,
+      "updated": "2026-08-24"
     }
   ]
 }
