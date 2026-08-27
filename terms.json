@@ -8,14 +8,14 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-13"
+    "last_updated": "2026-08-27"
   },
   "terms": [
     {
       "term": "LLM",
       "category": "基礎概念",
       "description": "大規模言語モデル。大量のテキストで学習し、文章の生成・理解を行うAIモデルの総称。ClaudeやGPTなどが該当。",
-      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF"],
+      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "知識のカットオフ(Knowledge Cutoff)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -23,7 +23,7 @@
       "term": "プロンプト",
       "category": "基礎概念",
       "description": "AIモデルへの入力・指示文。書き方によって出力品質が大きく変わる。",
-      "related": ["LLM", "コンテキストウィンドウ", "プロンプトエンジニアリング(Prompt Engineering)", "システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)", "思考の連鎖(Chain of Thought)"],
+      "related": ["LLM", "コンテキストウィンドウ", "プロンプトエンジニアリング(Prompt Engineering)", "システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)", "思考の連鎖(Chain of Thought)", "フューショット学習(Few-shot Learning)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -103,7 +103,7 @@
       "term": "モデル",
       "category": "基礎概念",
       "description": "AIの本体となる学習済みプログラムで、入力を受け取って出力を返す「頭脳」の部分。GPTやClaudeがこれにあたる。ChatGPTのようなアプリ(製品)や、開発基盤であるプラットフォームとは区別される。なお「プログラム」といっても、if文のようなルールやデータベースが入っているわけではない。実体は学習で得た膨大な数値(パラメータ)の塊で、「ここまでの文章の次に来る単語」を予測する計算をひたすら繰り返しているだけ。知識も文体もすべてこの数値の中に溶けている。そのため、モデルを更新するとはこの数値を書き換えること(=ファインチューニング)を指す。",
-      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)"],
+      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)", "ベンチマーク(Benchmark)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -239,7 +239,7 @@
       "term": "学習(Training)",
       "category": "基礎概念",
       "description": "モデルに大量のデータを与えて、パターンやルールを内部のパラメータとして覚え込ませる段階。ソフトウェアでいえば開発・ビルドにあたり、時間と計算資源を大量に使うがリリース前の一度きりで済む。ここでパラメータが書き換わる点が、対になる概念である推論との決定的な違い。",
-      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU", "過学習(Overfitting)", "バイアス(Bias)", "RLHF"],
+      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU", "過学習(Overfitting)", "バイアス(Bias)", "RLHF", "知識のカットオフ(Knowledge Cutoff)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -255,7 +255,7 @@
       "term": "プロンプトエンジニアリング(Prompt Engineering)",
       "category": "技術・手法",
       "description": "AIモデルからより良い出力を引き出すために、プロンプト(指示文)の書き方や構成を工夫する技術。指示を明確にする、具体例を示す、役割を設定するといった手法が含まれる。",
-      "related": ["プロンプト", "システムプロンプト(System Prompt)"],
+      "related": ["プロンプト", "システムプロンプト(System Prompt)", "フューショット学習(Few-shot Learning)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -271,7 +271,7 @@
       "term": "システムプロンプト(System Prompt)",
       "category": "基礎概念",
       "description": "会話の最初にAIへ与えられる、役割や振る舞いのルールを定義する特別な指示文。ユーザーからは見えないことが多く、通常のプロンプト(ユーザーの入力)より優先して扱われる。",
-      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)", "プロンプトインジェクション(Prompt Injection)"],
+      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)", "プロンプトインジェクション(Prompt Injection)", "ガードレール(Guardrails)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -287,7 +287,7 @@
       "term": "データセット(Dataset)",
       "category": "基礎概念",
       "description": "AIモデルを学習させたり性能を評価したりするために使われる、データのまとまり。文章・画像・音声など内容は用途によって様々で、その質と量がモデルの性能を大きく左右する。",
-      "related": ["学習(Training)", "機械学習(Machine Learning)", "過学習(Overfitting)", "バイアス(Bias)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)"],
+      "related": ["学習(Training)", "機械学習(Machine Learning)", "過学習(Overfitting)", "バイアス(Bias)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "ベンチマーク(Benchmark)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -303,7 +303,7 @@
       "term": "プロンプトインジェクション(Prompt Injection)",
       "category": "技術・手法",
       "description": "悪意のある指示文をプロンプトや外部データに紛れ込ませ、AIに開発者が意図しない動作をさせようとする攻撃手法。信頼できない文書やWebページの内容をAIに読み込ませる際に注意が必要とされる、AI特有のセキュリティ課題の一つ。",
-      "related": ["プロンプト", "システムプロンプト(System Prompt)"],
+      "related": ["プロンプト", "システムプロンプト(System Prompt)", "ガードレール(Guardrails)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -319,7 +319,7 @@
       "term": "人工知能(AI)",
       "category": "基礎概念",
       "description": "コンピュータに人間のような知的な処理(学習・推論・判断など)をさせようとする技術分野全体を指す言葉。機械学習や生成AI、LLMなどはすべてAIという大きな傘の下にある一分野・一手法にあたる。日常会話では「AI」と「LLM」がほぼ同じ意味で使われることもあるが、本来AIはもっと広い概念。",
-      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM"],
+      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM", "アライメント(Alignment)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -343,7 +343,7 @@
       "term": "バイアス(Bias)",
       "category": "基礎概念",
       "description": "学習データの偏りなどが原因で、AIの判断や出力に不公平・偏った傾向が生じてしまうこと。学習データに偏りがあれば、その偏りがAIの回答や判断にもそのまま反映されやすい。",
-      "related": ["データセット(Dataset)", "学習(Training)"],
+      "related": ["データセット(Dataset)", "学習(Training)", "アライメント(Alignment)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -383,7 +383,7 @@
       "term": "RLHF",
       "category": "技術・手法",
       "description": "Reinforcement Learning from Human Feedback。人間がAIの出力に良し悪しの評価をつけ、その評価を報酬として強化学習を行うことで、AIの回答をより人間にとって好ましいものへ調整していく手法。対話AIが自然で有用な受け答えをするように調整する際によく使われている。",
-      "related": ["強化学習(Reinforcement Learning)", "学習(Training)", "LLM"],
+      "related": ["強化学習(Reinforcement Learning)", "学習(Training)", "LLM", "アライメント(Alignment)"],
       "level": 0,
       "updated": "2026-08-03"
     },
@@ -415,7 +415,7 @@
       "term": "思考の連鎖(Chain of Thought)",
       "category": "技術・手法",
       "description": "AIに最終的な答えだけでなく、そこに至るまでの考え方を順序立てて出力させることで、複雑な問題の正答率を高めるプロンプトの工夫。「CoT」とも呼ばれ、暗算ではなく途中式を書きながら計算する様子に似ている。",
-      "related": ["プロンプト", "推論(Inference)"],
+      "related": ["プロンプト", "推論(Inference)", "フューショット学習(Few-shot Learning)"],
       "level": 0,
       "updated": "2026-08-13"
     },
@@ -434,6 +434,46 @@
       "related": ["エージェント", "MCP"],
       "level": 0,
       "updated": "2026-08-13"
+    },
+    {
+      "term": "アライメント(Alignment)",
+      "category": "基礎概念",
+      "description": "AIの出力や行動を、人間の意図や価値観、安全性の基準に沿うように調整すること。単に賢いだけでなく、有用で害のない振る舞いをするようにモデルを訓練する取り組み全体を指す。RLHFはアライメントを実現するための代表的な手法の一つ。",
+      "related": ["RLHF", "バイアス(Bias)", "人工知能(AI)", "ガードレール(Guardrails)"],
+      "level": 0,
+      "updated": "2026-08-27"
+    },
+    {
+      "term": "知識のカットオフ(Knowledge Cutoff)",
+      "category": "基礎概念",
+      "description": "AIモデルが学習データとして参照した情報の最終時点のこと。この時点より後に起きた出来事について、モデルは基本的に知らない。「このAIの知識は◯◯年◯月までです」といった説明で登場することが多い概念。",
+      "related": ["LLM", "学習(Training)"],
+      "level": 0,
+      "updated": "2026-08-27"
+    },
+    {
+      "term": "フューショット学習(Few-shot Learning)",
+      "category": "技術・手法",
+      "description": "プロンプトの中にいくつかの入力と出力の例を示すことで、追加の学習(ファインチューニング)なしにAIへ望む回答パターンを理解させる手法。例を一つも示さない場合は「ゼロショット」、一つだけ示す場合は「ワンショット」と呼ばれる。モデルの重み自体は変わらない点がファインチューニングとの違い。",
+      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)", "思考の連鎖(Chain of Thought)"],
+      "level": 0,
+      "updated": "2026-08-27"
+    },
+    {
+      "term": "ベンチマーク(Benchmark)",
+      "category": "技術・手法",
+      "description": "AIモデルの性能を測るために使われる、共通の問題セットや評価基準のこと。複数のモデルを同じベンチマークで比較することで、どのモデルがどんなタスクに強いかを客観的に判断しやすくなる。",
+      "related": ["データセット(Dataset)", "モデル"],
+      "level": 0,
+      "updated": "2026-08-27"
+    },
+    {
+      "term": "ガードレール(Guardrails)",
+      "category": "技術・手法",
+      "description": "AIが不適切な発言や危険な行動をしないよう、あらかじめ設けておく制約や安全対策のこと。システムプロンプトでの指示や、出力内容をチェックする仕組みなど、複数の方法を組み合わせて実装されることが多い。",
+      "related": ["システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)", "アライメント(Alignment)"],
+      "level": 0,
+      "updated": "2026-08-27"
     }
   ]
 }
