@@ -8,14 +8,14 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-13"
+    "last_updated": "2026-08-20"
   },
   "terms": [
     {
       "term": "LLM",
       "category": "基礎概念",
       "description": "大規模言語モデル。大量のテキストで学習し、文章の生成・理解を行うAIモデルの総称。ClaudeやGPTなどが該当。",
-      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF"],
+      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "Gemini", "汎用人工知能(AGI)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -23,7 +23,7 @@
       "term": "プロンプト",
       "category": "基礎概念",
       "description": "AIモデルへの入力・指示文。書き方によって出力品質が大きく変わる。",
-      "related": ["LLM", "コンテキストウィンドウ", "プロンプトエンジニアリング(Prompt Engineering)", "システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)", "思考の連鎖(Chain of Thought)"],
+      "related": ["LLM", "コンテキストウィンドウ", "プロンプトエンジニアリング(Prompt Engineering)", "システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)", "思考の連鎖(Chain of Thought)", "ゼロショット学習(Zero-shot Learning)", "フューショット学習(Few-shot Learning)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -39,7 +39,7 @@
       "term": "ファインチューニング",
       "category": "技術・手法",
       "description": "学習済みモデルに追加データで再学習を行い、特定タスクや文体に適応させる手法。新卒研修を終えた社員に配属先の専門研修を受けさせるイメージで、モデルの中身(重み)自体が書き換わる点がプロンプトやRAGとの違い。知識の追加はRAG、文体や振る舞いの調整はファインチューニング、と使い分ける。",
-      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)", "転移学習(Transfer Learning)"],
+      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)", "転移学習(Transfer Learning)", "オープンソースモデル(Open Source Model)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -103,7 +103,7 @@
       "term": "モデル",
       "category": "基礎概念",
       "description": "AIの本体となる学習済みプログラムで、入力を受け取って出力を返す「頭脳」の部分。GPTやClaudeがこれにあたる。ChatGPTのようなアプリ(製品)や、開発基盤であるプラットフォームとは区別される。なお「プログラム」といっても、if文のようなルールやデータベースが入っているわけではない。実体は学習で得た膨大な数値(パラメータ)の塊で、「ここまでの文章の次に来る単語」を予測する計算をひたすら繰り返しているだけ。知識も文体もすべてこの数値の中に溶けている。そのため、モデルを更新するとはこの数値を書き換えること(=ファインチューニング)を指す。",
-      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)"],
+      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)", "Gemini", "オープンソースモデル(Open Source Model)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -135,7 +135,7 @@
       "term": "GPT",
       "category": "モデル",
       "description": "OpenAI社が開発するLLM(モデル)のシリーズ名。ChatGPTという「アプリ」の中で使われている「頭脳」にあたる。車で例えるとGPTがエンジン、ChatGPTが車全体。",
-      "related": ["ChatGPT", "Copilot", "モデル", "LLM", "Azure AI Foundry"],
+      "related": ["ChatGPT", "Copilot", "モデル", "LLM", "Azure AI Foundry", "Gemini"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -151,7 +151,7 @@
       "term": "Claude",
       "category": "モデル",
       "description": "Anthropic社が開発するLLM(モデル)のファミリー名。OpenAIにおけるGPTに相当する位置づけで、性能・用途別にFable、Opus、Sonnet、Haikuなどのグレードがある。",
-      "related": ["モデル", "LLM", "Sonnet", "Opus", "Fable", "Azure AI Foundry", "チャットボット(Chatbot)"],
+      "related": ["モデル", "LLM", "Sonnet", "Opus", "Fable", "Azure AI Foundry", "チャットボット(Chatbot)", "Gemini"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -319,7 +319,7 @@
       "term": "人工知能(AI)",
       "category": "基礎概念",
       "description": "コンピュータに人間のような知的な処理(学習・推論・判断など)をさせようとする技術分野全体を指す言葉。機械学習や生成AI、LLMなどはすべてAIという大きな傘の下にある一分野・一手法にあたる。日常会話では「AI」と「LLM」がほぼ同じ意味で使われることもあるが、本来AIはもっと広い概念。",
-      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM"],
+      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM", "汎用人工知能(AGI)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -434,6 +434,46 @@
       "related": ["エージェント", "MCP"],
       "level": 0,
       "updated": "2026-08-13"
+    },
+    {
+      "term": "Gemini",
+      "category": "モデル",
+      "description": "Google社が開発するLLM(モデル)のファミリー名。ChatGPTにおけるGPT、ClaudeというアプリにおけるAnthropicのように、Googleの生成AI製品の中核となる「頭脳」にあたる。GPTやClaudeと並ぶ主要なモデルファミリーの一つ。",
+      "related": ["モデル", "LLM", "GPT", "Claude"],
+      "level": 0,
+      "updated": "2026-08-20"
+    },
+    {
+      "term": "汎用人工知能(AGI)",
+      "category": "基礎概念",
+      "description": "Artificial General Intelligence。特定のタスクに特化せず、人間のように幅広い分野で学習・推論・判断ができるとされる、まだ実現していないAIの概念。現在のLLMなどは特定用途に強みを持つ「特化型AI」であり、AGIとはしばしば区別して語られる。",
+      "related": ["人工知能(AI)", "LLM"],
+      "level": 0,
+      "updated": "2026-08-20"
+    },
+    {
+      "term": "ゼロショット学習(Zero-shot Learning)",
+      "category": "技術・手法",
+      "description": "AIに具体例を一切示さず、指示文だけでいきなりタスクを実行させる手法。あらかじめ大量のデータで学習済みのLLMは、追加の例がなくても多くのタスクにある程度対応できる。",
+      "related": ["プロンプト", "フューショット学習(Few-shot Learning)"],
+      "level": 0,
+      "updated": "2026-08-20"
+    },
+    {
+      "term": "フューショット学習(Few-shot Learning)",
+      "category": "技術・手法",
+      "description": "プロンプトの中にいくつかの入力と出力の例(お手本)を示すことで、AIに望ましい回答の形式やパターンを理解させる手法。ゼロショットより少ない手間で出力の精度を上げやすい。",
+      "related": ["プロンプト", "ゼロショット学習(Zero-shot Learning)"],
+      "level": 0,
+      "updated": "2026-08-20"
+    },
+    {
+      "term": "オープンソースモデル(Open Source Model)",
+      "category": "基礎概念",
+      "description": "モデルの中身(重みなど)が公開され、誰でも自由にダウンロード・改造・利用できるAIモデル。ChatGPTやClaudeのようにAPI経由でしか使えない「クローズドモデル」と対比される概念で、Meta社のLlamaなどが代表例。",
+      "related": ["モデル", "ファインチューニング"],
+      "level": 0,
+      "updated": "2026-08-20"
     }
   ]
 }
