@@ -8,7 +8,7 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-20"
+    "last_updated": "2026-09-03"
   },
   "terms": [
     {
@@ -199,7 +199,7 @@
       "term": "生成AI(Generative AI)",
       "category": "基礎概念",
       "description": "文章・画像・音声・コードなど、新しいコンテンツを生み出すことができるAIの総称。従来の「分類する」「予測する」AIと違い、ゼロから何かを作り出す点が特徴。ChatGPTのような文章生成AIや画像生成AIが代表例で、LLMは生成AIのうちテキストに特化したものにあたる。",
-      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)", "人工知能(AI)"],
+      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)", "人工知能(AI)", "GAN(敵対的生成ネットワーク)", "拡散モデル(Diffusion Model)", "ディープフェイク(Deepfake)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -207,7 +207,7 @@
       "term": "ニューラルネットワーク(Neural Network)",
       "category": "技術・手法",
       "description": "人間の脳の神経細胞(ニューロン)のつながりを模したAIの計算モデル。多数の小さな計算ユニットを層状につなぎ、大量のデータからパターンを学習する。現在の主要なAIモデルのほとんどがこの仕組みを基礎にしている。",
-      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "学習(Training)", "パラメータ(Parameters)", "機械学習(Machine Learning)"],
+      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "学習(Training)", "パラメータ(Parameters)", "機械学習(Machine Learning)", "コンピュータビジョン(Computer Vision)", "GAN(敵対的生成ネットワーク)", "拡散モデル(Diffusion Model)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -215,7 +215,7 @@
       "term": "ディープラーニング(Deep Learning)",
       "category": "技術・手法",
       "description": "ニューラルネットワークを何層にも重ねて深くした学習手法。層を深くすることで、画像認識や文章生成など複雑なタスクを高い精度でこなせるようになった。近年のAIの進歩を支える中心的な技術。",
-      "related": ["ニューラルネットワーク(Neural Network)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "機械学習(Machine Learning)"],
+      "related": ["ニューラルネットワーク(Neural Network)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "機械学習(Machine Learning)", "コンピュータビジョン(Computer Vision)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -247,7 +247,7 @@
       "term": "マルチモーダル(Multimodal)",
       "category": "基礎概念",
       "description": "テキストだけでなく、画像・音声・動画など複数の種類(モダリティ)の情報を同時に扱えるAIモデルの性質。近年の主要なLLMの多くがマルチモーダル化しており、画像を見せて内容について質問するといった使い方ができる。",
-      "related": ["LLM", "生成AI(Generative AI)"],
+      "related": ["LLM", "生成AI(Generative AI)", "コンピュータビジョン(Computer Vision)"],
       "level": 0,
       "updated": "2026-07-23"
     },
@@ -319,7 +319,7 @@
       "term": "人工知能(AI)",
       "category": "基礎概念",
       "description": "コンピュータに人間のような知的な処理(学習・推論・判断など)をさせようとする技術分野全体を指す言葉。機械学習や生成AI、LLMなどはすべてAIという大きな傘の下にある一分野・一手法にあたる。日常会話では「AI」と「LLM」がほぼ同じ意味で使われることもあるが、本来AIはもっと広い概念。",
-      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM", "汎用人工知能(AGI)"],
+      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM", "汎用人工知能(AGI)", "チューリングテスト(Turing Test)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -447,7 +447,7 @@
       "term": "汎用人工知能(AGI)",
       "category": "基礎概念",
       "description": "Artificial General Intelligence。特定のタスクに特化せず、人間のように幅広い分野で学習・推論・判断ができるとされる、まだ実現していないAIの概念。現在のLLMなどは特定用途に強みを持つ「特化型AI」であり、AGIとはしばしば区別して語られる。",
-      "related": ["人工知能(AI)", "LLM"],
+      "related": ["人工知能(AI)", "LLM", "チューリングテスト(Turing Test)"],
       "level": 0,
       "updated": "2026-08-20"
     },
@@ -474,6 +474,46 @@
       "related": ["モデル", "ファインチューニング"],
       "level": 0,
       "updated": "2026-08-20"
+    },
+    {
+      "term": "コンピュータビジョン(Computer Vision)",
+      "category": "技術・手法",
+      "description": "コンピュータに画像や動画の内容を認識・理解させる技術分野。写真に写っているものが何かを判定したり、顔を検出したりする用途で使われる。ディープラーニングの発展によって精度が大きく向上した分野の一つ。",
+      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "マルチモーダル(Multimodal)"],
+      "level": 0,
+      "updated": "2026-09-03"
+    },
+    {
+      "term": "チューリングテスト(Turing Test)",
+      "category": "基礎概念",
+      "description": "数学者アラン・チューリングが提案した、機械が人間のような知能を持つかを判定するための思考実験。会話相手がAIか人間か人が見分けられなければ、そのAIは知能を持つとみなす、という考え方が基本になっている。現在のLLMの受け答えの自然さを語る際にもしばしば引き合いに出される。",
+      "related": ["人工知能(AI)", "汎用人工知能(AGI)"],
+      "level": 0,
+      "updated": "2026-09-03"
+    },
+    {
+      "term": "GAN(敵対的生成ネットワーク)",
+      "category": "技術・手法",
+      "description": "Generative Adversarial Network。「生成者」と「識別者」という2つのニューラルネットワークを競わせながら学習させることで、本物そっくりのデータを作り出す生成AIの手法。画像生成AIの初期の発展を支えた技術の一つ。",
+      "related": ["ニューラルネットワーク(Neural Network)", "生成AI(Generative AI)", "拡散モデル(Diffusion Model)", "ディープフェイク(Deepfake)"],
+      "level": 0,
+      "updated": "2026-09-03"
+    },
+    {
+      "term": "拡散モデル(Diffusion Model)",
+      "category": "技術・手法",
+      "description": "データに少しずつノイズを加えて元の情報を崩し、そこから元に戻す過程を学習することで新しいデータを生成する手法。画像生成AIの多くがこの仕組みを採用しており、近年の高品質な画像生成AIの主流技術になっている。",
+      "related": ["生成AI(Generative AI)", "GAN(敵対的生成ネットワーク)", "ニューラルネットワーク(Neural Network)"],
+      "level": 0,
+      "updated": "2026-09-03"
+    },
+    {
+      "term": "ディープフェイク(Deepfake)",
+      "category": "基礎概念",
+      "description": "AI技術を使って、実在の人物の顔や声を別の映像・音声に合成し、本物のように見せかけるコンテンツやその技術のこと。エンターテインメント用途もある一方、なりすましや偽情報の拡散に悪用されるリスクが問題視されている。",
+      "related": ["生成AI(Generative AI)", "GAN(敵対的生成ネットワーク)"],
+      "level": 0,
+      "updated": "2026-09-03"
     }
   ]
 }
