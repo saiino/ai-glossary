@@ -8,7 +8,7 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-20"
+    "last_updated": "2026-09-17"
   },
   "terms": [
     {
@@ -95,7 +95,7 @@
       "term": "埋め込み(Embedding)",
       "category": "技術・手法",
       "description": "テキストを数値ベクトルに変換したもの。意味の近さをベクトルの距離として計算でき、検索やRAGの基盤となる。",
-      "related": ["RAG", "ベクトルデータベース(Vector Database)"],
+      "related": ["RAG", "ベクトルデータベース(Vector Database)", "ベクトル(Vector)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -199,7 +199,7 @@
       "term": "生成AI(Generative AI)",
       "category": "基礎概念",
       "description": "文章・画像・音声・コードなど、新しいコンテンツを生み出すことができるAIの総称。従来の「分類する」「予測する」AIと違い、ゼロから何かを作り出す点が特徴。ChatGPTのような文章生成AIや画像生成AIが代表例で、LLMは生成AIのうちテキストに特化したものにあたる。",
-      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)", "人工知能(AI)"],
+      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)", "人工知能(AI)", "拡散モデル(Diffusion Model)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -223,7 +223,7 @@
       "term": "トランスフォーマー(Transformer)",
       "category": "技術・手法",
       "description": "2017年に発表された、文章中の単語同士の関係性(どこに注目すべきか)を効率よく学習できるニューラルネットワークの構造。GPTやClaudeなど現在の主要なLLMの多くが、この構造を土台にしている。",
-      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)"],
+      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "注意機構(Attention Mechanism)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -239,7 +239,7 @@
       "term": "学習(Training)",
       "category": "基礎概念",
       "description": "モデルに大量のデータを与えて、パターンやルールを内部のパラメータとして覚え込ませる段階。ソフトウェアでいえば開発・ビルドにあたり、時間と計算資源を大量に使うがリリース前の一度きりで済む。ここでパラメータが書き換わる点が、対になる概念である推論との決定的な違い。",
-      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU", "過学習(Overfitting)", "バイアス(Bias)", "RLHF"],
+      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU", "過学習(Overfitting)", "バイアス(Bias)", "RLHF", "エポック(Epoch)", "アンダーフィッティング(Underfitting)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -335,7 +335,7 @@
       "term": "過学習(Overfitting)",
       "category": "基礎概念",
       "description": "学習データの細かい特徴やノイズまで覚えすぎてしまい、未知の新しいデータへの対応力(汎化性能)が下がってしまう現象。過去問の答えを丸暗記して、少し形式が変わった新しい問題には対応できなくなる状況に似ている。",
-      "related": ["学習(Training)", "データセット(Dataset)"],
+      "related": ["学習(Training)", "データセット(Dataset)", "アンダーフィッティング(Underfitting)", "エポック(Epoch)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -407,7 +407,7 @@
       "term": "ベクトルデータベース(Vector Database)",
       "category": "技術・手法",
       "description": "埋め込み(数値ベクトルに変換されたデータ)を大量に保存し、意味が近いものを高速に検索できるようにしたデータベース。RAGでAIが参照する文書を探す際の索引として使われることが多い。大量の蔵書から関連する本をすぐに見つけ出す、図書館の索引カードのような役割を果たす。",
-      "related": ["埋め込み(Embedding)", "RAG"],
+      "related": ["埋め込み(Embedding)", "RAG", "ベクトル(Vector)"],
       "level": 0,
       "updated": "2026-08-13"
     },
@@ -474,6 +474,46 @@
       "related": ["モデル", "ファインチューニング"],
       "level": 0,
       "updated": "2026-08-20"
+    },
+    {
+      "term": "ベクトル(Vector)",
+      "category": "基礎概念",
+      "description": "数値をいくつも並べたもの。AIでは単語や文章、画像などの意味や特徴を、この数値の並びとして表現する。似た意味を持つもの同士はベクトルが近い位置に配置され、埋め込みやベクトルデータベースの土台になっている考え方。",
+      "related": ["埋め込み(Embedding)", "ベクトルデータベース(Vector Database)"],
+      "level": 0,
+      "updated": "2026-09-17"
+    },
+    {
+      "term": "注意機構(Attention Mechanism)",
+      "category": "技術・手法",
+      "description": "文章を処理する際に、単語ごとに他のどの単語との関係を重視すべきかを計算する仕組み。会議で発言を聞きながら、話の内容に応じて重要な相手の発言に注意を向け直すイメージに近い。トランスフォーマーの中核をなす技術で、これによりLLMは離れた単語同士の関係も捉えられる。",
+      "related": ["トランスフォーマー(Transformer)"],
+      "level": 0,
+      "updated": "2026-09-17"
+    },
+    {
+      "term": "エポック(Epoch)",
+      "category": "技術・手法",
+      "description": "学習の際に、用意した学習データ全体を1周分モデルに学習させる単位。教科書を1周読み終えた回数のようなもので、何周も繰り返すことでモデルはパターンを覚えていくが、周回しすぎると過学習の原因にもなる。",
+      "related": ["学習(Training)", "過学習(Overfitting)", "アンダーフィッティング(Underfitting)"],
+      "level": 0,
+      "updated": "2026-09-17"
+    },
+    {
+      "term": "アンダーフィッティング(Underfitting)",
+      "category": "技術・手法",
+      "description": "学習が不十分で、モデルがデータの持つパターンをまだ十分に学べていない状態。過学習(覚えすぎ)とは逆に、練習量が足りずテストで実力を発揮できていないような状況にあたる。学習を続けたり、モデルの表現力を上げたりすることで改善する。",
+      "related": ["過学習(Overfitting)", "学習(Training)", "エポック(Epoch)"],
+      "level": 0,
+      "updated": "2026-09-17"
+    },
+    {
+      "term": "拡散モデル(Diffusion Model)",
+      "category": "技術・手法",
+      "description": "画像にノイズを少しずつ加えていく過程を学習し、その逆をたどってノイズから徐々に画像を作り出す生成AIの手法。画像生成AIサービスの多くがこの仕組みを土台にしている。",
+      "related": ["生成AI(Generative AI)"],
+      "level": 0,
+      "updated": "2026-09-17"
     }
   ]
 }
