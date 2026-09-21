@@ -8,7 +8,7 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-20"
+    "last_updated": "2026-09-21"
   },
   "terms": [
     {
@@ -215,7 +215,7 @@
       "term": "ディープラーニング(Deep Learning)",
       "category": "技術・手法",
       "description": "ニューラルネットワークを何層にも重ねて深くした学習手法。層を深くすることで、画像認識や文章生成など複雑なタスクを高い精度でこなせるようになった。近年のAIの進歩を支える中心的な技術。",
-      "related": ["ニューラルネットワーク(Neural Network)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "機械学習(Machine Learning)"],
+      "related": ["ニューラルネットワーク(Neural Network)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "機械学習(Machine Learning)", "コンピュータビジョン(Computer Vision)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -247,7 +247,7 @@
       "term": "マルチモーダル(Multimodal)",
       "category": "基礎概念",
       "description": "テキストだけでなく、画像・音声・動画など複数の種類(モダリティ)の情報を同時に扱えるAIモデルの性質。近年の主要なLLMの多くがマルチモーダル化しており、画像を見せて内容について質問するといった使い方ができる。",
-      "related": ["LLM", "生成AI(Generative AI)"],
+      "related": ["LLM", "生成AI(Generative AI)", "コンピュータビジョン(Computer Vision)"],
       "level": 0,
       "updated": "2026-07-23"
     },
@@ -279,7 +279,7 @@
       "term": "機械学習(Machine Learning)",
       "category": "基礎概念",
       "description": "コンピュータが明示的なルールを人が細かく書かなくても、大量のデータからパターンを学び取り、判断や予測を行えるようにする技術分野。AI(人工知能)という大きな概念の中の一分野であり、ニューラルネットワークやディープラーニングは機械学習をさらに具体化した手法にあたる。",
-      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)", "転移学習(Transfer Learning)"],
+      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)", "転移学習(Transfer Learning)", "コンピュータビジョン(Computer Vision)", "分類(Classification)", "回帰(Regression)", "特徴量(Feature)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -287,7 +287,7 @@
       "term": "データセット(Dataset)",
       "category": "基礎概念",
       "description": "AIモデルを学習させたり性能を評価したりするために使われる、データのまとまり。文章・画像・音声など内容は用途によって様々で、その質と量がモデルの性能を大きく左右する。",
-      "related": ["学習(Training)", "機械学習(Machine Learning)", "過学習(Overfitting)", "バイアス(Bias)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)"],
+      "related": ["学習(Training)", "機械学習(Machine Learning)", "過学習(Overfitting)", "バイアス(Bias)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "特徴量(Feature)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -319,7 +319,7 @@
       "term": "人工知能(AI)",
       "category": "基礎概念",
       "description": "コンピュータに人間のような知的な処理(学習・推論・判断など)をさせようとする技術分野全体を指す言葉。機械学習や生成AI、LLMなどはすべてAIという大きな傘の下にある一分野・一手法にあたる。日常会話では「AI」と「LLM」がほぼ同じ意味で使われることもあるが、本来AIはもっと広い概念。",
-      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM", "汎用人工知能(AGI)"],
+      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM", "汎用人工知能(AGI)", "チューリングテスト(Turing Test)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -327,7 +327,7 @@
       "term": "自然言語処理(NLP)",
       "category": "基礎概念",
       "description": "コンピュータに人間の言葉(文章や会話)を処理・理解・生成させる技術分野。機械翻訳や文章の要約などLLMが登場する以前から研究されてきた分野で、現在のLLMは自然言語処理を大きく進歩させた成果の一つと言える。",
-      "related": ["LLM", "機械学習(Machine Learning)"],
+      "related": ["LLM", "機械学習(Machine Learning)", "コンピュータビジョン(Computer Vision)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -359,7 +359,7 @@
       "term": "教師あり学習(Supervised Learning)",
       "category": "基礎概念",
       "description": "正解ラベル付きのデータを使って、入力と正解の対応関係をAIに学習させる機械学習の手法。例えば「猫の画像」と「猫というラベル」のペアを大量に与えて画像分類を学ばせるのが典型例。分類や回帰など、正解があらかじめ分かっているタスクでよく使われる。",
-      "related": ["機械学習(Machine Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)", "データセット(Dataset)"],
+      "related": ["機械学習(Machine Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)", "データセット(Dataset)", "分類(Classification)", "回帰(Regression)"],
       "level": 0,
       "updated": "2026-08-03"
     },
@@ -447,7 +447,7 @@
       "term": "汎用人工知能(AGI)",
       "category": "基礎概念",
       "description": "Artificial General Intelligence。特定のタスクに特化せず、人間のように幅広い分野で学習・推論・判断ができるとされる、まだ実現していないAIの概念。現在のLLMなどは特定用途に強みを持つ「特化型AI」であり、AGIとはしばしば区別して語られる。",
-      "related": ["人工知能(AI)", "LLM"],
+      "related": ["人工知能(AI)", "LLM", "チューリングテスト(Turing Test)"],
       "level": 0,
       "updated": "2026-08-20"
     },
@@ -474,6 +474,46 @@
       "related": ["モデル", "ファインチューニング"],
       "level": 0,
       "updated": "2026-08-20"
+    },
+    {
+      "term": "コンピュータビジョン(Computer Vision)",
+      "category": "基礎概念",
+      "description": "コンピュータに画像や動画の内容を理解させる技術分野。物体検出や顔認識、画像分類などが代表的なタスクで、自然言語処理(NLP)が「言葉」を扱うのに対し、コンピュータビジョンは「視覚情報」を扱う。近年はディープラーニングの発展により精度が大きく向上した。",
+      "related": ["自然言語処理(NLP)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)", "機械学習(Machine Learning)"],
+      "level": 0,
+      "updated": "2026-09-21"
+    },
+    {
+      "term": "分類(Classification)",
+      "category": "技術・手法",
+      "description": "入力されたデータが、あらかじめ決められた複数のカテゴリのうちどれに当てはまるかを予測する機械学習のタスク。メールが「迷惑メールか、そうでないか」を判定する処理などが代表例で、教師あり学習でよく使われる。",
+      "related": ["教師あり学習(Supervised Learning)", "回帰(Regression)", "機械学習(Machine Learning)", "特徴量(Feature)"],
+      "level": 0,
+      "updated": "2026-09-21"
+    },
+    {
+      "term": "回帰(Regression)",
+      "category": "技術・手法",
+      "description": "入力データから連続した数値を予測する機械学習のタスク。「部屋の広さや築年数から家賃を予測する」のように具体的な数値を答える点が、カテゴリを当てる分類(Classification)との違い。教師あり学習の代表的なタスクの一つ。",
+      "related": ["教師あり学習(Supervised Learning)", "分類(Classification)", "機械学習(Machine Learning)", "特徴量(Feature)"],
+      "level": 0,
+      "updated": "2026-09-21"
+    },
+    {
+      "term": "特徴量(Feature)",
+      "category": "基礎概念",
+      "description": "AIが予測や判断を行う際に手がかりとして使う、データの個々の性質や項目のこと。例えば家賃を予測するAIなら「広さ」「築年数」「駅からの距離」などが特徴量にあたる。どの特徴量を使うかによってモデルの性能が大きく変わる。",
+      "related": ["機械学習(Machine Learning)", "データセット(Dataset)", "分類(Classification)", "回帰(Regression)"],
+      "level": 0,
+      "updated": "2026-09-21"
+    },
+    {
+      "term": "チューリングテスト(Turing Test)",
+      "category": "基礎概念",
+      "description": "数学者アラン・チューリングが提案した、AIが人間のように「考える」ことができるかを判定するための思考実験。人間の判定者が、会話相手がAIか人間か見分けられなければ、そのAIは知能を持つとみなせる、という考え方。人工知能という分野の草創期を象徴する概念として広く知られている。",
+      "related": ["人工知能(AI)", "汎用人工知能(AGI)"],
+      "level": 0,
+      "updated": "2026-09-21"
     }
   ]
 }
