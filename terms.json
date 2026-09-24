@@ -8,7 +8,7 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-20"
+    "last_updated": "2026-09-24"
   },
   "terms": [
     {
@@ -39,7 +39,7 @@
       "term": "ファインチューニング",
       "category": "技術・手法",
       "description": "学習済みモデルに追加データで再学習を行い、特定タスクや文体に適応させる手法。新卒研修を終えた社員に配属先の専門研修を受けさせるイメージで、モデルの中身(重み)自体が書き換わる点がプロンプトやRAGとの違い。知識の追加はRAG、文体や振る舞いの調整はファインチューニング、と使い分ける。",
-      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)", "転移学習(Transfer Learning)", "オープンソースモデル(Open Source Model)"],
+      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)", "転移学習(Transfer Learning)", "オープンソースモデル(Open Source Model)", "蒸留(Distillation)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -63,7 +63,7 @@
       "term": "ハルシネーション",
       "category": "基礎概念",
       "description": "AIが事実と異なる内容をもっともらしく生成してしまう現象。",
-      "related": ["LLM", "RAG"],
+      "related": ["LLM", "RAG", "アライメント(Alignment)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -103,7 +103,7 @@
       "term": "モデル",
       "category": "基礎概念",
       "description": "AIの本体となる学習済みプログラムで、入力を受け取って出力を返す「頭脳」の部分。GPTやClaudeがこれにあたる。ChatGPTのようなアプリ(製品)や、開発基盤であるプラットフォームとは区別される。なお「プログラム」といっても、if文のようなルールやデータベースが入っているわけではない。実体は学習で得た膨大な数値(パラメータ)の塊で、「ここまでの文章の次に来る単語」を予測する計算をひたすら繰り返しているだけ。知識も文体もすべてこの数値の中に溶けている。そのため、モデルを更新するとはこの数値を書き換えること(=ファインチューニング)を指す。",
-      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)", "Gemini", "オープンソースモデル(Open Source Model)"],
+      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)", "Gemini", "オープンソースモデル(Open Source Model)", "混合エキスパート(MoE)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -223,7 +223,7 @@
       "term": "トランスフォーマー(Transformer)",
       "category": "技術・手法",
       "description": "2017年に発表された、文章中の単語同士の関係性(どこに注目すべきか)を効率よく学習できるニューラルネットワークの構造。GPTやClaudeなど現在の主要なLLMの多くが、この構造を土台にしている。",
-      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)"],
+      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "混合エキスパート(MoE)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -247,7 +247,7 @@
       "term": "マルチモーダル(Multimodal)",
       "category": "基礎概念",
       "description": "テキストだけでなく、画像・音声・動画など複数の種類(モダリティ)の情報を同時に扱えるAIモデルの性質。近年の主要なLLMの多くがマルチモーダル化しており、画像を見せて内容について質問するといった使い方ができる。",
-      "related": ["LLM", "生成AI(Generative AI)"],
+      "related": ["LLM", "生成AI(Generative AI)", "コンピュータビジョン(Computer Vision)"],
       "level": 0,
       "updated": "2026-07-23"
     },
@@ -263,7 +263,7 @@
       "term": "パラメータ(Parameters)",
       "category": "基礎概念",
       "description": "ニューラルネットワークが学習によって獲得する内部の数値(重み)。パラメータ数が多いほど一般的にモデルの表現力は高くなるが、その分計算資源も必要になる。「70B(700億)パラメータ」のように表記されることが多い。",
-      "related": ["モデル", "ニューラルネットワーク(Neural Network)", "学習(Training)", "温度(Temperature)"],
+      "related": ["モデル", "ニューラルネットワーク(Neural Network)", "学習(Training)", "温度(Temperature)", "量子化(Quantization)", "蒸留(Distillation)", "混合エキスパート(MoE)"],
       "level": 0,
       "updated": "2026-07-23"
     },
@@ -279,7 +279,7 @@
       "term": "機械学習(Machine Learning)",
       "category": "基礎概念",
       "description": "コンピュータが明示的なルールを人が細かく書かなくても、大量のデータからパターンを学び取り、判断や予測を行えるようにする技術分野。AI(人工知能)という大きな概念の中の一分野であり、ニューラルネットワークやディープラーニングは機械学習をさらに具体化した手法にあたる。",
-      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)", "転移学習(Transfer Learning)"],
+      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)", "転移学習(Transfer Learning)", "コンピュータビジョン(Computer Vision)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -295,7 +295,7 @@
       "term": "GPU",
       "category": "技術・手法",
       "description": "Graphics Processing Unit。元々は画像描画向けの計算装置だが、大量の計算を同時並行で行うのが得意なため、AIモデルの学習や推論を高速化する用途で広く使われている。「GPUが足りない」のように、AI開発の計算資源を指す言葉としてもよく登場する。",
-      "related": ["学習(Training)", "推論(Inference)"],
+      "related": ["学習(Training)", "推論(Inference)", "量子化(Quantization)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -327,7 +327,7 @@
       "term": "自然言語処理(NLP)",
       "category": "基礎概念",
       "description": "コンピュータに人間の言葉(文章や会話)を処理・理解・生成させる技術分野。機械翻訳や文章の要約などLLMが登場する以前から研究されてきた分野で、現在のLLMは自然言語処理を大きく進歩させた成果の一つと言える。",
-      "related": ["LLM", "機械学習(Machine Learning)"],
+      "related": ["LLM", "機械学習(Machine Learning)", "コンピュータビジョン(Computer Vision)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -343,7 +343,7 @@
       "term": "バイアス(Bias)",
       "category": "基礎概念",
       "description": "学習データの偏りなどが原因で、AIの判断や出力に不公平・偏った傾向が生じてしまうこと。学習データに偏りがあれば、その偏りがAIの回答や判断にもそのまま反映されやすい。",
-      "related": ["データセット(Dataset)", "学習(Training)"],
+      "related": ["データセット(Dataset)", "学習(Training)", "アライメント(Alignment)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -383,7 +383,7 @@
       "term": "RLHF",
       "category": "技術・手法",
       "description": "Reinforcement Learning from Human Feedback。人間がAIの出力に良し悪しの評価をつけ、その評価を報酬として強化学習を行うことで、AIの回答をより人間にとって好ましいものへ調整していく手法。対話AIが自然で有用な受け答えをするように調整する際によく使われている。",
-      "related": ["強化学習(Reinforcement Learning)", "学習(Training)", "LLM"],
+      "related": ["強化学習(Reinforcement Learning)", "学習(Training)", "LLM", "アライメント(Alignment)"],
       "level": 0,
       "updated": "2026-08-03"
     },
@@ -471,9 +471,49 @@
       "term": "オープンソースモデル(Open Source Model)",
       "category": "基礎概念",
       "description": "モデルの中身(重みなど)が公開され、誰でも自由にダウンロード・改造・利用できるAIモデル。ChatGPTやClaudeのようにAPI経由でしか使えない「クローズドモデル」と対比される概念で、Meta社のLlamaなどが代表例。",
-      "related": ["モデル", "ファインチューニング"],
+      "related": ["モデル", "ファインチューニング", "量子化(Quantization)", "蒸留(Distillation)"],
       "level": 0,
       "updated": "2026-08-20"
+    },
+    {
+      "term": "コンピュータビジョン(Computer Vision)",
+      "category": "基礎概念",
+      "description": "コンピュータに画像や動画を認識・理解させる技術分野。自然言語処理が「言葉」を扱うのに対し、こちらは「見る」ことを担当する分野で、顔認識や自動運転の物体検出などに使われている。近年はマルチモーダルなLLMが画像も扱えるようになり、両分野の境界は近づきつつある。",
+      "related": ["自然言語処理(NLP)", "マルチモーダル(Multimodal)", "機械学習(Machine Learning)"],
+      "level": 0,
+      "updated": "2026-09-24"
+    },
+    {
+      "term": "アライメント(Alignment)",
+      "category": "基礎概念",
+      "description": "AIの出力や振る舞いを、人間の意図や価値観に沿ったものにする取り組み全般を指す言葉。有害な回答をしない、指示に忠実に従うといった調整が含まれ、RLHFはアライメントを実現するための代表的な手法の一つ。単に「賢く」するための学習とは別に、「望ましい振る舞い」に近づけるための調整と言える。",
+      "related": ["RLHF", "ハルシネーション", "バイアス(Bias)"],
+      "level": 0,
+      "updated": "2026-09-24"
+    },
+    {
+      "term": "量子化(Quantization)",
+      "category": "技術・手法",
+      "description": "モデル内部の数値(パラメータ)を、より少ないビット数の粗い精度に変換し、モデルのサイズと計算量を減らす技術。写真の画質を落としてファイルサイズを小さくするイメージに近く、性能の低下を抑えつつ一般的なパソコンやスマートフォンでもモデルを動かしやすくするために使われる。",
+      "related": ["パラメータ(Parameters)", "GPU", "オープンソースモデル(Open Source Model)"],
+      "level": 0,
+      "updated": "2026-09-24"
+    },
+    {
+      "term": "蒸留(Distillation)",
+      "category": "技術・手法",
+      "description": "高性能だが大きく重い「教師モデル」の出力や挙動を、小さな「生徒モデル」に学習させることで、軽量ながら似た性能を再現しようとする手法。ベテラン職人の技を弟子に伝授するイメージに近く、コストを抑えつつ実用的な速度で動くモデルを作る際によく使われる。",
+      "related": ["ファインチューニング", "パラメータ(Parameters)", "オープンソースモデル(Open Source Model)"],
+      "level": 0,
+      "updated": "2026-09-24"
+    },
+    {
+      "term": "混合エキスパート(MoE)",
+      "category": "技術・手法",
+      "description": "一つの巨大なモデルの代わりに、それぞれ得意分野を持つ複数の小さな「専門家(エキスパート)」ネットワークを内部に持たせ、入力ごとに一部の専門家だけを選んで計算させるモデルの構造。全体のパラメータ数は多くても実際の計算量を抑えられるのが利点で、近年の大規模モデルで採用が広がっている。",
+      "related": ["トランスフォーマー(Transformer)", "パラメータ(Parameters)", "モデル"],
+      "level": 0,
+      "updated": "2026-09-24"
     }
   ]
 }
