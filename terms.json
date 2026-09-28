@@ -8,14 +8,14 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-20"
+    "last_updated": "2026-09-28"
   },
   "terms": [
     {
       "term": "LLM",
       "category": "基礎概念",
       "description": "大規模言語モデル。大量のテキストで学習し、文章の生成・理解を行うAIモデルの総称。ClaudeやGPTなどが該当。",
-      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "Gemini", "汎用人工知能(AGI)"],
+      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "Gemini", "汎用人工知能(AGI)", "知識のカットオフ(Knowledge Cutoff)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -231,7 +231,7 @@
       "term": "推論(Inference)",
       "category": "基礎概念",
       "description": "学習済みのモデルに実際の入力を与えて、答えを出させる段階。ソフトウェアでいえば本番運用にあたり、ChatGPTに質問して回答を得る操作はすべて推論。学習と違ってパラメータは一切変わらず1回あたりは軽量だが、使われるたびに永久に発生するため、コストが問題になりやすいのはこちら。",
-      "related": ["LLM", "トークン", "学習(Training)", "GPU", "温度(Temperature)", "思考の連鎖(Chain of Thought)"],
+      "related": ["LLM", "トークン", "学習(Training)", "GPU", "温度(Temperature)", "思考の連鎖(Chain of Thought)", "レイテンシ(Latency)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -239,7 +239,7 @@
       "term": "学習(Training)",
       "category": "基礎概念",
       "description": "モデルに大量のデータを与えて、パターンやルールを内部のパラメータとして覚え込ませる段階。ソフトウェアでいえば開発・ビルドにあたり、時間と計算資源を大量に使うがリリース前の一度きりで済む。ここでパラメータが書き換わる点が、対になる概念である推論との決定的な違い。",
-      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU", "過学習(Overfitting)", "バイアス(Bias)", "RLHF"],
+      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU", "過学習(Overfitting)", "バイアス(Bias)", "RLHF", "知識のカットオフ(Knowledge Cutoff)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -247,7 +247,7 @@
       "term": "マルチモーダル(Multimodal)",
       "category": "基礎概念",
       "description": "テキストだけでなく、画像・音声・動画など複数の種類(モダリティ)の情報を同時に扱えるAIモデルの性質。近年の主要なLLMの多くがマルチモーダル化しており、画像を見せて内容について質問するといった使い方ができる。",
-      "related": ["LLM", "生成AI(Generative AI)"],
+      "related": ["LLM", "生成AI(Generative AI)", "コンピュータビジョン(Computer Vision)"],
       "level": 0,
       "updated": "2026-07-23"
     },
@@ -271,7 +271,7 @@
       "term": "システムプロンプト(System Prompt)",
       "category": "基礎概念",
       "description": "会話の最初にAIへ与えられる、役割や振る舞いのルールを定義する特別な指示文。ユーザーからは見えないことが多く、通常のプロンプト(ユーザーの入力)より優先して扱われる。",
-      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)", "プロンプトインジェクション(Prompt Injection)"],
+      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)", "プロンプトインジェクション(Prompt Injection)", "ジェイルブレイク(Jailbreak)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -279,7 +279,7 @@
       "term": "機械学習(Machine Learning)",
       "category": "基礎概念",
       "description": "コンピュータが明示的なルールを人が細かく書かなくても、大量のデータからパターンを学び取り、判断や予測を行えるようにする技術分野。AI(人工知能)という大きな概念の中の一分野であり、ニューラルネットワークやディープラーニングは機械学習をさらに具体化した手法にあたる。",
-      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)", "転移学習(Transfer Learning)"],
+      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)", "転移学習(Transfer Learning)", "コンピュータビジョン(Computer Vision)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -295,7 +295,7 @@
       "term": "GPU",
       "category": "技術・手法",
       "description": "Graphics Processing Unit。元々は画像描画向けの計算装置だが、大量の計算を同時並行で行うのが得意なため、AIモデルの学習や推論を高速化する用途で広く使われている。「GPUが足りない」のように、AI開発の計算資源を指す言葉としてもよく登場する。",
-      "related": ["学習(Training)", "推論(Inference)"],
+      "related": ["学習(Training)", "推論(Inference)", "レイテンシ(Latency)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -303,7 +303,7 @@
       "term": "プロンプトインジェクション(Prompt Injection)",
       "category": "技術・手法",
       "description": "悪意のある指示文をプロンプトや外部データに紛れ込ませ、AIに開発者が意図しない動作をさせようとする攻撃手法。信頼できない文書やWebページの内容をAIに読み込ませる際に注意が必要とされる、AI特有のセキュリティ課題の一つ。",
-      "related": ["プロンプト", "システムプロンプト(System Prompt)"],
+      "related": ["プロンプト", "システムプロンプト(System Prompt)", "ジェイルブレイク(Jailbreak)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -319,7 +319,7 @@
       "term": "人工知能(AI)",
       "category": "基礎概念",
       "description": "コンピュータに人間のような知的な処理(学習・推論・判断など)をさせようとする技術分野全体を指す言葉。機械学習や生成AI、LLMなどはすべてAIという大きな傘の下にある一分野・一手法にあたる。日常会話では「AI」と「LLM」がほぼ同じ意味で使われることもあるが、本来AIはもっと広い概念。",
-      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM", "汎用人工知能(AGI)"],
+      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM", "汎用人工知能(AGI)", "アライメント(AI Alignment)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -327,7 +327,7 @@
       "term": "自然言語処理(NLP)",
       "category": "基礎概念",
       "description": "コンピュータに人間の言葉(文章や会話)を処理・理解・生成させる技術分野。機械翻訳や文章の要約などLLMが登場する以前から研究されてきた分野で、現在のLLMは自然言語処理を大きく進歩させた成果の一つと言える。",
-      "related": ["LLM", "機械学習(Machine Learning)"],
+      "related": ["LLM", "機械学習(Machine Learning)", "コンピュータビジョン(Computer Vision)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -343,7 +343,7 @@
       "term": "バイアス(Bias)",
       "category": "基礎概念",
       "description": "学習データの偏りなどが原因で、AIの判断や出力に不公平・偏った傾向が生じてしまうこと。学習データに偏りがあれば、その偏りがAIの回答や判断にもそのまま反映されやすい。",
-      "related": ["データセット(Dataset)", "学習(Training)"],
+      "related": ["データセット(Dataset)", "学習(Training)", "アライメント(AI Alignment)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -383,7 +383,7 @@
       "term": "RLHF",
       "category": "技術・手法",
       "description": "Reinforcement Learning from Human Feedback。人間がAIの出力に良し悪しの評価をつけ、その評価を報酬として強化学習を行うことで、AIの回答をより人間にとって好ましいものへ調整していく手法。対話AIが自然で有用な受け答えをするように調整する際によく使われている。",
-      "related": ["強化学習(Reinforcement Learning)", "学習(Training)", "LLM"],
+      "related": ["強化学習(Reinforcement Learning)", "学習(Training)", "LLM", "アライメント(AI Alignment)"],
       "level": 0,
       "updated": "2026-08-03"
     },
@@ -474,6 +474,46 @@
       "related": ["モデル", "ファインチューニング"],
       "level": 0,
       "updated": "2026-08-20"
+    },
+    {
+      "term": "コンピュータビジョン(Computer Vision)",
+      "category": "基礎概念",
+      "description": "コンピュータに画像や動画の内容を認識・理解させる技術分野。顔認識や物体検出、自動運転の障害物検知などに使われている。自然言語処理(NLP)がAIに「言葉」を扱わせる分野なのに対し、コンピュータビジョンはAIに「目」で見て理解させる分野にあたる。",
+      "related": ["機械学習(Machine Learning)", "自然言語処理(NLP)", "マルチモーダル(Multimodal)"],
+      "level": 0,
+      "updated": "2026-09-28"
+    },
+    {
+      "term": "知識のカットオフ(Knowledge Cutoff)",
+      "category": "基礎概念",
+      "description": "LLMが学習に使ったデータの収集を打ち切った時点のこと。この日付より後に起きた出来事について、モデルは基本的に知らない。最新情報が必要な質問には、検索やRAGなど外部情報と組み合わせて答える工夫が必要になる。",
+      "related": ["LLM", "学習(Training)"],
+      "level": 0,
+      "updated": "2026-09-28"
+    },
+    {
+      "term": "レイテンシ(Latency)",
+      "category": "技術・手法",
+      "description": "リクエストを送ってからAIの応答が返ってくるまでにかかる時間のこと。値が小さいほど「反応が速い」ことを意味し、チャットやリアルタイム用途では特に重視される指標。モデルの大きさや計算資源(GPU)の性能によって左右される。",
+      "related": ["推論(Inference)", "GPU"],
+      "level": 0,
+      "updated": "2026-09-28"
+    },
+    {
+      "term": "ジェイルブレイク(Jailbreak)",
+      "category": "技術・手法",
+      "description": "巧妙な言い回しや設定を使って、AIに開発者が禁止しているはずの回答や動作をさせようとする試み。プロンプトインジェクションと似ているが、外部データ経由ではなく主にユーザー自身がAIの安全対策を回避しようとする点が特徴。AI開発企業はこうした試みへの対策を継続的に行っている。",
+      "related": ["プロンプトインジェクション(Prompt Injection)", "システムプロンプト(System Prompt)"],
+      "level": 0,
+      "updated": "2026-09-28"
+    },
+    {
+      "term": "アライメント(AI Alignment)",
+      "category": "基礎概念",
+      "description": "AIの振る舞いを、人間の意図や価値観、安全性の基準に沿わせるための研究・調整のこと。RLHFはアライメントを実現する代表的な手法の一つ。AIが賢くなるほど、意図しない有害な出力を防ぐこの取り組みの重要性が増すとされる。",
+      "related": ["RLHF", "人工知能(AI)", "バイアス(Bias)"],
+      "level": 0,
+      "updated": "2026-09-28"
     }
   ]
 }
