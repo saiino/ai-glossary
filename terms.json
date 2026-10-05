@@ -8,14 +8,14 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-20"
+    "last_updated": "2026-10-05"
   },
   "terms": [
     {
       "term": "LLM",
       "category": "基礎概念",
       "description": "大規模言語モデル。大量のテキストで学習し、文章の生成・理解を行うAIモデルの総称。ClaudeやGPTなどが該当。",
-      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "Gemini", "汎用人工知能(AGI)"],
+      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "Gemini", "汎用人工知能(AGI)", "注意機構(Attention)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -39,7 +39,7 @@
       "term": "ファインチューニング",
       "category": "技術・手法",
       "description": "学習済みモデルに追加データで再学習を行い、特定タスクや文体に適応させる手法。新卒研修を終えた社員に配属先の専門研修を受けさせるイメージで、モデルの中身(重み)自体が書き換わる点がプロンプトやRAGとの違い。知識の追加はRAG、文体や振る舞いの調整はファインチューニング、と使い分ける。",
-      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)", "転移学習(Transfer Learning)", "オープンソースモデル(Open Source Model)"],
+      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)", "転移学習(Transfer Learning)", "オープンソースモデル(Open Source Model)", "事前学習(Pre-training)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -119,7 +119,7 @@
       "term": "API",
       "category": "基礎概念",
       "description": "Application Programming Interface。プログラムから機能を呼び出すための「窓口」。AIの文脈では、ChatGPTのような画面を使わず、自分のアプリからモデルを直接呼び出して利用する手段を指すことが多い。",
-      "related": ["モデル", "プラットフォーム"],
+      "related": ["モデル", "プラットフォーム", "APIキー(API Key)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -207,7 +207,7 @@
       "term": "ニューラルネットワーク(Neural Network)",
       "category": "技術・手法",
       "description": "人間の脳の神経細胞(ニューロン)のつながりを模したAIの計算モデル。多数の小さな計算ユニットを層状につなぎ、大量のデータからパターンを学習する。現在の主要なAIモデルのほとんどがこの仕組みを基礎にしている。",
-      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "学習(Training)", "パラメータ(Parameters)", "機械学習(Machine Learning)"],
+      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "学習(Training)", "パラメータ(Parameters)", "機械学習(Machine Learning)", "注意機構(Attention)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -223,7 +223,7 @@
       "term": "トランスフォーマー(Transformer)",
       "category": "技術・手法",
       "description": "2017年に発表された、文章中の単語同士の関係性(どこに注目すべきか)を効率よく学習できるニューラルネットワークの構造。GPTやClaudeなど現在の主要なLLMの多くが、この構造を土台にしている。",
-      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)"],
+      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "注意機構(Attention)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -239,7 +239,7 @@
       "term": "学習(Training)",
       "category": "基礎概念",
       "description": "モデルに大量のデータを与えて、パターンやルールを内部のパラメータとして覚え込ませる段階。ソフトウェアでいえば開発・ビルドにあたり、時間と計算資源を大量に使うがリリース前の一度きりで済む。ここでパラメータが書き換わる点が、対になる概念である推論との決定的な違い。",
-      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU", "過学習(Overfitting)", "バイアス(Bias)", "RLHF"],
+      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU", "過学習(Overfitting)", "バイアス(Bias)", "RLHF", "事前学習(Pre-training)", "エポック(Epoch)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -271,7 +271,7 @@
       "term": "システムプロンプト(System Prompt)",
       "category": "基礎概念",
       "description": "会話の最初にAIへ与えられる、役割や振る舞いのルールを定義する特別な指示文。ユーザーからは見えないことが多く、通常のプロンプト(ユーザーの入力)より優先して扱われる。",
-      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)", "プロンプトインジェクション(Prompt Injection)"],
+      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)", "プロンプトインジェクション(Prompt Injection)", "ガードレール(Guardrails)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -287,7 +287,7 @@
       "term": "データセット(Dataset)",
       "category": "基礎概念",
       "description": "AIモデルを学習させたり性能を評価したりするために使われる、データのまとまり。文章・画像・音声など内容は用途によって様々で、その質と量がモデルの性能を大きく左右する。",
-      "related": ["学習(Training)", "機械学習(Machine Learning)", "過学習(Overfitting)", "バイアス(Bias)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)"],
+      "related": ["学習(Training)", "機械学習(Machine Learning)", "過学習(Overfitting)", "バイアス(Bias)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "エポック(Epoch)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -303,7 +303,7 @@
       "term": "プロンプトインジェクション(Prompt Injection)",
       "category": "技術・手法",
       "description": "悪意のある指示文をプロンプトや外部データに紛れ込ませ、AIに開発者が意図しない動作をさせようとする攻撃手法。信頼できない文書やWebページの内容をAIに読み込ませる際に注意が必要とされる、AI特有のセキュリティ課題の一つ。",
-      "related": ["プロンプト", "システムプロンプト(System Prompt)"],
+      "related": ["プロンプト", "システムプロンプト(System Prompt)", "ガードレール(Guardrails)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -351,7 +351,7 @@
       "term": "ファウンデーションモデル(Foundation Model)",
       "category": "基礎概念",
       "description": "大量のデータを使って汎用的に学習された、様々な用途への土台となる大規模モデル。GPTやClaudeなどのLLMはファウンデーションモデルの代表例で、そこからファインチューニングやプロンプトによって特定の用途向けに調整して使われることが多い。",
-      "related": ["モデル", "LLM", "ファインチューニング"],
+      "related": ["モデル", "LLM", "ファインチューニング", "事前学習(Pre-training)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -474,6 +474,46 @@
       "related": ["モデル", "ファインチューニング"],
       "level": 0,
       "updated": "2026-08-20"
+    },
+    {
+      "term": "事前学習(Pre-training)",
+      "category": "技術・手法",
+      "description": "LLMが大量の汎用的なテキストデータから、言語の基礎的な知識やパターンをゼロから学ぶ最初の学習段階。この段階で得た汎用的な能力を土台に、ファインチューニングでさらに特定の用途へ適応させていく。幅広い基礎科目を学ぶ学校教育の段階に近く、専門研修にあたるファインチューニングとは役割が異なる。",
+      "related": ["学習(Training)", "ファインチューニング", "ファウンデーションモデル(Foundation Model)"],
+      "level": 0,
+      "updated": "2026-10-05"
+    },
+    {
+      "term": "注意機構(Attention)",
+      "category": "技術・手法",
+      "description": "文章中のどの単語に注目すべきかを、AIが自動的に判断する仕組み。単語同士の関連度を計算し、重要な部分に重みを置いて処理することで、長い文章でも文脈を踏まえた理解ができるようになる。トランスフォーマーの中核をなす技術で、現在の主要なLLMの性能を支えている。",
+      "related": ["トランスフォーマー(Transformer)", "ニューラルネットワーク(Neural Network)", "LLM"],
+      "level": 0,
+      "updated": "2026-10-05"
+    },
+    {
+      "term": "エポック(Epoch)",
+      "category": "基礎概念",
+      "description": "学習の際に、用意したデータセット全体を1回すべて使い切ることを指す単位。モデルの学習では同じデータセットを何エポックも繰り返し学習させることが多く、エポック数が多すぎると過学習を招くこともある。",
+      "related": ["学習(Training)", "データセット(Dataset)"],
+      "level": 0,
+      "updated": "2026-10-05"
+    },
+    {
+      "term": "ガードレール(Guardrails)",
+      "category": "技術・手法",
+      "description": "AIが不適切な発言や意図しない危険な動作をしないように設ける制限やチェックの仕組み。システムプロンプトでの指示や、出力内容を事後的にチェックする仕組みなど、複数の方法を組み合わせて実現されることが多い。車が車線からはみ出さないようにする道路のガードレールに似た役割を持つ。",
+      "related": ["システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)"],
+      "level": 0,
+      "updated": "2026-10-05"
+    },
+    {
+      "term": "APIキー(API Key)",
+      "category": "基礎概念",
+      "description": "APIを利用する際に、利用者を識別し利用権限を確認するための文字列。合言葉のようなもので、サービスごとに発行される。第三者に漏れると不正利用や想定外の課金につながるため、コードに直接書き込まず環境変数などで管理するのが一般的。",
+      "related": ["API"],
+      "level": 0,
+      "updated": "2026-10-05"
     }
   ]
 }
