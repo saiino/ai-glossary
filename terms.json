@@ -8,7 +8,7 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-20"
+    "last_updated": "2026-10-08"
   },
   "terms": [
     {
@@ -23,7 +23,7 @@
       "term": "プロンプト",
       "category": "基礎概念",
       "description": "AIモデルへの入力・指示文。書き方によって出力品質が大きく変わる。",
-      "related": ["LLM", "コンテキストウィンドウ", "プロンプトエンジニアリング(Prompt Engineering)", "システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)", "思考の連鎖(Chain of Thought)", "ゼロショット学習(Zero-shot Learning)", "フューショット学習(Few-shot Learning)"],
+      "related": ["LLM", "コンテキストウィンドウ", "プロンプトエンジニアリング(Prompt Engineering)", "システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)", "思考の連鎖(Chain of Thought)", "ゼロショット学習(Zero-shot Learning)", "フューショット学習(Few-shot Learning)", "インコンテキスト学習(In-context Learning)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -39,7 +39,7 @@
       "term": "ファインチューニング",
       "category": "技術・手法",
       "description": "学習済みモデルに追加データで再学習を行い、特定タスクや文体に適応させる手法。新卒研修を終えた社員に配属先の専門研修を受けさせるイメージで、モデルの中身(重み)自体が書き換わる点がプロンプトやRAGとの違い。知識の追加はRAG、文体や振る舞いの調整はファインチューニング、と使い分ける。",
-      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)", "転移学習(Transfer Learning)", "オープンソースモデル(Open Source Model)"],
+      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)", "転移学習(Transfer Learning)", "オープンソースモデル(Open Source Model)", "インコンテキスト学習(In-context Learning)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -63,7 +63,7 @@
       "term": "ハルシネーション",
       "category": "基礎概念",
       "description": "AIが事実と異なる内容をもっともらしく生成してしまう現象。",
-      "related": ["LLM", "RAG"],
+      "related": ["LLM", "RAG", "ガードレール(Guardrails)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -103,7 +103,7 @@
       "term": "モデル",
       "category": "基礎概念",
       "description": "AIの本体となる学習済みプログラムで、入力を受け取って出力を返す「頭脳」の部分。GPTやClaudeがこれにあたる。ChatGPTのようなアプリ(製品)や、開発基盤であるプラットフォームとは区別される。なお「プログラム」といっても、if文のようなルールやデータベースが入っているわけではない。実体は学習で得た膨大な数値(パラメータ)の塊で、「ここまでの文章の次に来る単語」を予測する計算をひたすら繰り返しているだけ。知識も文体もすべてこの数値の中に溶けている。そのため、モデルを更新するとはこの数値を書き換えること(=ファインチューニング)を指す。",
-      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)", "Gemini", "オープンソースモデル(Open Source Model)"],
+      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)", "Gemini", "オープンソースモデル(Open Source Model)", "量子化(Quantization)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -239,7 +239,7 @@
       "term": "学習(Training)",
       "category": "基礎概念",
       "description": "モデルに大量のデータを与えて、パターンやルールを内部のパラメータとして覚え込ませる段階。ソフトウェアでいえば開発・ビルドにあたり、時間と計算資源を大量に使うがリリース前の一度きりで済む。ここでパラメータが書き換わる点が、対になる概念である推論との決定的な違い。",
-      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU", "過学習(Overfitting)", "バイアス(Bias)", "RLHF"],
+      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU", "過学習(Overfitting)", "バイアス(Bias)", "RLHF", "汎化(Generalization)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -263,7 +263,7 @@
       "term": "パラメータ(Parameters)",
       "category": "基礎概念",
       "description": "ニューラルネットワークが学習によって獲得する内部の数値(重み)。パラメータ数が多いほど一般的にモデルの表現力は高くなるが、その分計算資源も必要になる。「70B(700億)パラメータ」のように表記されることが多い。",
-      "related": ["モデル", "ニューラルネットワーク(Neural Network)", "学習(Training)", "温度(Temperature)"],
+      "related": ["モデル", "ニューラルネットワーク(Neural Network)", "学習(Training)", "温度(Temperature)", "量子化(Quantization)"],
       "level": 0,
       "updated": "2026-07-23"
     },
@@ -271,7 +271,7 @@
       "term": "システムプロンプト(System Prompt)",
       "category": "基礎概念",
       "description": "会話の最初にAIへ与えられる、役割や振る舞いのルールを定義する特別な指示文。ユーザーからは見えないことが多く、通常のプロンプト(ユーザーの入力)より優先して扱われる。",
-      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)", "プロンプトインジェクション(Prompt Injection)"],
+      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)", "プロンプトインジェクション(Prompt Injection)", "ガードレール(Guardrails)", "ジェイルブレイク(Jailbreak)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -279,7 +279,7 @@
       "term": "機械学習(Machine Learning)",
       "category": "基礎概念",
       "description": "コンピュータが明示的なルールを人が細かく書かなくても、大量のデータからパターンを学び取り、判断や予測を行えるようにする技術分野。AI(人工知能)という大きな概念の中の一分野であり、ニューラルネットワークやディープラーニングは機械学習をさらに具体化した手法にあたる。",
-      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)", "転移学習(Transfer Learning)"],
+      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)", "転移学習(Transfer Learning)", "汎化(Generalization)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -287,7 +287,7 @@
       "term": "データセット(Dataset)",
       "category": "基礎概念",
       "description": "AIモデルを学習させたり性能を評価したりするために使われる、データのまとまり。文章・画像・音声など内容は用途によって様々で、その質と量がモデルの性能を大きく左右する。",
-      "related": ["学習(Training)", "機械学習(Machine Learning)", "過学習(Overfitting)", "バイアス(Bias)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)"],
+      "related": ["学習(Training)", "機械学習(Machine Learning)", "過学習(Overfitting)", "バイアス(Bias)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "汎化(Generalization)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -295,7 +295,7 @@
       "term": "GPU",
       "category": "技術・手法",
       "description": "Graphics Processing Unit。元々は画像描画向けの計算装置だが、大量の計算を同時並行で行うのが得意なため、AIモデルの学習や推論を高速化する用途で広く使われている。「GPUが足りない」のように、AI開発の計算資源を指す言葉としてもよく登場する。",
-      "related": ["学習(Training)", "推論(Inference)"],
+      "related": ["学習(Training)", "推論(Inference)", "量子化(Quantization)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -303,7 +303,7 @@
       "term": "プロンプトインジェクション(Prompt Injection)",
       "category": "技術・手法",
       "description": "悪意のある指示文をプロンプトや外部データに紛れ込ませ、AIに開発者が意図しない動作をさせようとする攻撃手法。信頼できない文書やWebページの内容をAIに読み込ませる際に注意が必要とされる、AI特有のセキュリティ課題の一つ。",
-      "related": ["プロンプト", "システムプロンプト(System Prompt)"],
+      "related": ["プロンプト", "システムプロンプト(System Prompt)", "ガードレール(Guardrails)", "ジェイルブレイク(Jailbreak)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -335,7 +335,7 @@
       "term": "過学習(Overfitting)",
       "category": "基礎概念",
       "description": "学習データの細かい特徴やノイズまで覚えすぎてしまい、未知の新しいデータへの対応力(汎化性能)が下がってしまう現象。過去問の答えを丸暗記して、少し形式が変わった新しい問題には対応できなくなる状況に似ている。",
-      "related": ["学習(Training)", "データセット(Dataset)"],
+      "related": ["学習(Training)", "データセット(Dataset)", "汎化(Generalization)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -455,7 +455,7 @@
       "term": "ゼロショット学習(Zero-shot Learning)",
       "category": "技術・手法",
       "description": "AIに具体例を一切示さず、指示文だけでいきなりタスクを実行させる手法。あらかじめ大量のデータで学習済みのLLMは、追加の例がなくても多くのタスクにある程度対応できる。",
-      "related": ["プロンプト", "フューショット学習(Few-shot Learning)"],
+      "related": ["プロンプト", "フューショット学習(Few-shot Learning)", "インコンテキスト学習(In-context Learning)"],
       "level": 0,
       "updated": "2026-08-20"
     },
@@ -463,7 +463,7 @@
       "term": "フューショット学習(Few-shot Learning)",
       "category": "技術・手法",
       "description": "プロンプトの中にいくつかの入力と出力の例(お手本)を示すことで、AIに望ましい回答の形式やパターンを理解させる手法。ゼロショットより少ない手間で出力の精度を上げやすい。",
-      "related": ["プロンプト", "ゼロショット学習(Zero-shot Learning)"],
+      "related": ["プロンプト", "ゼロショット学習(Zero-shot Learning)", "インコンテキスト学習(In-context Learning)"],
       "level": 0,
       "updated": "2026-08-20"
     },
@@ -474,6 +474,46 @@
       "related": ["モデル", "ファインチューニング"],
       "level": 0,
       "updated": "2026-08-20"
+    },
+    {
+      "term": "汎化(Generalization)",
+      "category": "基礎概念",
+      "description": "AIモデルが学習データだけでなく、見たことのない新しいデータに対しても適切に対応できる能力のこと。汎化性能が高いモデルほど実際の利用場面で役立つ。学習データを細部まで覚えすぎて汎化性能が下がってしまう現象が過学習と呼ばれる。",
+      "related": ["過学習(Overfitting)", "学習(Training)", "データセット(Dataset)", "機械学習(Machine Learning)"],
+      "level": 0,
+      "updated": "2026-10-08"
+    },
+    {
+      "term": "インコンテキスト学習(In-context Learning)",
+      "category": "技術・手法",
+      "description": "モデルの重みを書き換える追加学習を行わず、プロンプトの中に示された情報や例だけを手がかりに、AIがその場でタスクのやり方を把握して応答を調整する性質。ゼロショット学習やフューショット学習は、この性質を利用した具体的な使い方にあたる。",
+      "related": ["フューショット学習(Few-shot Learning)", "ゼロショット学習(Zero-shot Learning)", "プロンプト", "ファインチューニング"],
+      "level": 0,
+      "updated": "2026-10-08"
+    },
+    {
+      "term": "量子化(Quantization)",
+      "category": "技術・手法",
+      "description": "モデル内部の数値(パラメータ)を、より少ないビット数の軽量な表現に変換してモデルのサイズを小さくする技術。性能の低下を抑えながらメモリ使用量や計算コストを下げられるため、スマートフォンやパソコンなど限られた環境でモデルを動かす際によく使われる。",
+      "related": ["パラメータ(Parameters)", "モデル", "GPU"],
+      "level": 0,
+      "updated": "2026-10-08"
+    },
+    {
+      "term": "ガードレール(Guardrails)",
+      "category": "基礎概念",
+      "description": "AIが不適切な発言や危険な出力をしないように設ける制限や監視の仕組み。システムプロンプトでの指示や、出力内容を事後にチェックする仕組みなどを組み合わせて実現されることが多い。企業がAIを業務で安全に使うための重要な要素とされる。",
+      "related": ["システムプロンプト(System Prompt)", "ハルシネーション", "プロンプトインジェクション(Prompt Injection)", "ジェイルブレイク(Jailbreak)"],
+      "level": 0,
+      "updated": "2026-10-08"
+    },
+    {
+      "term": "ジェイルブレイク(Jailbreak)",
+      "category": "技術・手法",
+      "description": "巧妙な指示文を使って、AIに設定された安全対策やルールをすり抜けさせ、本来禁止されている出力をさせようとする行為。開発者はこうした手口を想定して、ガードレールなどの安全対策を強化することが求められる。",
+      "related": ["プロンプトインジェクション(Prompt Injection)", "ガードレール(Guardrails)", "システムプロンプト(System Prompt)"],
+      "level": 0,
+      "updated": "2026-10-08"
     }
   ]
 }
