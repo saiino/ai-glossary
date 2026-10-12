@@ -8,14 +8,14 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-20"
+    "last_updated": "2026-10-12"
   },
   "terms": [
     {
       "term": "LLM",
       "category": "基礎概念",
       "description": "大規模言語モデル。大量のテキストで学習し、文章の生成・理解を行うAIモデルの総称。ClaudeやGPTなどが該当。",
-      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "Gemini", "汎用人工知能(AGI)"],
+      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "Gemini", "汎用人工知能(AGI)", "ベンチマーク(Benchmark)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -39,7 +39,7 @@
       "term": "ファインチューニング",
       "category": "技術・手法",
       "description": "学習済みモデルに追加データで再学習を行い、特定タスクや文体に適応させる手法。新卒研修を終えた社員に配属先の専門研修を受けさせるイメージで、モデルの中身(重み)自体が書き換わる点がプロンプトやRAGとの違い。知識の追加はRAG、文体や振る舞いの調整はファインチューニング、と使い分ける。",
-      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)", "転移学習(Transfer Learning)", "オープンソースモデル(Open Source Model)"],
+      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)", "転移学習(Transfer Learning)", "オープンソースモデル(Open Source Model)", "蒸留(Distillation)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -103,7 +103,7 @@
       "term": "モデル",
       "category": "基礎概念",
       "description": "AIの本体となる学習済みプログラムで、入力を受け取って出力を返す「頭脳」の部分。GPTやClaudeがこれにあたる。ChatGPTのようなアプリ(製品)や、開発基盤であるプラットフォームとは区別される。なお「プログラム」といっても、if文のようなルールやデータベースが入っているわけではない。実体は学習で得た膨大な数値(パラメータ)の塊で、「ここまでの文章の次に来る単語」を予測する計算をひたすら繰り返しているだけ。知識も文体もすべてこの数値の中に溶けている。そのため、モデルを更新するとはこの数値を書き換えること(=ファインチューニング)を指す。",
-      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)", "Gemini", "オープンソースモデル(Open Source Model)"],
+      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)", "Gemini", "オープンソースモデル(Open Source Model)", "ベンチマーク(Benchmark)", "蒸留(Distillation)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -263,7 +263,7 @@
       "term": "パラメータ(Parameters)",
       "category": "基礎概念",
       "description": "ニューラルネットワークが学習によって獲得する内部の数値(重み)。パラメータ数が多いほど一般的にモデルの表現力は高くなるが、その分計算資源も必要になる。「70B(700億)パラメータ」のように表記されることが多い。",
-      "related": ["モデル", "ニューラルネットワーク(Neural Network)", "学習(Training)", "温度(Temperature)"],
+      "related": ["モデル", "ニューラルネットワーク(Neural Network)", "学習(Training)", "温度(Temperature)", "量子化(Quantization)"],
       "level": 0,
       "updated": "2026-07-23"
     },
@@ -271,7 +271,7 @@
       "term": "システムプロンプト(System Prompt)",
       "category": "基礎概念",
       "description": "会話の最初にAIへ与えられる、役割や振る舞いのルールを定義する特別な指示文。ユーザーからは見えないことが多く、通常のプロンプト(ユーザーの入力)より優先して扱われる。",
-      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)", "プロンプトインジェクション(Prompt Injection)"],
+      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)", "プロンプトインジェクション(Prompt Injection)", "ガードレール(Guardrails)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -303,7 +303,7 @@
       "term": "プロンプトインジェクション(Prompt Injection)",
       "category": "技術・手法",
       "description": "悪意のある指示文をプロンプトや外部データに紛れ込ませ、AIに開発者が意図しない動作をさせようとする攻撃手法。信頼できない文書やWebページの内容をAIに読み込ませる際に注意が必要とされる、AI特有のセキュリティ課題の一つ。",
-      "related": ["プロンプト", "システムプロンプト(System Prompt)"],
+      "related": ["プロンプト", "システムプロンプト(System Prompt)", "ガードレール(Guardrails)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -383,7 +383,7 @@
       "term": "RLHF",
       "category": "技術・手法",
       "description": "Reinforcement Learning from Human Feedback。人間がAIの出力に良し悪しの評価をつけ、その評価を報酬として強化学習を行うことで、AIの回答をより人間にとって好ましいものへ調整していく手法。対話AIが自然で有用な受け答えをするように調整する際によく使われている。",
-      "related": ["強化学習(Reinforcement Learning)", "学習(Training)", "LLM"],
+      "related": ["強化学習(Reinforcement Learning)", "学習(Training)", "LLM", "アライメント(AI Alignment)"],
       "level": 0,
       "updated": "2026-08-03"
     },
@@ -471,9 +471,49 @@
       "term": "オープンソースモデル(Open Source Model)",
       "category": "基礎概念",
       "description": "モデルの中身(重みなど)が公開され、誰でも自由にダウンロード・改造・利用できるAIモデル。ChatGPTやClaudeのようにAPI経由でしか使えない「クローズドモデル」と対比される概念で、Meta社のLlamaなどが代表例。",
-      "related": ["モデル", "ファインチューニング"],
+      "related": ["モデル", "ファインチューニング", "量子化(Quantization)"],
       "level": 0,
       "updated": "2026-08-20"
+    },
+    {
+      "term": "ベンチマーク(Benchmark)",
+      "category": "基礎概念",
+      "description": "AIモデルの性能を客観的な数値で比較するための、共通のテスト問題集。MMLUやHumanEvalなど分野ごとのベンチマークがあり、新しいモデルが発表されるたびに各ベンチマークでの得点が比較される。複数の生徒に同じ統一テストを受けさせて実力を比べるイメージに近い。",
+      "related": ["モデル", "LLM"],
+      "level": 0,
+      "updated": "2026-10-12"
+    },
+    {
+      "term": "量子化(Quantization)",
+      "category": "技術・手法",
+      "description": "モデル内部の数値(パラメータ)を、より少ないビット数で表現し直すことでモデルを軽量化する技術。性能の低下をできるだけ抑えながらメモリ使用量や計算量を減らせるため、スマホやノートPCなど限られた資源でモデルを動かす際によく使われる。",
+      "related": ["パラメータ(Parameters)", "オープンソースモデル(Open Source Model)"],
+      "level": 0,
+      "updated": "2026-10-12"
+    },
+    {
+      "term": "ガードレール(Guardrails)",
+      "category": "基礎概念",
+      "description": "AIが不適切な発言や危険な行動をしないように設ける制限や安全対策の総称。システムプロンプトでの指示や出力内容のチェックなど、複数の仕組みを組み合わせて実現されることが多い。道路の端にあるガードレールのように、AIの行動が危険な方向へ逸脱しないよう防ぐ役割を持つ。",
+      "related": ["システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)", "アライメント(AI Alignment)"],
+      "level": 0,
+      "updated": "2026-10-12"
+    },
+    {
+      "term": "蒸留(Distillation)",
+      "category": "技術・手法",
+      "description": "性能の高い大きなモデル(教師モデル)の出力や判断パターンを、より小さなモデル(生徒モデル)に学習させることで、小型でも高い性能を持つモデルを作る技術。優秀な先生の教え方を弟子が真似して覚えるイメージに近い。計算資源が少なくても使いやすい軽量モデルを作る手段としてよく使われる。",
+      "related": ["ファインチューニング", "モデル"],
+      "level": 0,
+      "updated": "2026-10-12"
+    },
+    {
+      "term": "アライメント(AI Alignment)",
+      "category": "基礎概念",
+      "description": "AIの振る舞いを、人間が意図する目的や価値観にできるだけ一致させるための研究・取り組みの総称。性能を高めるだけでなく、安全で有用な回答をするように調整することが含まれる。RLHFはアライメントを実現するための代表的な手法の一つ。",
+      "related": ["RLHF", "ガードレール(Guardrails)"],
+      "level": 0,
+      "updated": "2026-10-12"
     }
   ]
 }
