@@ -8,14 +8,14 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-20"
+    "last_updated": "2026-10-15"
   },
   "terms": [
     {
       "term": "LLM",
       "category": "基礎概念",
       "description": "大規模言語モデル。大量のテキストで学習し、文章の生成・理解を行うAIモデルの総称。ClaudeやGPTなどが該当。",
-      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "Gemini", "汎用人工知能(AGI)"],
+      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "Gemini", "汎用人工知能(AGI)", "アライメント(Alignment)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -31,7 +31,7 @@
       "term": "RAG",
       "category": "技術・手法",
       "description": "Retrieval-Augmented Generation。外部の文書やデータベースを検索して、その結果を根拠にAIが回答を生成する仕組み。ハルシネーション対策の代表的手法。",
-      "related": ["埋め込み(Embedding)", "ハルシネーション", "ファインチューニング", "ベクトルデータベース(Vector Database)"],
+      "related": ["埋め込み(Embedding)", "ハルシネーション", "ファインチューニング", "ベクトルデータベース(Vector Database)", "グラウンディング(Grounding)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -39,7 +39,7 @@
       "term": "ファインチューニング",
       "category": "技術・手法",
       "description": "学習済みモデルに追加データで再学習を行い、特定タスクや文体に適応させる手法。新卒研修を終えた社員に配属先の専門研修を受けさせるイメージで、モデルの中身(重み)自体が書き換わる点がプロンプトやRAGとの違い。知識の追加はRAG、文体や振る舞いの調整はファインチューニング、と使い分ける。",
-      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)", "転移学習(Transfer Learning)", "オープンソースモデル(Open Source Model)"],
+      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)", "転移学習(Transfer Learning)", "オープンソースモデル(Open Source Model)", "蒸留(Distillation)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -63,7 +63,7 @@
       "term": "ハルシネーション",
       "category": "基礎概念",
       "description": "AIが事実と異なる内容をもっともらしく生成してしまう現象。",
-      "related": ["LLM", "RAG"],
+      "related": ["LLM", "RAG", "グラウンディング(Grounding)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -103,7 +103,7 @@
       "term": "モデル",
       "category": "基礎概念",
       "description": "AIの本体となる学習済みプログラムで、入力を受け取って出力を返す「頭脳」の部分。GPTやClaudeがこれにあたる。ChatGPTのようなアプリ(製品)や、開発基盤であるプラットフォームとは区別される。なお「プログラム」といっても、if文のようなルールやデータベースが入っているわけではない。実体は学習で得た膨大な数値(パラメータ)の塊で、「ここまでの文章の次に来る単語」を予測する計算をひたすら繰り返しているだけ。知識も文体もすべてこの数値の中に溶けている。そのため、モデルを更新するとはこの数値を書き換えること(=ファインチューニング)を指す。",
-      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)", "Gemini", "オープンソースモデル(Open Source Model)"],
+      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)", "Gemini", "オープンソースモデル(Open Source Model)", "ベンチマーク(Benchmark)", "蒸留(Distillation)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -199,7 +199,7 @@
       "term": "生成AI(Generative AI)",
       "category": "基礎概念",
       "description": "文章・画像・音声・コードなど、新しいコンテンツを生み出すことができるAIの総称。従来の「分類する」「予測する」AIと違い、ゼロから何かを作り出す点が特徴。ChatGPTのような文章生成AIや画像生成AIが代表例で、LLMは生成AIのうちテキストに特化したものにあたる。",
-      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)", "人工知能(AI)"],
+      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)", "人工知能(AI)", "拡散モデル(Diffusion Model)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -207,7 +207,7 @@
       "term": "ニューラルネットワーク(Neural Network)",
       "category": "技術・手法",
       "description": "人間の脳の神経細胞(ニューロン)のつながりを模したAIの計算モデル。多数の小さな計算ユニットを層状につなぎ、大量のデータからパターンを学習する。現在の主要なAIモデルのほとんどがこの仕組みを基礎にしている。",
-      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "学習(Training)", "パラメータ(Parameters)", "機械学習(Machine Learning)"],
+      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "学習(Training)", "パラメータ(Parameters)", "機械学習(Machine Learning)", "拡散モデル(Diffusion Model)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -287,7 +287,7 @@
       "term": "データセット(Dataset)",
       "category": "基礎概念",
       "description": "AIモデルを学習させたり性能を評価したりするために使われる、データのまとまり。文章・画像・音声など内容は用途によって様々で、その質と量がモデルの性能を大きく左右する。",
-      "related": ["学習(Training)", "機械学習(Machine Learning)", "過学習(Overfitting)", "バイアス(Bias)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)"],
+      "related": ["学習(Training)", "機械学習(Machine Learning)", "過学習(Overfitting)", "バイアス(Bias)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "ベンチマーク(Benchmark)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -383,7 +383,7 @@
       "term": "RLHF",
       "category": "技術・手法",
       "description": "Reinforcement Learning from Human Feedback。人間がAIの出力に良し悪しの評価をつけ、その評価を報酬として強化学習を行うことで、AIの回答をより人間にとって好ましいものへ調整していく手法。対話AIが自然で有用な受け答えをするように調整する際によく使われている。",
-      "related": ["強化学習(Reinforcement Learning)", "学習(Training)", "LLM"],
+      "related": ["強化学習(Reinforcement Learning)", "学習(Training)", "LLM", "アライメント(Alignment)"],
       "level": 0,
       "updated": "2026-08-03"
     },
@@ -474,6 +474,46 @@
       "related": ["モデル", "ファインチューニング"],
       "level": 0,
       "updated": "2026-08-20"
+    },
+    {
+      "term": "ベンチマーク(Benchmark)",
+      "category": "基礎概念",
+      "description": "AIモデルの性能を測るために使われる、標準化されたテスト問題やタスクの集まり。同じ基準で複数のモデルを比較できるようにすることが目的で、「このモデルは数学のベンチマークで高得点」のように性能比較の文脈でよく使われる。学校の統一テストで複数の生徒の実力を比べるイメージに近い。",
+      "related": ["モデル", "データセット(Dataset)"],
+      "level": 0,
+      "updated": "2026-10-15"
+    },
+    {
+      "term": "アライメント(Alignment)",
+      "category": "基礎概念",
+      "description": "AIの振る舞いや出力を、人間の意図や価値観、安全性の基準に沿わせるための調整全般を指す言葉。有害な出力を避けたり、指示に忠実に従わせたりすることが目的で、RLHFはアライメントを実現するための代表的な手法の一つ。",
+      "related": ["RLHF", "LLM"],
+      "level": 0,
+      "updated": "2026-10-15"
+    },
+    {
+      "term": "グラウンディング(Grounding)",
+      "category": "技術・手法",
+      "description": "AIの回答を、事実やリアルタイムの外部情報など確かな根拠に結びつけること。根拠のない思い込みによる回答(ハルシネーション)を減らす目的で使われ、RAGは代表的なグラウンディングの手法の一つ。",
+      "related": ["RAG", "ハルシネーション"],
+      "level": 0,
+      "updated": "2026-10-15"
+    },
+    {
+      "term": "蒸留(Distillation)",
+      "category": "技術・手法",
+      "description": "大きく高性能な「教師モデル」の出力を、小さな「生徒モデル」に模倣させて学習させる手法。教師モデルに近い性能を保ちながら、軽量で高速に動くモデルを作れるため、スマートフォンなど限られた計算資源でAIを動かす際によく使われる。",
+      "related": ["ファインチューニング", "モデル"],
+      "level": 0,
+      "updated": "2026-10-15"
+    },
+    {
+      "term": "拡散モデル(Diffusion Model)",
+      "category": "技術・手法",
+      "description": "ランダムなノイズ(砂嵐のような乱れた信号)から少しずつノイズを取り除いていくことで、画像などのデータを生成するAIモデルの仕組み。画像生成AIで広く使われている代表的な手法で、文章を一語ずつ生成するLLMとは異なるアプローチをとる。",
+      "related": ["生成AI(Generative AI)", "ニューラルネットワーク(Neural Network)"],
+      "level": 0,
+      "updated": "2026-10-15"
     }
   ]
 }
