@@ -8,7 +8,7 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-20"
+    "last_updated": "2026-10-22"
   },
   "terms": [
     {
@@ -63,7 +63,7 @@
       "term": "ハルシネーション",
       "category": "基礎概念",
       "description": "AIが事実と異なる内容をもっともらしく生成してしまう現象。",
-      "related": ["LLM", "RAG"],
+      "related": ["LLM", "RAG", "ガードレール(Guardrails)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -199,7 +199,7 @@
       "term": "生成AI(Generative AI)",
       "category": "基礎概念",
       "description": "文章・画像・音声・コードなど、新しいコンテンツを生み出すことができるAIの総称。従来の「分類する」「予測する」AIと違い、ゼロから何かを作り出す点が特徴。ChatGPTのような文章生成AIや画像生成AIが代表例で、LLMは生成AIのうちテキストに特化したものにあたる。",
-      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)", "人工知能(AI)"],
+      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)", "人工知能(AI)", "ディープフェイク(Deepfake)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -239,7 +239,7 @@
       "term": "学習(Training)",
       "category": "基礎概念",
       "description": "モデルに大量のデータを与えて、パターンやルールを内部のパラメータとして覚え込ませる段階。ソフトウェアでいえば開発・ビルドにあたり、時間と計算資源を大量に使うがリリース前の一度きりで済む。ここでパラメータが書き換わる点が、対になる概念である推論との決定的な違い。",
-      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU", "過学習(Overfitting)", "バイアス(Bias)", "RLHF"],
+      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU", "過学習(Overfitting)", "バイアス(Bias)", "RLHF", "知識カットオフ(Knowledge Cutoff)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -263,7 +263,7 @@
       "term": "パラメータ(Parameters)",
       "category": "基礎概念",
       "description": "ニューラルネットワークが学習によって獲得する内部の数値(重み)。パラメータ数が多いほど一般的にモデルの表現力は高くなるが、その分計算資源も必要になる。「70B(700億)パラメータ」のように表記されることが多い。",
-      "related": ["モデル", "ニューラルネットワーク(Neural Network)", "学習(Training)", "温度(Temperature)"],
+      "related": ["モデル", "ニューラルネットワーク(Neural Network)", "学習(Training)", "温度(Temperature)", "量子化(Quantization)"],
       "level": 0,
       "updated": "2026-07-23"
     },
@@ -287,7 +287,7 @@
       "term": "データセット(Dataset)",
       "category": "基礎概念",
       "description": "AIモデルを学習させたり性能を評価したりするために使われる、データのまとまり。文章・画像・音声など内容は用途によって様々で、その質と量がモデルの性能を大きく左右する。",
-      "related": ["学習(Training)", "機械学習(Machine Learning)", "過学習(Overfitting)", "バイアス(Bias)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)"],
+      "related": ["学習(Training)", "機械学習(Machine Learning)", "過学習(Overfitting)", "バイアス(Bias)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "知識カットオフ(Knowledge Cutoff)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -295,7 +295,7 @@
       "term": "GPU",
       "category": "技術・手法",
       "description": "Graphics Processing Unit。元々は画像描画向けの計算装置だが、大量の計算を同時並行で行うのが得意なため、AIモデルの学習や推論を高速化する用途で広く使われている。「GPUが足りない」のように、AI開発の計算資源を指す言葉としてもよく登場する。",
-      "related": ["学習(Training)", "推論(Inference)"],
+      "related": ["学習(Training)", "推論(Inference)", "量子化(Quantization)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -303,7 +303,7 @@
       "term": "プロンプトインジェクション(Prompt Injection)",
       "category": "技術・手法",
       "description": "悪意のある指示文をプロンプトや外部データに紛れ込ませ、AIに開発者が意図しない動作をさせようとする攻撃手法。信頼できない文書やWebページの内容をAIに読み込ませる際に注意が必要とされる、AI特有のセキュリティ課題の一つ。",
-      "related": ["プロンプト", "システムプロンプト(System Prompt)"],
+      "related": ["プロンプト", "システムプロンプト(System Prompt)", "ガードレール(Guardrails)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -319,7 +319,7 @@
       "term": "人工知能(AI)",
       "category": "基礎概念",
       "description": "コンピュータに人間のような知的な処理(学習・推論・判断など)をさせようとする技術分野全体を指す言葉。機械学習や生成AI、LLMなどはすべてAIという大きな傘の下にある一分野・一手法にあたる。日常会話では「AI」と「LLM」がほぼ同じ意味で使われることもあるが、本来AIはもっと広い概念。",
-      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM", "汎用人工知能(AGI)"],
+      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM", "汎用人工知能(AGI)", "チューリングテスト(Turing Test)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -391,7 +391,7 @@
       "term": "チャットボット(Chatbot)",
       "category": "基礎概念",
       "description": "人間と対話形式でやり取りするプログラムやサービスの総称。以前はあらかじめ決められたルールに沿って応答するものが多かったが、近年はLLMを内部で使い、より柔軟で自然な会話ができるチャットボットが主流になっている。",
-      "related": ["LLM", "ChatGPT", "Claude", "エージェント"],
+      "related": ["LLM", "ChatGPT", "Claude", "エージェント", "チューリングテスト(Turing Test)"],
       "level": 0,
       "updated": "2026-08-03"
     },
@@ -474,6 +474,46 @@
       "related": ["モデル", "ファインチューニング"],
       "level": 0,
       "updated": "2026-08-20"
+    },
+    {
+      "term": "チューリングテスト(Turing Test)",
+      "category": "基礎概念",
+      "description": "イギリスの数学者アラン・チューリングが提案した、機械が人間のように考えられるかを判定するための思考実験。人がチャット越しに会話相手を人間かAIか判別できなければ、そのAIはテストに「合格」したとみなされる。AIの知能を測る古典的な指標として、今でも議論の出発点によく使われる。",
+      "related": ["人工知能(AI)", "チャットボット(Chatbot)"],
+      "level": 0,
+      "updated": "2026-10-22"
+    },
+    {
+      "term": "量子化(Quantization)",
+      "category": "技術・手法",
+      "description": "モデル内部の数値(パラメータ)の精度を落として、必要なメモリや計算量を減らす技術。例えば32bitの数値を8bitなどに変換することでモデルを軽量化し、スマートフォンやノートPCでも動かしやすくする。性能は多少下がるが、速度や扱いやすさとのバランスを取るためによく使われる。",
+      "related": ["パラメータ(Parameters)", "GPU"],
+      "level": 0,
+      "updated": "2026-10-22"
+    },
+    {
+      "term": "知識カットオフ(Knowledge Cutoff)",
+      "category": "基礎概念",
+      "description": "AIモデルが学習データとして取り込んだ情報の「締め切り日」のこと。この日付より後に起きた出来事は基本的に知らないため、最新情報が必要なときはWeb検索など別の手段と組み合わせる必要がある。モデルごとに知識カットオフの時期は異なる。",
+      "related": ["学習(Training)", "データセット(Dataset)"],
+      "level": 0,
+      "updated": "2026-10-22"
+    },
+    {
+      "term": "ガードレール(Guardrails)",
+      "category": "技術・手法",
+      "description": "AIが不適切な発言や危険な出力をしないように設ける制約やチェックの仕組み。入力内容を事前にフィルタリングしたり出力を検証したりすることで、悪用や誤った回答のリスクを減らす役割を果たす。道路のガードレールのように、AIの振る舞いを安全な範囲に留めるイメージ。",
+      "related": ["プロンプトインジェクション(Prompt Injection)", "ハルシネーション"],
+      "level": 0,
+      "updated": "2026-10-22"
+    },
+    {
+      "term": "ディープフェイク(Deepfake)",
+      "category": "技術・手法",
+      "description": "AIを使って人物の顔や声を本物そっくりに合成・改変する技術のこと。生成AIの発展により、実在の人物が言っていないことを話しているかのような動画や画像を作れるようになったが、なりすましや誤情報の拡散といった悪用リスクも指摘されている。",
+      "related": ["生成AI(Generative AI)"],
+      "level": 0,
+      "updated": "2026-10-22"
     }
   ]
 }
