@@ -8,14 +8,14 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-20"
+    "last_updated": "2026-10-26"
   },
   "terms": [
     {
       "term": "LLM",
       "category": "基礎概念",
       "description": "大規模言語モデル。大量のテキストで学習し、文章の生成・理解を行うAIモデルの総称。ClaudeやGPTなどが該当。",
-      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "Gemini", "汎用人工知能(AGI)"],
+      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "Gemini", "汎用人工知能(AGI)", "ベンチマーク(Benchmark)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -103,7 +103,7 @@
       "term": "モデル",
       "category": "基礎概念",
       "description": "AIの本体となる学習済みプログラムで、入力を受け取って出力を返す「頭脳」の部分。GPTやClaudeがこれにあたる。ChatGPTのようなアプリ(製品)や、開発基盤であるプラットフォームとは区別される。なお「プログラム」といっても、if文のようなルールやデータベースが入っているわけではない。実体は学習で得た膨大な数値(パラメータ)の塊で、「ここまでの文章の次に来る単語」を予測する計算をひたすら繰り返しているだけ。知識も文体もすべてこの数値の中に溶けている。そのため、モデルを更新するとはこの数値を書き換えること(=ファインチューニング)を指す。",
-      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)", "Gemini", "オープンソースモデル(Open Source Model)"],
+      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)", "Gemini", "オープンソースモデル(Open Source Model)", "ベンチマーク(Benchmark)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -223,7 +223,7 @@
       "term": "トランスフォーマー(Transformer)",
       "category": "技術・手法",
       "description": "2017年に発表された、文章中の単語同士の関係性(どこに注目すべきか)を効率よく学習できるニューラルネットワークの構造。GPTやClaudeなど現在の主要なLLMの多くが、この構造を土台にしている。",
-      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)"],
+      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "アテンション(Attention)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -271,7 +271,7 @@
       "term": "システムプロンプト(System Prompt)",
       "category": "基礎概念",
       "description": "会話の最初にAIへ与えられる、役割や振る舞いのルールを定義する特別な指示文。ユーザーからは見えないことが多く、通常のプロンプト(ユーザーの入力)より優先して扱われる。",
-      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)", "プロンプトインジェクション(Prompt Injection)"],
+      "related": ["プロンプト", "プロンプトエンジニアリング(Prompt Engineering)", "プロンプトインジェクション(Prompt Injection)", "ガードレール(Guardrails)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -303,7 +303,7 @@
       "term": "プロンプトインジェクション(Prompt Injection)",
       "category": "技術・手法",
       "description": "悪意のある指示文をプロンプトや外部データに紛れ込ませ、AIに開発者が意図しない動作をさせようとする攻撃手法。信頼できない文書やWebページの内容をAIに読み込ませる際に注意が必要とされる、AI特有のセキュリティ課題の一つ。",
-      "related": ["プロンプト", "システムプロンプト(System Prompt)"],
+      "related": ["プロンプト", "システムプロンプト(System Prompt)", "ジェイルブレイク(Jailbreak)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -383,7 +383,7 @@
       "term": "RLHF",
       "category": "技術・手法",
       "description": "Reinforcement Learning from Human Feedback。人間がAIの出力に良し悪しの評価をつけ、その評価を報酬として強化学習を行うことで、AIの回答をより人間にとって好ましいものへ調整していく手法。対話AIが自然で有用な受け答えをするように調整する際によく使われている。",
-      "related": ["強化学習(Reinforcement Learning)", "学習(Training)", "LLM"],
+      "related": ["強化学習(Reinforcement Learning)", "学習(Training)", "LLM", "アライメント(Alignment)"],
       "level": 0,
       "updated": "2026-08-03"
     },
@@ -474,6 +474,46 @@
       "related": ["モデル", "ファインチューニング"],
       "level": 0,
       "updated": "2026-08-20"
+    },
+    {
+      "term": "アライメント(Alignment)",
+      "category": "基礎概念",
+      "description": "AIの振る舞いが、人間の意図や価値観、安全性の基準からできるだけ外れないように調整すること。単に賢いだけでなく、有用で正直、かつ害のない応答をするように仕向ける取り組み全体を指す。RLHFはアライメントを実現するための代表的な手法の一つ。",
+      "related": ["RLHF"],
+      "level": 0,
+      "updated": "2026-10-26"
+    },
+    {
+      "term": "ジェイルブレイク(Jailbreak)",
+      "category": "技術・手法",
+      "description": "AIに設定された安全上のルールや制限を、巧妙な言い回しや架空の設定を使ってすり抜けさせ、本来拒否するはずの回答を引き出そうとする行為。プロンプトインジェクションと近い文脈で語られることが多いが、ジェイルブレイクは主に「禁止されている出力を引き出す」ことを目的とする点が特徴。",
+      "related": ["プロンプトインジェクション(Prompt Injection)"],
+      "level": 0,
+      "updated": "2026-10-26"
+    },
+    {
+      "term": "ベンチマーク(Benchmark)",
+      "category": "基礎概念",
+      "description": "複数のAIモデルの性能を同じ条件で比較するために使われる、標準化されたテストや問題集。数学・プログラミング・読解などの分野ごとに用意されていることが多く、「このモデルは◯◯ベンチマークで高得点」のように性能の目安として使われる。",
+      "related": ["LLM", "モデル"],
+      "level": 0,
+      "updated": "2026-10-26"
+    },
+    {
+      "term": "アテンション(Attention)",
+      "category": "技術・手法",
+      "description": "文章中のどの単語に注目すべきかを、AIが自動的に判断して重みづけする仕組み。長い文章でも、今処理している部分と関連の強い箇所を見つけ出せるようにする計算方法で、トランスフォーマーの中心的な構成要素になっている。",
+      "related": ["トランスフォーマー(Transformer)"],
+      "level": 0,
+      "updated": "2026-10-26"
+    },
+    {
+      "term": "ガードレール(Guardrails)",
+      "category": "技術・手法",
+      "description": "AIが不適切な発言や危険な内容、意図しない動作をしないように設ける制限やチェックの仕組み。車が道路から外れないようにする柵のように、出力が一定の範囲を超えないよう事前・事後にルールやフィルタを設定する。",
+      "related": ["システムプロンプト(System Prompt)"],
+      "level": 0,
+      "updated": "2026-10-26"
     }
   ]
 }
