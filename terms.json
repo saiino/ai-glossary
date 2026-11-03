@@ -8,14 +8,14 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-20"
+    "last_updated": "2026-08-31"
   },
   "terms": [
     {
       "term": "LLM",
       "category": "基礎概念",
       "description": "大規模言語モデル。大量のテキストで学習し、文章の生成・理解を行うAIモデルの総称。ClaudeやGPTなどが該当。",
-      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "Gemini", "汎用人工知能(AGI)"],
+      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "Gemini", "汎用人工知能(AGI)", "ベンチマーク(Benchmark)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -23,7 +23,7 @@
       "term": "プロンプト",
       "category": "基礎概念",
       "description": "AIモデルへの入力・指示文。書き方によって出力品質が大きく変わる。",
-      "related": ["LLM", "コンテキストウィンドウ", "プロンプトエンジニアリング(Prompt Engineering)", "システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)", "思考の連鎖(Chain of Thought)", "ゼロショット学習(Zero-shot Learning)", "フューショット学習(Few-shot Learning)"],
+      "related": ["LLM", "コンテキストウィンドウ", "プロンプトエンジニアリング(Prompt Engineering)", "システムプロンプト(System Prompt)", "プロンプトインジェクション(Prompt Injection)", "思考の連鎖(Chain of Thought)", "ゼロショット学習(Zero-shot Learning)", "フューショット学習(Few-shot Learning)", "インコンテキスト学習(In-context Learning)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -87,7 +87,7 @@
       "term": "LoRA",
       "category": "技術・手法",
       "description": "Low-Rank Adaptation。モデル全体を再学習する代わりに、小さな追加パーツ(低ランク行列)だけを学習してモデルを調整するファインチューニングの省コスト手法。少ない計算資源で特定用途への適応ができるため、実務で広く使われる。",
-      "related": ["ファインチューニング"],
+      "related": ["ファインチューニング", "量子化(Quantization)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -103,7 +103,7 @@
       "term": "モデル",
       "category": "基礎概念",
       "description": "AIの本体となる学習済みプログラムで、入力を受け取って出力を返す「頭脳」の部分。GPTやClaudeがこれにあたる。ChatGPTのようなアプリ(製品)や、開発基盤であるプラットフォームとは区別される。なお「プログラム」といっても、if文のようなルールやデータベースが入っているわけではない。実体は学習で得た膨大な数値(パラメータ)の塊で、「ここまでの文章の次に来る単語」を予測する計算をひたすら繰り返しているだけ。知識も文体もすべてこの数値の中に溶けている。そのため、モデルを更新するとはこの数値を書き換えること(=ファインチューニング)を指す。",
-      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)", "Gemini", "オープンソースモデル(Open Source Model)"],
+      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)", "Gemini", "オープンソースモデル(Open Source Model)", "ベンチマーク(Benchmark)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -199,7 +199,7 @@
       "term": "生成AI(Generative AI)",
       "category": "基礎概念",
       "description": "文章・画像・音声・コードなど、新しいコンテンツを生み出すことができるAIの総称。従来の「分類する」「予測する」AIと違い、ゼロから何かを作り出す点が特徴。ChatGPTのような文章生成AIや画像生成AIが代表例で、LLMは生成AIのうちテキストに特化したものにあたる。",
-      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)", "人工知能(AI)"],
+      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)", "人工知能(AI)", "拡散モデル(Diffusion Model)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -207,7 +207,7 @@
       "term": "ニューラルネットワーク(Neural Network)",
       "category": "技術・手法",
       "description": "人間の脳の神経細胞(ニューロン)のつながりを模したAIの計算モデル。多数の小さな計算ユニットを層状につなぎ、大量のデータからパターンを学習する。現在の主要なAIモデルのほとんどがこの仕組みを基礎にしている。",
-      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "学習(Training)", "パラメータ(Parameters)", "機械学習(Machine Learning)"],
+      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "学習(Training)", "パラメータ(Parameters)", "機械学習(Machine Learning)", "注意機構(Attention)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -223,7 +223,7 @@
       "term": "トランスフォーマー(Transformer)",
       "category": "技術・手法",
       "description": "2017年に発表された、文章中の単語同士の関係性(どこに注目すべきか)を効率よく学習できるニューラルネットワークの構造。GPTやClaudeなど現在の主要なLLMの多くが、この構造を土台にしている。",
-      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)"],
+      "related": ["LLM", "ニューラルネットワーク(Neural Network)", "ディープラーニング(Deep Learning)", "注意機構(Attention)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -247,7 +247,7 @@
       "term": "マルチモーダル(Multimodal)",
       "category": "基礎概念",
       "description": "テキストだけでなく、画像・音声・動画など複数の種類(モダリティ)の情報を同時に扱えるAIモデルの性質。近年の主要なLLMの多くがマルチモーダル化しており、画像を見せて内容について質問するといった使い方ができる。",
-      "related": ["LLM", "生成AI(Generative AI)"],
+      "related": ["LLM", "生成AI(Generative AI)", "拡散モデル(Diffusion Model)"],
       "level": 0,
       "updated": "2026-07-23"
     },
@@ -263,7 +263,7 @@
       "term": "パラメータ(Parameters)",
       "category": "基礎概念",
       "description": "ニューラルネットワークが学習によって獲得する内部の数値(重み)。パラメータ数が多いほど一般的にモデルの表現力は高くなるが、その分計算資源も必要になる。「70B(700億)パラメータ」のように表記されることが多い。",
-      "related": ["モデル", "ニューラルネットワーク(Neural Network)", "学習(Training)", "温度(Temperature)"],
+      "related": ["モデル", "ニューラルネットワーク(Neural Network)", "学習(Training)", "温度(Temperature)", "量子化(Quantization)"],
       "level": 0,
       "updated": "2026-07-23"
     },
@@ -287,7 +287,7 @@
       "term": "データセット(Dataset)",
       "category": "基礎概念",
       "description": "AIモデルを学習させたり性能を評価したりするために使われる、データのまとまり。文章・画像・音声など内容は用途によって様々で、その質と量がモデルの性能を大きく左右する。",
-      "related": ["学習(Training)", "機械学習(Machine Learning)", "過学習(Overfitting)", "バイアス(Bias)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)"],
+      "related": ["学習(Training)", "機械学習(Machine Learning)", "過学習(Overfitting)", "バイアス(Bias)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "ベンチマーク(Benchmark)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -295,7 +295,7 @@
       "term": "GPU",
       "category": "技術・手法",
       "description": "Graphics Processing Unit。元々は画像描画向けの計算装置だが、大量の計算を同時並行で行うのが得意なため、AIモデルの学習や推論を高速化する用途で広く使われている。「GPUが足りない」のように、AI開発の計算資源を指す言葉としてもよく登場する。",
-      "related": ["学習(Training)", "推論(Inference)"],
+      "related": ["学習(Training)", "推論(Inference)", "量子化(Quantization)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -455,7 +455,7 @@
       "term": "ゼロショット学習(Zero-shot Learning)",
       "category": "技術・手法",
       "description": "AIに具体例を一切示さず、指示文だけでいきなりタスクを実行させる手法。あらかじめ大量のデータで学習済みのLLMは、追加の例がなくても多くのタスクにある程度対応できる。",
-      "related": ["プロンプト", "フューショット学習(Few-shot Learning)"],
+      "related": ["プロンプト", "フューショット学習(Few-shot Learning)", "インコンテキスト学習(In-context Learning)"],
       "level": 0,
       "updated": "2026-08-20"
     },
@@ -463,7 +463,7 @@
       "term": "フューショット学習(Few-shot Learning)",
       "category": "技術・手法",
       "description": "プロンプトの中にいくつかの入力と出力の例(お手本)を示すことで、AIに望ましい回答の形式やパターンを理解させる手法。ゼロショットより少ない手間で出力の精度を上げやすい。",
-      "related": ["プロンプト", "ゼロショット学習(Zero-shot Learning)"],
+      "related": ["プロンプト", "ゼロショット学習(Zero-shot Learning)", "インコンテキスト学習(In-context Learning)"],
       "level": 0,
       "updated": "2026-08-20"
     },
@@ -474,6 +474,46 @@
       "related": ["モデル", "ファインチューニング"],
       "level": 0,
       "updated": "2026-08-20"
+    },
+    {
+      "term": "注意機構(Attention)",
+      "category": "技術・手法",
+      "description": "文章中のどの単語が今の処理に重要かを、AIが動的に重みづけして着目する仕組み。離れた位置にある単語同士の関係も直接捉えられるため、長い文章の意味を正確に理解しやすくなる。トランスフォーマーの中核をなす技術で、現在の主要なLLMのほとんどがこの仕組みを土台にしている。",
+      "related": ["トランスフォーマー(Transformer)", "ニューラルネットワーク(Neural Network)"],
+      "level": 0,
+      "updated": "2026-08-31"
+    },
+    {
+      "term": "拡散モデル(Diffusion Model)",
+      "category": "技術・手法",
+      "description": "ノイズだらけの画像から少しずつノイズを取り除いていく過程を学習し、そこから新しい画像を生成する手法。Stable DiffusionやDALL-Eなど、近年の画像生成AIの多くがこの仕組みを採用している。文章から画像を作る「画像生成AI」の裏側で使われる代表的な技術の一つ。",
+      "related": ["生成AI(Generative AI)", "マルチモーダル(Multimodal)"],
+      "level": 0,
+      "updated": "2026-08-31"
+    },
+    {
+      "term": "インコンテキスト学習(In-context Learning)",
+      "category": "基礎概念",
+      "description": "モデル自体のパラメータを書き換えることなく、プロンプトの中に与えた指示や例だけを手がかりにして、その場でタスクのやり方を推測して答える性質。ファインチューニングのような再学習が不要なため、手軽に新しいタスクへ対応できる。ゼロショット学習やフューショット学習は、このインコンテキスト学習の具体的な使い方にあたる。",
+      "related": ["ゼロショット学習(Zero-shot Learning)", "フューショット学習(Few-shot Learning)", "プロンプト"],
+      "level": 0,
+      "updated": "2026-08-31"
+    },
+    {
+      "term": "ベンチマーク(Benchmark)",
+      "category": "基礎概念",
+      "description": "複数のAIモデルの性能を同じ条件で比較するための、共通のテスト問題やデータセット。数学の問題集やクイズのようなものをモデルに解かせ、正答率などのスコアで性能を測る。「このモデルは◯◯というベンチマークで高スコアを記録した」のように、モデル選びや性能比較の物差しとして使われる。",
+      "related": ["LLM", "モデル", "データセット(Dataset)"],
+      "level": 0,
+      "updated": "2026-08-31"
+    },
+    {
+      "term": "量子化(Quantization)",
+      "category": "技術・手法",
+      "description": "モデル内部の数値(パラメータ)を、より少ないビット数の粗い精度で表現し直すことで、モデルのサイズや必要な計算資源を削減する手法。精度を多少犠牲にする代わりに、性能の低いPCやスマートフォンでも動かしやすくなる。LoRAと同じく、限られた計算資源でモデルを扱いやすくするための代表的な工夫の一つ。",
+      "related": ["パラメータ(Parameters)", "GPU", "LoRA"],
+      "level": 0,
+      "updated": "2026-08-31"
     }
   ]
 }
