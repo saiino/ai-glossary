@@ -8,14 +8,14 @@
       "3": "人に説明できる"
     },
     "categories": ["基礎概念", "技術・手法", "モデル", "製品・サービス"],
-    "last_updated": "2026-08-31"
+    "last_updated": "2026-11-05"
   },
   "terms": [
     {
       "term": "LLM",
       "category": "基礎概念",
       "description": "大規模言語モデル。大量のテキストで学習し、文章の生成・理解を行うAIモデルの総称。ClaudeやGPTなどが該当。",
-      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "Gemini", "汎用人工知能(AGI)", "ベンチマーク(Benchmark)"],
+      "related": ["プロンプト", "トークン", "コンテキストウィンドウ", "ファインチューニング", "ハルシネーション", "モデル", "GPT", "Claude", "エージェント", "生成AI(Generative AI)", "トランスフォーマー(Transformer)", "推論(Inference)", "マルチモーダル(Multimodal)", "人工知能(AI)", "自然言語処理(NLP)", "ファウンデーションモデル(Foundation Model)", "チャットボット(Chatbot)", "RLHF", "Gemini", "汎用人工知能(AGI)", "ベンチマーク(Benchmark)", "事前学習(Pre-training)", "AIアラインメント(AI Alignment)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -39,7 +39,7 @@
       "term": "ファインチューニング",
       "category": "技術・手法",
       "description": "学習済みモデルに追加データで再学習を行い、特定タスクや文体に適応させる手法。新卒研修を終えた社員に配属先の専門研修を受けさせるイメージで、モデルの中身(重み)自体が書き換わる点がプロンプトやRAGとの違い。知識の追加はRAG、文体や振る舞いの調整はファインチューニング、と使い分ける。",
-      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)", "転移学習(Transfer Learning)", "オープンソースモデル(Open Source Model)"],
+      "related": ["LLM", "RAG", "LoRA", "学習(Training)", "ファウンデーションモデル(Foundation Model)", "転移学習(Transfer Learning)", "オープンソースモデル(Open Source Model)", "事前学習(Pre-training)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -103,7 +103,7 @@
       "term": "モデル",
       "category": "基礎概念",
       "description": "AIの本体となる学習済みプログラムで、入力を受け取って出力を返す「頭脳」の部分。GPTやClaudeがこれにあたる。ChatGPTのようなアプリ(製品)や、開発基盤であるプラットフォームとは区別される。なお「プログラム」といっても、if文のようなルールやデータベースが入っているわけではない。実体は学習で得た膨大な数値(パラメータ)の塊で、「ここまでの文章の次に来る単語」を予測する計算をひたすら繰り返しているだけ。知識も文体もすべてこの数値の中に溶けている。そのため、モデルを更新するとはこの数値を書き換えること(=ファインチューニング)を指す。",
-      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)", "Gemini", "オープンソースモデル(Open Source Model)", "ベンチマーク(Benchmark)"],
+      "related": ["LLM", "GPT", "Claude", "API", "プラットフォーム", "パラメータ(Parameters)", "ファウンデーションモデル(Foundation Model)", "Gemini", "オープンソースモデル(Open Source Model)", "ベンチマーク(Benchmark)", "知識蒸留(Knowledge Distillation)"],
       "level": 2,
       "updated": "2026-07-12"
     },
@@ -207,7 +207,7 @@
       "term": "ニューラルネットワーク(Neural Network)",
       "category": "技術・手法",
       "description": "人間の脳の神経細胞(ニューロン)のつながりを模したAIの計算モデル。多数の小さな計算ユニットを層状につなぎ、大量のデータからパターンを学習する。現在の主要なAIモデルのほとんどがこの仕組みを基礎にしている。",
-      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "学習(Training)", "パラメータ(Parameters)", "機械学習(Machine Learning)", "注意機構(Attention)"],
+      "related": ["ディープラーニング(Deep Learning)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "学習(Training)", "パラメータ(Parameters)", "機械学習(Machine Learning)", "注意機構(Attention)", "勾配降下法(Gradient Descent)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -215,7 +215,7 @@
       "term": "ディープラーニング(Deep Learning)",
       "category": "技術・手法",
       "description": "ニューラルネットワークを何層にも重ねて深くした学習手法。層を深くすることで、画像認識や文章生成など複雑なタスクを高い精度でこなせるようになった。近年のAIの進歩を支える中心的な技術。",
-      "related": ["ニューラルネットワーク(Neural Network)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "機械学習(Machine Learning)"],
+      "related": ["ニューラルネットワーク(Neural Network)", "トランスフォーマー(Transformer)", "生成AI(Generative AI)", "機械学習(Machine Learning)", "コンピュータビジョン(Computer Vision)"],
       "level": 0,
       "updated": "2026-07-12"
     },
@@ -239,7 +239,7 @@
       "term": "学習(Training)",
       "category": "基礎概念",
       "description": "モデルに大量のデータを与えて、パターンやルールを内部のパラメータとして覚え込ませる段階。ソフトウェアでいえば開発・ビルドにあたり、時間と計算資源を大量に使うがリリース前の一度きりで済む。ここでパラメータが書き換わる点が、対になる概念である推論との決定的な違い。",
-      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU", "過学習(Overfitting)", "バイアス(Bias)", "RLHF"],
+      "related": ["推論(Inference)", "ニューラルネットワーク(Neural Network)", "ファインチューニング", "パラメータ(Parameters)", "データセット(Dataset)", "GPU", "過学習(Overfitting)", "バイアス(Bias)", "RLHF", "事前学習(Pre-training)", "勾配降下法(Gradient Descent)", "知識蒸留(Knowledge Distillation)"],
       "level": 2,
       "updated": "2026-07-26"
     },
@@ -247,7 +247,7 @@
       "term": "マルチモーダル(Multimodal)",
       "category": "基礎概念",
       "description": "テキストだけでなく、画像・音声・動画など複数の種類(モダリティ)の情報を同時に扱えるAIモデルの性質。近年の主要なLLMの多くがマルチモーダル化しており、画像を見せて内容について質問するといった使い方ができる。",
-      "related": ["LLM", "生成AI(Generative AI)", "拡散モデル(Diffusion Model)"],
+      "related": ["LLM", "生成AI(Generative AI)", "拡散モデル(Diffusion Model)", "コンピュータビジョン(Computer Vision)"],
       "level": 0,
       "updated": "2026-07-23"
     },
@@ -263,7 +263,7 @@
       "term": "パラメータ(Parameters)",
       "category": "基礎概念",
       "description": "ニューラルネットワークが学習によって獲得する内部の数値(重み)。パラメータ数が多いほど一般的にモデルの表現力は高くなるが、その分計算資源も必要になる。「70B(700億)パラメータ」のように表記されることが多い。",
-      "related": ["モデル", "ニューラルネットワーク(Neural Network)", "学習(Training)", "温度(Temperature)", "量子化(Quantization)"],
+      "related": ["モデル", "ニューラルネットワーク(Neural Network)", "学習(Training)", "温度(Temperature)", "量子化(Quantization)", "勾配降下法(Gradient Descent)", "知識蒸留(Knowledge Distillation)"],
       "level": 0,
       "updated": "2026-07-23"
     },
@@ -279,7 +279,7 @@
       "term": "機械学習(Machine Learning)",
       "category": "基礎概念",
       "description": "コンピュータが明示的なルールを人が細かく書かなくても、大量のデータからパターンを学び取り、判断や予測を行えるようにする技術分野。AI(人工知能)という大きな概念の中の一分野であり、ニューラルネットワークやディープラーニングは機械学習をさらに具体化した手法にあたる。",
-      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)", "転移学習(Transfer Learning)"],
+      "related": ["ディープラーニング(Deep Learning)", "ニューラルネットワーク(Neural Network)", "データセット(Dataset)", "人工知能(AI)", "自然言語処理(NLP)", "教師あり学習(Supervised Learning)", "教師なし学習(Unsupervised Learning)", "強化学習(Reinforcement Learning)", "転移学習(Transfer Learning)", "コンピュータビジョン(Computer Vision)", "勾配降下法(Gradient Descent)"],
       "level": 0,
       "updated": "2026-07-27"
     },
@@ -319,7 +319,7 @@
       "term": "人工知能(AI)",
       "category": "基礎概念",
       "description": "コンピュータに人間のような知的な処理(学習・推論・判断など)をさせようとする技術分野全体を指す言葉。機械学習や生成AI、LLMなどはすべてAIという大きな傘の下にある一分野・一手法にあたる。日常会話では「AI」と「LLM」がほぼ同じ意味で使われることもあるが、本来AIはもっと広い概念。",
-      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM", "汎用人工知能(AGI)"],
+      "related": ["機械学習(Machine Learning)", "生成AI(Generative AI)", "LLM", "汎用人工知能(AGI)", "コンピュータビジョン(Computer Vision)", "AIアラインメント(AI Alignment)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -351,7 +351,7 @@
       "term": "ファウンデーションモデル(Foundation Model)",
       "category": "基礎概念",
       "description": "大量のデータを使って汎用的に学習された、様々な用途への土台となる大規模モデル。GPTやClaudeなどのLLMはファウンデーションモデルの代表例で、そこからファインチューニングやプロンプトによって特定の用途向けに調整して使われることが多い。",
-      "related": ["モデル", "LLM", "ファインチューニング"],
+      "related": ["モデル", "LLM", "ファインチューニング", "事前学習(Pre-training)"],
       "level": 0,
       "updated": "2026-07-30"
     },
@@ -383,7 +383,7 @@
       "term": "RLHF",
       "category": "技術・手法",
       "description": "Reinforcement Learning from Human Feedback。人間がAIの出力に良し悪しの評価をつけ、その評価を報酬として強化学習を行うことで、AIの回答をより人間にとって好ましいものへ調整していく手法。対話AIが自然で有用な受け答えをするように調整する際によく使われている。",
-      "related": ["強化学習(Reinforcement Learning)", "学習(Training)", "LLM"],
+      "related": ["強化学習(Reinforcement Learning)", "学習(Training)", "LLM", "AIアラインメント(AI Alignment)"],
       "level": 0,
       "updated": "2026-08-03"
     },
@@ -447,7 +447,7 @@
       "term": "汎用人工知能(AGI)",
       "category": "基礎概念",
       "description": "Artificial General Intelligence。特定のタスクに特化せず、人間のように幅広い分野で学習・推論・判断ができるとされる、まだ実現していないAIの概念。現在のLLMなどは特定用途に強みを持つ「特化型AI」であり、AGIとはしばしば区別して語られる。",
-      "related": ["人工知能(AI)", "LLM"],
+      "related": ["人工知能(AI)", "LLM", "AIアラインメント(AI Alignment)"],
       "level": 0,
       "updated": "2026-08-20"
     },
@@ -511,9 +511,49 @@
       "term": "量子化(Quantization)",
       "category": "技術・手法",
       "description": "モデル内部の数値(パラメータ)を、より少ないビット数の粗い精度で表現し直すことで、モデルのサイズや必要な計算資源を削減する手法。精度を多少犠牲にする代わりに、性能の低いPCやスマートフォンでも動かしやすくなる。LoRAと同じく、限られた計算資源でモデルを扱いやすくするための代表的な工夫の一つ。",
-      "related": ["パラメータ(Parameters)", "GPU", "LoRA"],
+      "related": ["パラメータ(Parameters)", "GPU", "LoRA", "知識蒸留(Knowledge Distillation)"],
       "level": 0,
       "updated": "2026-08-31"
+    },
+    {
+      "term": "事前学習(Pre-training)",
+      "category": "技術・手法",
+      "description": "LLMなどのモデルが、まず大量のテキストなどから言葉の使い方や知識の土台を学ぶ最初の学習段階。いわば「義務教育」のようなもので、この後にファインチューニングなどで特定の用途向けに仕上げていく。",
+      "related": ["学習(Training)", "ファウンデーションモデル(Foundation Model)", "ファインチューニング", "LLM"],
+      "level": 0,
+      "updated": "2026-11-05"
+    },
+    {
+      "term": "コンピュータビジョン(Computer Vision)",
+      "category": "基礎概念",
+      "description": "コンピュータに画像や動画の内容を理解させるAI分野。写真に写る物の判別、顔認識、自動運転での歩行者検出などに使われる。人間の「目」の働きをコンピュータで実現する技術と考えるとわかりやすい。",
+      "related": ["機械学習(Machine Learning)", "ディープラーニング(Deep Learning)", "マルチモーダル(Multimodal)", "人工知能(AI)"],
+      "level": 0,
+      "updated": "2026-11-05"
+    },
+    {
+      "term": "AIアラインメント(AI Alignment)",
+      "category": "基礎概念",
+      "description": "AIが人間の意図や価値観に沿って動くようにするための取り組み。能力の高いAIでも、指示の意図とずれた動きをしては困るため、安全で役に立つAIを作る上で重要なテーマとされる。RLHFなどはそのための手法の一つ。",
+      "related": ["RLHF", "人工知能(AI)", "LLM", "汎用人工知能(AGI)"],
+      "level": 0,
+      "updated": "2026-11-05"
+    },
+    {
+      "term": "勾配降下法(Gradient Descent)",
+      "category": "技術・手法",
+      "description": "モデルの予測の誤りが小さくなる方向へ、パラメータを少しずつ調整していく基本的な最適化の手法。霧の中で山を下るとき、足元の傾きを頼りに低い方へ一歩ずつ進むイメージ。ニューラルネットワークの学習の土台になっている。",
+      "related": ["学習(Training)", "パラメータ(Parameters)", "ニューラルネットワーク(Neural Network)", "機械学習(Machine Learning)"],
+      "level": 0,
+      "updated": "2026-11-05"
+    },
+    {
+      "term": "知識蒸留(Knowledge Distillation)",
+      "category": "技術・手法",
+      "description": "大きく高性能なモデルの出力を手本にして、小さなモデルを学習させる手法。先生の解き方を生徒が真似て学ぶイメージで、小さくて軽いのに性能が近いモデルを作りやすくなる。",
+      "related": ["モデル", "パラメータ(Parameters)", "量子化(Quantization)", "学習(Training)"],
+      "level": 0,
+      "updated": "2026-11-05"
     }
   ]
 }
